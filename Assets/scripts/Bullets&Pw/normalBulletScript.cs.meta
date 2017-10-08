@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: de7df5fef150219439596046fd50c591
+timeCreated: 1493484425
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - pinkSlime: {instanceID: 0}
+  - normal: {fileID: 1988598041613288, guid: e06d03ce61550cb41ac7d4f7ad355879, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

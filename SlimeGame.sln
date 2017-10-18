@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{51FFE059-D741-69E2-639A-1F773DA2AAB5}") = "SlimeGame", "Assembly-CSharp.csproj", "{77FECFC7-F797-FC83-5800-92F655706920}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimeGame", "SlimeGame.csproj", "{FEE86C2D-06B5-01C8-62E8-2586FF86269B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{77FECFC7-F797-FC83-5800-92F655706920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77FECFC7-F797-FC83-5800-92F655706920}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77FECFC7-F797-FC83-5800-92F655706920}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77FECFC7-F797-FC83-5800-92F655706920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE86C2D-06B5-01C8-62E8-2586FF86269B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE86C2D-06B5-01C8-62E8-2586FF86269B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE86C2D-06B5-01C8-62E8-2586FF86269B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE86C2D-06B5-01C8-62E8-2586FF86269B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal

@@ -54,7 +54,7 @@ public class slimeScript : MonoBehaviour
         vida = 1;
         textVida = 100;
         currentDirection = Vector3.zero;
-        bulletPW = "normal";
+        bulletPW = "circle";
     }
 
     void Update()

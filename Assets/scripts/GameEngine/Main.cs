@@ -5,20 +5,15 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-    public AudioClip ambientSound;
-
+    public AudioClip ambient;
     public float Intensity_Debug;
     public Image IntensityImage;
 
-
-    // Use this for initialization
     void Start ()
     {
-        AudioMananger.instance.PlayAmbient(ambientSound);
-
+        AudioMananger.instance.PlayAmbient(ambient);
 	}
 	
-	// Update is called once per frame
 	public void Update ()
     {
         if (IntensityImage != null)

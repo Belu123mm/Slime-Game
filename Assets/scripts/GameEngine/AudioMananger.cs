@@ -5,7 +5,6 @@ using UnityEngine.Audio;
 
 public class AudioMananger : MonoBehaviour
 {
-
     public static AudioMananger instance;
 
     public AudioMixer master;
@@ -19,30 +18,12 @@ public class AudioMananger : MonoBehaviour
     public AudioMixerGroup enemy;
     public AudioMixerGroup enemyHurt;
     public AudioMixerGroup crystalSlime;
-    public AudioMixerGroup ambient;
-
-
-    
+    public AudioMixerGroup ambient;   
 
     private void Awake()
     {
         instance = this;
     }
-
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void PlaySteps(AudioClip clip)
     {
         GameObject go = new GameObject("AudioSource");

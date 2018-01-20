@@ -161,10 +161,10 @@ public class slimeScript : MonoBehaviour
             GameObject go = Instantiate(door);
             go.transform.position = new Vector3(270, 2.28f, -338);
         }
-        if (c.gameObject.tag == "Enemigo") //Enemigos
+        if (c.gameObject.tag == "Enemy") //Enemigos
         {
-            if (timerToHurt > 2)
-            {
+          /*  if (timerToHurt > 2)
+            {*/
                 vida = vida - 0.10f;
                 textVida = textVida - 10;
                 timerToHurt = 0;
@@ -175,7 +175,7 @@ public class slimeScript : MonoBehaviour
                     cat.catchSlime = false;
                     crystal.catchSlime = false;
                 }
-            }
+            //}
         }
         if (c.gameObject.tag == "SpineTrap") //Trampas
         {

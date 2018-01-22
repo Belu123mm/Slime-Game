@@ -18,7 +18,6 @@ public class MoveCamera : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider C) {
-        if (C.gameObject.layer == LayerMask.NameToLayer("Character"))
-            cam.transform.position = new Vector3 (nextPos.x, 24, nextPos.y);
+        cam.transform.position = new Vector3 (nextPos.x, 24, nextPos.y);
     }
 }

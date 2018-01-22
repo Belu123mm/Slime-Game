@@ -25,15 +25,16 @@ public class catScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (catchSlime) {
-            c = GetComponent<Collider>();
+            c = this.GetComponent<Collider>();
             c.isTrigger = true;
             cat.SetBool("catch", true);
             variable = Mathf.Lerp(distanceForMinSpeed, distanceForMaxSpeed, distance - distanceForMinSpeed);
             distance = Vector3.Distance(this.transform.position, pinkSlime.transform.position);
             dir = pinkSlime.transform.position - this.transform.position;
+            //print(variable);
 
-            transform.forward = dir;
-            transform.position += transform.forward * speed * Time.deltaTime;
+            this.transform.forward = dir;
+            this.transform.position += this.transform.forward * speed * Time.deltaTime;
 
             if (distance <= distanceForMinSpeed)
                 speed = 0;
@@ -41,6 +42,7 @@ public class catScript : MonoBehaviour {
                 speed = maxSpeed * (variable / (distanceForMaxSpeed));
             } else {
                 speed = maxSpeed;
+
             }
         } else 
         {
@@ -52,6 +54,7 @@ public class catScript : MonoBehaviour {
     }
     void OnCollisionEnter(Collision c)
     {
+        //print("check");
         if (c.gameObject.tag == "Slime")
         {
             AudioMananger.instance.PlayCrystalSlime(meow);

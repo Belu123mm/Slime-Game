@@ -26,7 +26,16 @@ public class EnemiesScript : MonoBehaviour
     public AudioClip sEnemy;
     public AudioClip enemyHurt;
 
-    void Start()
+
+    public enum ENEMYTYPE {
+        Easy,
+        Medium,
+        Hard,
+    }
+
+    public ENEMYTYPE eType;
+
+    public virtual void Start()
     {
         timerChange = Random.Range(1, 5);//Timer
         if (pointsGroup.transform.childCount > 0)//Points
@@ -36,6 +45,8 @@ public class EnemiesScript : MonoBehaviour
         }        
         enemyRenderer.GetComponent<Renderer>().material = enemyMaterial[Random.Range(0, enemyMaterial.Length)];//Random skins
         navEnemy = GetComponent<NavMeshAgent>();//Navmesh
+
+        Invoke("Set" + eType, 1);
     }
     void Update()
     {       
@@ -72,7 +83,6 @@ public class EnemiesScript : MonoBehaviour
     {
         navEnemy.SetDestination(point[poitI].position);
 
-
         if (c.gameObject.tag == "BulletNormal")
             vida = vida - 10;
         if (c.gameObject.tag == "BulletRapida")
@@ -82,6 +92,16 @@ public class EnemiesScript : MonoBehaviour
         if (c.gameObject.tag == "BulletCircular")
             vida = vida - 15;
         AudioMananger.instance.PlayEnemyHurt(enemyHurt);
+    }
+
+    void SetEasy() { //Velocidad, puntos, vida
+        print("easy");
+    }
+    void SetMedium() {
+        print("medium");
+    }
+    void SetHard() {
+        print("hard");
     }
 }
 

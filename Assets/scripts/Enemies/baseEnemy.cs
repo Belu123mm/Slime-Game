@@ -8,6 +8,8 @@ public class baseEnemy : MonoBehaviour {
     public ENEMYTYPE eType;
     public Material [] enemyMaterial;
     public Material currMaterial;
+    public AudioClip enemyHurt;
+
 
     // Use this for initialization
     public virtual void Awake() {
@@ -21,6 +23,20 @@ public class baseEnemy : MonoBehaviour {
         batModel.GetComponent<Renderer>().material = currMaterial;//En start esto no anda :V es raro, check it
 
     }
+    void OnCollisionEnter( Collision c ) //Colision
+{
+
+        if ( c.gameObject.tag == "BulletNormal" )
+            vida = vida - 10;
+        if ( c.gameObject.tag == "BulletRapida" )
+            vida = vida - 5;
+        if ( c.gameObject.tag == "BulletBig" )
+            vida = vida - 25;
+        if ( c.gameObject.tag == "BulletCircular" )
+            vida = vida - 15;
+        AudioMananger.instance.PlayEnemyHurt(enemyHurt);
+    }
+
     public enum ENEMYTYPE {
         Easy,
         Medium,

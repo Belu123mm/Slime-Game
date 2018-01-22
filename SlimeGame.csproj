@@ -70,9 +70,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -95,6 +92,8 @@
     <Compile Include="Assets\scripts\Enemies\DinamitEnemy.cs" />
     <Compile Include="Assets\scripts\Enemies\EnemiesScript.cs" />
     <Compile Include="Assets\scripts\Enemies\GasTrap.cs" />
+    <Compile Include="Assets\scripts\Enemies\Slime.cs" />
+    <Compile Include="Assets\scripts\Enemies\SlimeBullets.cs" />
     <Compile Include="Assets\scripts\Enemies\SpineTraps.cs" />
     <Compile Include="Assets\scripts\Enemies\baseEnemy.cs" />
     <Compile Include="Assets\scripts\GameEngine\Adv.cs" />

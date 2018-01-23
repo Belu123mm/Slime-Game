@@ -149,45 +149,47 @@ public class slimeScript : MonoBehaviour
     #endregion
 
     #region Colisiones
-    void OnCollisionEnter(Collision c)
-    {
-        if (c.gameObject.tag == "Cat")//Chequea esto
+    void OnCollisionEnter( Collision c ) {
+        if ( c.gameObject.tag == "Cat" )//Chequea esto
         {
             GameObject go = Instantiate(door);
             go.transform.position = new Vector3(135, 2.28f, 62);
         }
-        if (c.gameObject.tag == "Crystal")
-        {
+        if ( c.gameObject.tag == "Crystal" ) {
             GameObject go = Instantiate(door);
             go.transform.position = new Vector3(270, 2.28f, -338);
         }
-        if (c.gameObject.tag == "Enemigo") //Enemigos
+        if ( c.gameObject.tag == "Enemigo" ) //Enemigos
         {
-            if (timerToHurt > 2)
-            {
+            if ( timerToHurt > 2 ) {
                 vida = vida - 0.10f;
                 textVida = textVida - 10;
                 timerToHurt = 0;
                 AudioMananger.instance.PlayHurt(slimeHurt);
                 string sceneName = currentScene.name;
-                if (sceneName == "Challange")
-                {
+                if ( sceneName == "Challange" ) {
                     cat.catchSlime = false;
                     crystal.catchSlime = false;
                 }
             }
         }
-        if (c.gameObject.tag == "SpineTrap") //Trampas
+        if ( c.gameObject.tag == "SpineTrap" ) //Trampas
         {
             vida = vida - 0.15f;
             textVida = textVida - 10;
             AudioMananger.instance.PlayHurt(slimeHurt);
             string sceneName = currentScene.name;
-            if (sceneName == "Challange")
+            if ( sceneName == "Challange" )
                 cat.catchSlime = false;
         }
-        if (c.gameObject.tag == "Finish")
+        if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
+
+        if ( c.gameObject.tag == "enemyBullets" ) {
+            print(vida);
+            print(c.gameObject.name);
+            vida = vida - c.gameObject.GetComponent<Slime>().sBullet.damage;
+        }
 
     }
 

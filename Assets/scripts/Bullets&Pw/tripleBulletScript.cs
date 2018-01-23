@@ -15,9 +15,9 @@ public class tripleBulletScript : baseBulletScript {
 	}
     public void Shoot()
     {
-        PJ = GameObject.FindGameObjectWithTag("Slime");
+        slimeEnemy = GameObject.FindGameObjectWithTag("Slime");
         GameObject bullets = GameObject.Instantiate(triple);
-        this.transform.position = PJ.transform.position;
+        this.transform.position = slimeEnemy.transform.position;
 
     }
 }

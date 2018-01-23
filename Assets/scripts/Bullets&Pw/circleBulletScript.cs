@@ -45,7 +45,7 @@ public class circleBulletScript : baseBulletScript {
     }
     public void Shoot()
     {
-        PJ = GameObject.FindGameObjectWithTag("Slime");
+        slimeEnemy = GameObject.FindGameObjectWithTag("Slime");
         for (int i = 0; i < 360; i += 360 / bulletsCount)
         {
             Vector3 direction;
@@ -53,12 +53,12 @@ public class circleBulletScript : baseBulletScript {
             direction.y = 0;
             direction.z = Mathf.Sin((i + degrees) * Mathf.Deg2Rad);
 
-            this.transform.position = PJ.transform.position;
+            this.transform.position = slimeEnemy.transform.position;
             GameObject bullets = GameObject.Instantiate(circle);
             bullets.transform.forward = direction;
             Stadistics.totalBullets += bulletsCount;
         //Debug
-            Debug.DrawRay(PJ.transform.position, bullets.transform.forward , Color.green, 100, false);
+            Debug.DrawRay(slimeEnemy.transform.position, bullets.transform.forward , Color.green, 100, false);
         }
     }
 }

@@ -26,12 +26,12 @@ public class quickBulletScript : baseBulletScript
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
             mouseRay = hit.point;
-        PJ = GameObject.FindGameObjectWithTag("Slime");
-        Vector3 dir = new Vector3(mouseRay.x, PJ.transform.position.y, mouseRay.z) - PJ.transform.position;
+        slimeEnemy = GameObject.FindGameObjectWithTag("Slime");
+        Vector3 dir = new Vector3(mouseRay.x, slimeEnemy.transform.position.y, mouseRay.z) - slimeEnemy.transform.position;
         this.transform.forward = dir;
-        this.transform.position = PJ.transform.position;
+        this.transform.position = slimeEnemy.transform.position;
         GameObject quickBullets = GameObject.Instantiate(quickBulletPrefab);
         Stadistics.totalBullets++;
-        Debug.DrawRay(PJ.transform.position, dir, Color.yellow, 100, false);//AMARILLO
+        Debug.DrawRay(slimeEnemy.transform.position, dir, Color.yellow, 100, false);//AMARILLO
     }
 }

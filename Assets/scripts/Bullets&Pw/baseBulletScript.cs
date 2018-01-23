@@ -7,7 +7,7 @@ public class baseBulletScript : MonoBehaviour {
     public float speed; //Debe ser declarada en el prefab
     public float bulletsDelay; //Debe ser declarada en el prefab
     public float distance;
-    public GameObject PJ;
+    public GameObject slimeEnemy;
     public Vector3 mouseRay;
     public static int totalImpact;
 

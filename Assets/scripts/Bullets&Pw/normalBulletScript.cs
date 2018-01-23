@@ -26,15 +26,15 @@ public class normalBulletScript : baseBulletScript {
         //print(mouseRay);// test     De aca sale la posicion del mouse en el mundo
 
         //Bullet
-        PJ = GameObject.FindGameObjectWithTag("Slime");
-        Vector3 dir = new Vector3(mouseRay.x, PJ.transform.position.y, mouseRay.z) - PJ.transform.position;
+        slimeEnemy = GameObject.FindGameObjectWithTag("Slime");
+        Vector3 dir = new Vector3(mouseRay.x, slimeEnemy.transform.position.y, mouseRay.z) - slimeEnemy.transform.position;
         this.transform.forward = dir;
-        this.transform.position = PJ.transform.position;
+        this.transform.position = slimeEnemy.transform.position;
         GameObject normalBullet = Instantiate(normalBulletPrefab); // BAM
         Stadistics.totalBullets++;
 
         //Debug
-        Debug.DrawRay(PJ.transform.position, dir, Color.white, 10, false);//BLANCO
+        Debug.DrawRay(slimeEnemy.transform.position, dir, Color.white, 10, false);//BLANCO
         //Falta destruccion balas
     }
 

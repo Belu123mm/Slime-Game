@@ -28,14 +28,14 @@ public class bigBulletScript : baseBulletScript
             mouseRay = hit.point;
 
         //Bullet
-        PJ = GameObject.FindGameObjectWithTag("Slime");
-        Vector3 dir = new Vector3(mouseRay.x, PJ.transform.position.y, mouseRay.z) - PJ.transform.position;
+        slimeEnemy = GameObject.FindGameObjectWithTag("Slime");
+        Vector3 dir = new Vector3(mouseRay.x, slimeEnemy.transform.position.y, mouseRay.z) - slimeEnemy.transform.position;
         this.transform.forward = dir;
-        this.transform.position = PJ.transform.position;
+        this.transform.position = slimeEnemy.transform.position;
        // GameObject bullets = GameObject.Instantiate(bigBulletPrefab);
         Stadistics.totalBullets++;
         //Debug
-        Debug.DrawRay(PJ.transform.position, dir, Color.red, 100, false);//ROJO
+        Debug.DrawRay(slimeEnemy.transform.position, dir, Color.red, 100, false);//ROJO
 
     }
 }

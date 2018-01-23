@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SlimeBullets : baseBulletScript {
-    public GameObject circle;
+    public GameObject bullet;
     public float speedOscilation;
     public Vector3 center;
     public float degrees;
@@ -11,6 +11,7 @@ public class SlimeBullets : baseBulletScript {
     public float radiusX;
     public float radiusY;
     public int bulletsCount;
+    public float damage;
 
     // Use this for initialization
     void Start() {
@@ -36,7 +37,7 @@ public class SlimeBullets : baseBulletScript {
 
         //supongo
         this.transform.position += this.transform.forward * Time.deltaTime * speed;
-        distance = Vector3.Distance(PJ.transform.position, this.transform.position);
+        distance = Vector3.Distance(slimeEnemy.transform.position, this.transform.position);
         if ( distance > 20 ) {
             Destroy(this.gameObject);
         }
@@ -48,12 +49,13 @@ public class SlimeBullets : baseBulletScript {
             direction.y = 0;
             direction.z = Mathf.Sin((i + degrees) * Mathf.Deg2Rad);
 
-            this.transform.position = PJ.transform.position;
-            GameObject bullets = GameObject.Instantiate(circle);
+            this.transform.position = slimeEnemy.transform.position;
+            GameObject bullets = GameObject.Instantiate(this.gameObject);
             bullets.transform.forward = direction;
             Stadistics.totalBullets += bulletsCount;
             //Debug
-            Debug.DrawRay(PJ.transform.position, bullets.transform.forward, Color.green, 100, false);
+            Debug.DrawRay(slimeEnemy.transform.position, bullets.transform.forward, Color.green, 100, false);
+            
         }
     }
 

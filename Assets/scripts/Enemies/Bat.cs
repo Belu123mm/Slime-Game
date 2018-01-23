@@ -39,13 +39,16 @@ public class Bat : baseEnemy {
     public override void SetEasy() {//no hace falta rellamarlo aqui, aunque este el override
         base.SetEasy();
         vida = 30;                  //Como cambiar la velocidad del bicho?
+        enemyDamage = 10;
     }
     public override void SetMedium() {
         base.SetMedium();
         vida = 40;
+        enemyDamage = 15;
     }
     public override void SetHard() {
         base.SetHard();
         vida = 55;
+        enemyDamage = 20;
     }
 }

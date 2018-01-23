@@ -162,14 +162,9 @@ public class slimeScript : MonoBehaviour
         if ( c.gameObject.tag == "Enemigo" ) //Enemigos
         {
             if ( timerToHurt > 2 ) {
-                vida = vida - 0.10f;
-                textVida = textVida - 10;
-                timerToHurt = 0;
-                AudioMananger.instance.PlayHurt(slimeHurt);
-                string sceneName = currentScene.name;
-                if ( sceneName == "Challange" ) {
-                    cat.catchSlime = false;
-                    crystal.catchSlime = false;
+                if (c.gameObject.GetType() == typeof(baseEnemy) ) {
+                
+
                 }
             }
         }
@@ -186,9 +181,9 @@ public class slimeScript : MonoBehaviour
             SceneManager.LoadScene("GameOver");
 
         if ( c.gameObject.tag == "enemyBullets" ) {
+            vida = vida - (c.gameObject.GetComponent<SlimeBullets>().damage / 100);
+            Destroy(c.gameObject);
             print(vida);
-            print(c.gameObject.name);
-            vida = vida - c.gameObject.GetComponent<Slime>().sBullet.damage;
         }
 
     }
@@ -235,6 +230,22 @@ public class slimeScript : MonoBehaviour
                 vida = vida + 0.20f;
                 textVida = textVida + 20;
             }
+        }
+    }
+
+    public void EnemyDamange(int dmg ) {
+        print("intended");
+        if ( timerToHurt > 2 ) {
+            vida = vida - (dmg / 100);
+            textVida = textVida - dmg;
+            timerToHurt = 0;
+            AudioMananger.instance.PlayHurt(slimeHurt);
+            string sceneName = currentScene.name;
+            if ( sceneName == "Challange" ) {
+                cat.catchSlime = false;
+                crystal.catchSlime = false;
+            }
+            print("Damaged");
         }
     }
     #endregion

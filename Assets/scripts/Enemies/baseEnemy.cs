@@ -9,6 +9,7 @@ public class baseEnemy : MonoBehaviour {
     public Material [] enemyMaterial;
     public Material currMaterial;
     public AudioClip enemyHurt;
+    public int enemyDamage;
 
 
     // Use this for initialization
@@ -23,9 +24,9 @@ public class baseEnemy : MonoBehaviour {
         batModel.GetComponent<Renderer>().material = currMaterial;//En start esto no anda :V es raro, check it
 
     }
-    void OnCollisionEnter( Collision c ) //Colision
+    public void OnCollisionEnter( Collision c ) //Colision
 {
-
+        print(c.gameObject.name);
         if ( c.gameObject.tag == "BulletNormal" )
             vida = vida - 10;
         if ( c.gameObject.tag == "BulletRapida" )
@@ -35,6 +36,10 @@ public class baseEnemy : MonoBehaviour {
         if ( c.gameObject.tag == "BulletCircular" )
             vida = vida - 15;
         AudioMananger.instance.PlayEnemyHurt(enemyHurt);
+
+        if (c.gameObject.tag == "Slime" ) {
+            c.gameObject.GetComponent<slimeScript>().EnemyDamange(enemyDamage);
+        }
     }
 
     public enum ENEMYTYPE {

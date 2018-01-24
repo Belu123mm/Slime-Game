@@ -15,7 +15,6 @@ public class Slime : baseEnemy {
     }
     public override void Update() {
         base.Update();
-        Debug.Log(this.gameObject);
         timerBullets += 1 * Time.deltaTime;
         if ( timerBullets > bulletsDelay ) {
             Shoot();

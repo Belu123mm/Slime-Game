@@ -4,28 +4,29 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class Bat : baseEnemy {
+public class Bat : Enemy {
+    //Esta es la clase que maneja al murcielago. El movimiento del mismo se guia por NavMeshAgent.
+    //Segun un objeto con puntos, el murcielago sigue su camino segun su orden.
+    //Solo behaviour
     public GameObject pointsGroup;
     public List<Transform> point;
     NavMeshAgent navEnemy;
     int poitI;
 
-
     public override void Start() {
         base.Start();
-        if ( pointsGroup.transform.childCount > 0 )//Points
-        {
+        navEnemy.speed = speed;                         //Set de velocidad
+        if ( pointsGroup.transform.childCount > 0 ) {   //Points
             for ( int i = 0; i < pointsGroup.transform.childCount; i++ )
                 point.Add(pointsGroup.transform.GetChild(i));
         }
-        navEnemy = GetComponent<NavMeshAgent>();//Navmesh
+        navEnemy = GetComponent<NavMeshAgent>();        //Navmesh
 
     }
 
     public override void Update() {
         base.Update();
-        if ( point != null && point.Count > 1 )//Chequeo de puntos
-{
+        if ( point != null && point.Count > 1 ) {         //Chequeo de puntos
             if ( navEnemy.remainingDistance < .5f ) {
                 poitI++;
                 if ( poitI >= point.Count )
@@ -33,22 +34,24 @@ public class Bat : baseEnemy {
             }
             navEnemy.SetDestination(point [ poitI ].position);
         }
-
     }
 
-    public override void SetEasy() {//no hace falta rellamarlo aqui, aunque este el override
+    public override void SetEasy() {
         base.SetEasy();
-        vida = 30;                  //Como cambiar la velocidad del bicho?
-        enemyDamage = 10;
+        hp = 30;
+        dmg = 10;
+        speed = 1;
     }
     public override void SetMedium() {
         base.SetMedium();
-        vida = 40;
-        enemyDamage = 15;
+        hp = 40;
+        dmg = 15;
+        speed = 2;
     }
     public override void SetHard() {
         base.SetHard();
-        vida = 55;
-        enemyDamage = 20;
+        hp = 55;
+        dmg = 20;
+        speed = 3;
     }
 }

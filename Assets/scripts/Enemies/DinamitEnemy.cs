@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DinamitEnemy : EnemiesScript {
-
+public class DinamitEnemy : MonoBehaviour {
+    /*
 	// Use this for initialization
 	void Start ()
     {
@@ -21,4 +21,5 @@ public class DinamitEnemy : EnemiesScript {
         }
 		
 	}
+    */
 }

@@ -78,7 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\scripts\Bullets&amp;Pw\Rabbits.cs" />
+    <Compile Include="Assets\scripts\Bullets&amp;Pw\Bullets.cs" />
+    <Compile Include="Assets\scripts\Bullets&amp;Pw\EnemyBullets.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\baseBulletScript.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\basePW.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\bigBulletScript.cs" />
@@ -91,23 +92,22 @@
     <Compile Include="Assets\scripts\Enemies\Bat.cs" />
     <Compile Include="Assets\scripts\Enemies\BossScript.cs" />
     <Compile Include="Assets\scripts\Enemies\DinamitEnemy.cs" />
-    <Compile Include="Assets\scripts\Enemies\EnemiesScript.cs" />
     <Compile Include="Assets\scripts\Enemies\GasTrap.cs" />
+    <Compile Include="Assets\scripts\Enemies\Rabbits.cs" />
     <Compile Include="Assets\scripts\Enemies\Slime.cs" />
-    <Compile Include="Assets\scripts\Enemies\SlimeBullets.cs" />
     <Compile Include="Assets\scripts\Enemies\SpineTraps.cs" />
-    <Compile Include="Assets\scripts\Enemies\baseEnemy.cs" />
     <Compile Include="Assets\scripts\GameEngine\Adv.cs" />
     <Compile Include="Assets\scripts\GameEngine\AudioMananger.cs" />
-    <Compile Include="Assets\scripts\GameEngine\BoxScript.cs" />
     <Compile Include="Assets\scripts\GameEngine\CheckPointMananger.cs" />
     <Compile Include="Assets\scripts\GameEngine\CheckpointScript.cs" />
     <Compile Include="Assets\scripts\GameEngine\Console.cs" />
     <Compile Include="Assets\scripts\GameEngine\CreditosScript.cs" />
     <Compile Include="Assets\scripts\GameEngine\DrawPath.cs" />
+    <Compile Include="Assets\scripts\GameEngine\Enemy.cs" />
     <Compile Include="Assets\scripts\GameEngine\GridPlacementExample.cs" />
     <Compile Include="Assets\scripts\GameEngine\Main.cs" />
     <Compile Include="Assets\scripts\GameEngine\MenuScript.cs" />
+    <Compile Include="Assets\scripts\GameEngine\Mob.cs" />
     <Compile Include="Assets\scripts\GameEngine\MoveCamera.cs" />
     <Compile Include="Assets\scripts\GameEngine\PlayerBrain.cs" />
     <Compile Include="Assets\scripts\GameEngine\Stadistics.cs" />

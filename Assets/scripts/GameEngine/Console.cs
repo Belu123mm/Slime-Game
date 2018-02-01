@@ -79,7 +79,7 @@ public class Console : MonoBehaviour
 
     public void ultraLife()
     {
-        slimeScript.vida = 10000000000000000;
+        //slimeScript.vida = 10000000000000000;
         WriteInConsole("Life set to over 9000");
     }
     public void normalShoot()

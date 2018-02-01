@@ -23,7 +23,7 @@ public class Main : MonoBehaviour
     {
         if (IntensityImage != null)
         {
-            Intensity_Debug = slimeScript.vida;
+            //Intensity_Debug = slimeScript.vida;
             IntensityImage.fillAmount = Intensity_Debug;
         }
     }

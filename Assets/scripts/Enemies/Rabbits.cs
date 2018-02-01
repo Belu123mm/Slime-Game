@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rabbits : baseEnemy {
+public class Rabbits : Enemy {
     public GameObject slimeHero;
     public float timeToJump;
     private float timer;

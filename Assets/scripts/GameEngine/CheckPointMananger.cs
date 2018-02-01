@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CheckPointMananger : MonoBehaviour
 {
-    public GameObject slime;
+    public slimeScript slimeHero;
 
     public GameObject[] checkPoints;
 
@@ -15,15 +15,17 @@ public class CheckPointMananger : MonoBehaviour
     {
         //Esto busca los objetos por tag en la escena y los hago una lista. 
         checkPoints = GameObject.FindGameObjectsWithTag("checkpoint");
+        slimeHero = FindObjectOfType<slimeScript>();
 	}
 	
-	void Update ()
+/*
+ *	void Update ()
     {
         //Si la vida del slime es menor o igual a 0 y no colisiono con el checkpoint va a la escena de GO.
-        if (slimeScript.vida <= 0 && !CheckpointScript.check)
+        if (slimeHero.slimeLife <= 0 && !CheckpointScript.check)
             SceneManager.LoadScene("GameOver");
         //Pero si colisiono con el CP revive 
-        else if (slimeScript.vida <= 0 && count < 3 && CheckpointScript.check)
+        else if (slimeHero.slimeLife <= 0 && count < 3 && CheckpointScript.check)
         {
             count++;
             slimeScript.vida = 1;
@@ -39,7 +41,7 @@ public class CheckPointMananger : MonoBehaviour
         if (slimeScript.vida <= 0 && count > 3)
             SceneManager.LoadScene("GameOver");
 	}
-
+    */
     public void Check(GameObject currentCp)
     {
         foreach (GameObject cp in checkPoints)

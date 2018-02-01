@@ -4,14 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
-public class slimeScript : MonoBehaviour
+public class slimeScript : Mob
 {   
     //Vectores
     public Vector3 currentDirection;
     public Vector3 forward;
     //Scripts
-    public normalBulletScript nb;
-    
+    public normalBulletScript nb;    
     public bigBulletScript bb;
     public quickBulletScript qb;
     public tripleBulletScript tb;
@@ -20,11 +19,9 @@ public class slimeScript : MonoBehaviour
     public catScript cat;
     public finishCrystal finish;
     //Vida
-    public static float vida;
-    public float timerToHurt;
     //Bullets
-    public float speed;
     public float timerBullets;
+    public float bulletsDelay;
     public static string bulletPW;
     //Sonidos
     public AudioClip slimeWalk;
@@ -34,8 +31,6 @@ public class slimeScript : MonoBehaviour
     public AudioClip circleBullet;
     public AudioClip quickBullet;
     //Vida
-    public Text laif;
-    public static int textVida;
     //Coin
     public Text Textcoin;
     public static int coins;
@@ -51,22 +46,19 @@ public class slimeScript : MonoBehaviour
 
     void Start()
     {
-        vida = 1;
-        textVida = 100;
+        StartLife(100);
         currentDirection = Vector3.zero;
         bulletPW = "normal";
     }
 
-    void Update()
+   public override void Update()
     {
-        if (laif != null)
-            laif.text = "" + textVida + "/100";
         if (Textcoin != null)
             Textcoin.text = "Coins: " + coins;
 
         string sceneName = currentScene.name;
 
-        if (vida <= 0)
+        if (hp <= 0)
         {
             Stadistics.result = "Game Over";
             if (sceneName == "1rstLevel")//Analytics
@@ -85,7 +77,6 @@ public class slimeScript : MonoBehaviour
 
         //Timer bullets
         timerBullets += 1 * Time.deltaTime;
-        timerToHurt += 1 * Time.deltaTime;
 
         //Movimiento
         if (currentDirection != Vector3.zero)
@@ -93,7 +84,7 @@ public class slimeScript : MonoBehaviour
         currentDirection = Vector3.zero;
 
         Stadistics.lastPw = bulletPW;
-        Stadistics.finalLife = vida;
+        Stadistics.finalLife = hp;
     }
 
     #region movement
@@ -149,7 +140,8 @@ public class slimeScript : MonoBehaviour
     #endregion
 
     #region Colisiones
-    void OnCollisionEnter( Collision c ) {
+    public override void OnCollisionEnter( Collision c ) {
+        base.OnCollisionEnter(c);
         if ( c.gameObject.tag == "Cat" )//Chequea esto
         {
             GameObject go = Instantiate(door);
@@ -159,43 +151,14 @@ public class slimeScript : MonoBehaviour
             GameObject go = Instantiate(door);
             go.transform.position = new Vector3(270, 2.28f, -338);
         }
-        if ( c.gameObject.tag == "Enemigo" ) //Enemigos
-        {
-            if ( timerToHurt > 2 ) {
-                if (c.gameObject.GetType() == typeof(baseEnemy) ) {
-                
-
-                }
-            }
-        }
-        if ( c.gameObject.tag == "SpineTrap" ) //Trampas
-        {
-            vida = vida - 0.15f;
-            textVida = textVida - 10;
-            AudioMananger.instance.PlayHurt(slimeHurt);
-            string sceneName = currentScene.name;
-            if ( sceneName == "Challange" )
-                cat.catchSlime = false;
-        }
         if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
 
-        if ( c.gameObject.tag == "enemyBullets" ) {
-            vida = vida - (c.gameObject.GetComponent<SlimeBullets>().damage / 100);
-            Destroy(c.gameObject);
-            print(vida);
-        }
 
     }
 
     void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.tag == "GasTrap")
-        {
-            vida = vida - 0.15f;
-            textVida = textVida - 15;
-            AudioMananger.instance.PlayHurt(slimeHurt);
-        }
         if (c.gameObject.tag == "Lvl2")
         {
             string sceneName = currentScene.name;
@@ -223,30 +186,8 @@ public class slimeScript : MonoBehaviour
             coins++;
             Textcoin.text = "Coins: " + coins;
         }
-        if (c.gameObject.tag == "Vida")
-        {
-            if (vida <= 0.80f)
-            {
-                vida = vida + 0.20f;
-                textVida = textVida + 20;
-            }
-        }
     }
 
-    public void EnemyDamange(int dmg ) {
-        print("intended");
-        if ( timerToHurt > 2 ) {
-            vida = vida - (dmg / 100);
-            textVida = textVida - dmg;
-            timerToHurt = 0;
-            AudioMananger.instance.PlayHurt(slimeHurt);
-            string sceneName = currentScene.name;
-            if ( sceneName == "Challange" ) {
-                cat.catchSlime = false;
-                crystal.catchSlime = false;
-            }
-            print("Damaged");
-        }
     }
     #endregion
 }

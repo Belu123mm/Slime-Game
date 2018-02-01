@@ -2,30 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBrain : MonoBehaviour
-{
-    
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-    
-        if (Input.GetAxis("Horizontal") > 0)
+public class PlayerBrain : MonoBehaviour {
+    //Esta es una clase con la que se maneja el slimeHero
+    //Usando las entradas de unity
+    void Update() {
+
+        if ( Input.GetAxis("Horizontal") > 0 )
             this.GetComponent<slimeScript>().Move(Vector3.right * Input.GetAxis("Horizontal"));
-        else if (Input.GetAxis("Horizontal") < 0)
+        else if ( Input.GetAxis("Horizontal") < 0 )
             this.GetComponent<slimeScript>().Move(Vector3.left * -Input.GetAxis("Horizontal"));
 
-        if (Input.GetAxis("Vertical") > 0)
+        if ( Input.GetAxis("Vertical") > 0 )
             this.GetComponent<slimeScript>().Move(Vector3.forward * Input.GetAxis("Vertical"));
-        else if (Input.GetAxis("Vertical") < 0)
-            this.GetComponent<slimeScript>().Move(Vector3.back * -Input.GetAxis("Vertical"));//Bysebs
+        else if ( Input.GetAxis("Vertical") < 0 )
+            this.GetComponent<slimeScript>().Move(Vector3.back * -Input.GetAxis("Vertical"));
 
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
+        if ( Input.GetKey(KeyCode.Mouse0) ) {
             this.GetComponent<slimeScript>().Shoot();
-        }  
+        }
     }
 }

@@ -15,11 +15,24 @@ public class Mob : MonoBehaviour {
     public float timer;
     public AudioClip hurtSound,
                      idleSound;
-    public Mob mInstance;
-    public Bullets bInstance;
+    Mob mInstance;
+    Bullets bInstance;
 
     public virtual void Update() {
         timer += 1 * Time.deltaTime;
+    }
+    public virtual void OnCollisionEnter( Collision c ) {
+        if ( c.gameObject.layer == LayerMask.NameToLayer("Mob") && timer > timeToHurt ) {
+            mInstance = c.gameObject.GetComponent<Mob>();
+            MeleeDamage(mInstance, this);
+        }
+    }
+    public virtual void OnTriggerEnter(Collider c ) { 
+
+        if ( c.gameObject.layer == LayerMask.NameToLayer("Bullets") ) {
+            bInstance = c.gameObject.GetComponent<Bullets>();
+            RangeDamage(bInstance, this);
+        }
     }
     public void MeleeDamage(Mob atac, Mob vict ) {
         int newDmg = atac.dmg;
@@ -30,16 +43,6 @@ public class Mob : MonoBehaviour {
         int newDmg = atac.dmg;
         vict.hp -= newDmg;
         ResetTime();
-    }
-    public virtual void OnCollisionEnter( Collision c ) {
-        if ( c.gameObject.layer == LayerMask.NameToLayer("Mob") && timer > timeToHurt ) {
-            mInstance = c.gameObject.GetComponent<Mob>();
-            MeleeDamage(mInstance, this);
-        }
-        if ( c.gameObject.layer == LayerMask.NameToLayer("Bullet") ) {
-            bInstance = c.gameObject.GetComponent<Bullets>();
-            RangeDamage(bInstance, this);
-        }
     }
     public void ResetTime() {
         timer = 0;

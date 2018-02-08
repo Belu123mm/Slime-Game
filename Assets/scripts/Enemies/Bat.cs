@@ -13,45 +13,50 @@ public class Bat : Enemy {
     NavMeshAgent navEnemy;
     int poitI;
 
+    public override void Awake() {
+        base.Awake();
+        navEnemy = GetComponent<NavMeshAgent>();        //Navmesh
+    }
+
     public override void Start() {
         base.Start();
-        navEnemy.speed = speed;                         //Set de velocidad
         if ( pointsGroup.transform.childCount > 0 ) {   //Points
             for ( int i = 0; i < pointsGroup.transform.childCount; i++ )
                 point.Add(pointsGroup.transform.GetChild(i));
         }
-        navEnemy = GetComponent<NavMeshAgent>();        //Navmesh
+        navEnemy.speed = speed;                         //Set de velocidad
 
     }
 
     public override void Update() {
         base.Update();
-        if ( point != null && point.Count > 1 ) {         //Chequeo de puntos
-            if ( navEnemy.remainingDistance < .5f ) {
-                poitI++;
-                if ( poitI >= point.Count )
-                    poitI = 0;
+        if ( Vision() < visionRange ) {
+            if ( point != null && point.Count > 1 ) {         //Chequeo de puntos
+                if ( navEnemy.remainingDistance < .5f ) {
+                    poitI++;
+                    if ( poitI >= point.Count )
+                        poitI = 0;
+                }
+                navEnemy.SetDestination(point [ poitI ].position);
             }
-            navEnemy.SetDestination(point [ poitI ].position);
         }
     }
-
     public override void SetEasy() {
         base.SetEasy();
-        hp = 30;
+        StartLife(30);
         dmg = 10;
-        speed = 1;
-    }
+        speed = 3;
+            }
     public override void SetMedium() {
         base.SetMedium();
         hp = 40;
         dmg = 15;
-        speed = 2;
+        speed = 5;
     }
     public override void SetHard() {
         base.SetHard();
         hp = 55;
         dmg = 20;
-        speed = 3;
+        speed = 7;
     }
 }

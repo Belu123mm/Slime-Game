@@ -79,21 +79,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\Bullets&amp;Pw\Bullets.cs" />
-    <Compile Include="Assets\scripts\Bullets&amp;Pw\EnemyBullets.cs" />
-    <Compile Include="Assets\scripts\Bullets&amp;Pw\baseBulletScript.cs" />
+    <Compile Include="Assets\scripts\Bullets&amp;Pw\Circle.cs" />
+    <Compile Include="Assets\scripts\Bullets&amp;Pw\Normal.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\basePW.cs" />
-    <Compile Include="Assets\scripts\Bullets&amp;Pw\bigBulletScript.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\bulletsPW.cs" />
-    <Compile Include="Assets\scripts\Bullets&amp;Pw\circleBulletScript.cs" />
-    <Compile Include="Assets\scripts\Bullets&amp;Pw\normalBulletScript.cs" />
-    <Compile Include="Assets\scripts\Bullets&amp;Pw\quickBulletScript.cs" />
-    <Compile Include="Assets\scripts\Bullets&amp;Pw\tripleBulletScript.cs" />
     <Compile Include="Assets\scripts\Destroy.cs" />
     <Compile Include="Assets\scripts\Enemies\Bat.cs" />
     <Compile Include="Assets\scripts\Enemies\BossScript.cs" />
     <Compile Include="Assets\scripts\Enemies\DinamitEnemy.cs" />
     <Compile Include="Assets\scripts\Enemies\GasTrap.cs" />
-    <Compile Include="Assets\scripts\Enemies\Rabbits.cs" />
+    <Compile Include="Assets\scripts\Enemies\Ghost.cs" />
+    <Compile Include="Assets\scripts\Enemies\Rabbit.cs" />
     <Compile Include="Assets\scripts\Enemies\Slime.cs" />
     <Compile Include="Assets\scripts\Enemies\SpineTraps.cs" />
     <Compile Include="Assets\scripts\GameEngine\Adv.cs" />

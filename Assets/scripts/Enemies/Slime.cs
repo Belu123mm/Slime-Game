@@ -8,28 +8,31 @@ public class Slime : Enemy {
     //Cada vez que el timerBullets llegue al tiempo de bulletsDelay, va a disparar. 
     //
     public GameObject bulletPf;
-    public EnemyBullets sBullet;
+    public Circle sBullet;
     public AudioClip bulletSound;
     public float bulletsDelay;
-    public float timerBullets;
 
+    public override void Awake() {
+        base.Awake();
+        sBullet = bulletPf.GetComponent<Circle>();
+    }
     public override void Start() {
         base.Start();
-        sBullet = bulletPf.GetComponent<EnemyBullets>();
         bulletsDelay = sBullet.delay;
     }
     public override void Update() {
         base.Update();
-        timerBullets += 1 * Time.deltaTime;
-        if ( timerBullets > bulletsDelay ) {
-            Shooting();
-        }
+        if ( Vision() < visionRange ) {
 
+            if ( timer > bulletsDelay ) {
+                Shooting();
+            }
+        }
     }
     public void Shooting() {
-        sBullet.slimeEnemy = this.gameObject;
+        sBullet.discharger = this.gameObject;
         sBullet.DispenseBullets();
-        timerBullets = 0;
+        ResetTime();
     }
 
     public override void SetEasy() {
@@ -39,4 +42,19 @@ public class Slime : Enemy {
         sBullet.dmg = 10;
         sBullet.delay = 3;
     }
+    public override void SetMedium() {
+        base.SetMedium();
+        sBullet.bulletsCount = 5;
+        sBullet.speed = 3;
+        sBullet.dmg = 12;
+        sBullet.delay = 2;
+    }
+    public override void SetHard() {
+        base.SetHard();
+        sBullet.bulletsCount = 6;
+        sBullet.speed = 4;
+        sBullet.dmg = 15;
+        sBullet.delay = 1;
+    }
+
 }

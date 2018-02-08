@@ -8,10 +8,12 @@ public class Bullets : MonoBehaviour {
     //Se creala funcion DispenseBullets para hacer un override luego.
     //La funcion Impact destruye el objeto y reproduce el sonido de disparo.
     //Tiene que haber SI O SI UN ROGIDBODY
+    //El discharger es quien dispara
     public int speed,
                delay,
                dmg;
     public float distance;
+    public GameObject discharger;
     public Vector3 direction;
     public AudioClip impactSound, shootSound;
 

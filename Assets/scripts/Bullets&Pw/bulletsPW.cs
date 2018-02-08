@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletsPW : basePW
-{
-    public AudioClip pw;
-    void OnCollisionEnter(Collision c)
-    {
-
-        if (c.gameObject.tag == "Slime")
+public class bulletsPW : basePW {
+    public override void OverPower() {
         {
-            slimeScript.bulletPW = typeOfBullet;
-            AudioMananger.instance.PlayPw(pw);
-            Destroy(thisPW);
-            totalPW++;
+            print(slimeHero.bulletPW);
+            slimeHero.bulletPW = typeOfBullet;
         }
+        base.OverPower();
     }
 }

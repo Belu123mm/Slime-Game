@@ -14,7 +14,7 @@ public class Main : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        AudioMananger.instance.PlayAmbient(ambientSound);
+     //   AudioMananger.instance.PlayAmbient(ambientSound);
 
 	}
 	

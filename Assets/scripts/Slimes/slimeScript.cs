@@ -112,7 +112,7 @@ public class slimeScript : Mob {
             }
             break;
             case "triple":
-            tb.DispenseBullets();
+            //tb.DispenseBullets();
             break;
             case "circle":
             if ( timerBullets > sp.delay ) {

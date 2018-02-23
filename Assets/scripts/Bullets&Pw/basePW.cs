@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class basePW : MonoBehaviour {
-    public string typeOfBullet;
-    public AudioClip pw;
+    public AudioClip pickSound;
     public slimeScript slimeHero;
 
     private void Start() {
@@ -15,12 +14,11 @@ public class basePW : MonoBehaviour {
 
         if ( c.gameObject.tag == "Slime" ) {
             print("HEY");
-            OverPower();
+            PwBehaviour();
+            Destroy(this);
         }
-}
+    }
+    public virtual void PwBehaviour() {
 
-    public virtual void OverPower() {
-        AudioMananger.instance.PlayPw(pw);
-        Destroy(this.gameObject);
     }
 }

@@ -5,14 +5,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
 public class slimeScript : Mob {
-    //Vectores
-    public Vector3 currentDirection;
-    public Vector3 forward;
-    //Scripts
+    public Dictionary<string,GameObject> bullets = new Dictionary<string,GameObject>();
+    public BULLETTYPES currentBulletName;
+    GameObject currentBulletObject;
     public GameObject normalPf;
     public GameObject bigPf;
     public GameObject quickPf;
     public GameObject spinePf;
+    Bullets currentbulletnormal;
+    //Vectores
+    public Vector3 currentDirection;
+    public Vector3 forward;
+    //Scripts
+
     Normal nb;
     Normal bb;
     Normal qb;
@@ -23,7 +28,6 @@ public class slimeScript : Mob {
     //Bullets
     public float timerBullets;
     public float bulletsDelay;
-    public string bulletPW;
     //Coin
     public Text Textcoin;
     public static int coins;
@@ -33,21 +37,16 @@ public class slimeScript : Mob {
     public GameObject door;
 
     void Awake() {
+        currentbulletnormal = normalPf.GetComponent<Normal>(); ;
+        print(currentbulletnormal);
+        print(currentBulletObject);
         currentScene = SceneManager.GetActiveScene();
-        nb = normalPf.GetComponent<Normal>();
-        bb = bigPf.GetComponent<Normal>();
-        qb = quickPf.GetComponent<Normal>();
-        sp = spinePf.GetComponent<Circle>();
     }
-
     void Start() {
         StartLife(100);
         currentDirection = Vector3.zero;
-        bulletPW = "normal";
-        nb.discharger = this.gameObject;
-        nb.speed = 10;
-        nb.dmg = 10;
-        nb.delay = 1;
+    //    currentBulletName = "normal";
+        currentbulletnormal.discharger = this.gameObject;
 
     }
 
@@ -82,7 +81,7 @@ public class slimeScript : Mob {
             this.transform.forward = currentDirection;
         currentDirection = Vector3.zero;
 
-        Stadistics.lastPw = bulletPW;
+      //  Stadistics.lastPw = currentBulletName;
         Stadistics.finalLife = hp;
     }
 
@@ -92,7 +91,7 @@ public class slimeScript : Mob {
     }
 
     public void Shoot() {
-        switch ( bulletPW ) {
+     /*   switch ( currentBulletName ) {
             case "normal":
             if ( timerBullets > nb.delay ) {
                 nb.DispenseBullets();
@@ -121,6 +120,7 @@ public class slimeScript : Mob {
             }
             break;
         }
+    */
     }
 
     public override void OnCollisionEnter( Collision c ) {
@@ -164,5 +164,16 @@ public class slimeScript : Mob {
             Textcoin.text = "Coins: " + coins;
         }
     }
+    public void ChangeBullet(BULLETTYPES bulletName) {
+        
+    }
+
+
 }
 
+public enum BULLETTYPES {
+    normal,
+    quick,
+    spine,
+    big
+}

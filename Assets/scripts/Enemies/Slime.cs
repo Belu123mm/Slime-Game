@@ -30,7 +30,7 @@ public class Slime : Enemy {
         }
     }
     public void Shooting() {
-        sBullet.discharger = this.gameObject;
+        sBullet.discharger = this.gameObject;       //Dice que el discharger es el slime :3
         sBullet.DispenseBullets();
         ResetTime();
     }

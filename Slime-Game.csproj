@@ -81,6 +81,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Shop\ShopController.cs" />
+    <Compile Include="Assets\TEST\Shop.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\BulletPw.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\Bullets.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\Circle.cs" />

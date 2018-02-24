@@ -136,8 +136,6 @@ public class slimeScript : Mob {
         }
         if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
-
-
     }
 
     public override void OnTriggerEnter( Collider c ) {

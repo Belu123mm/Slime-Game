@@ -49,13 +49,13 @@ public class Bat : Enemy {
             }
     public override void SetMedium() {
         base.SetMedium();
-        hp = 40;
+        StartLife(40);
         dmg = 15;
         speed = 5;
     }
     public override void SetHard() {
         base.SetHard();
-        hp = 55;
+        StartLife(55);
         dmg = 20;
         speed = 7;
     }

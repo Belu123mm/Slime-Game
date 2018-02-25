@@ -28,7 +28,7 @@ public class Rabbit : Enemy {
     }
     public void Jump() {
         rb.AddForce((SetDirection() + this.transform.up)* speed, ForceMode.Impulse);
-        timeToJump = 0;
+        ResetTime();
     }
     public Vector3 SetDirection() {
         Vector3 direc = this.transform.position -

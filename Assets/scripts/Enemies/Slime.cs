@@ -11,7 +11,6 @@ public class Slime : Enemy {
     public Circle sBullet;
     public AudioClip bulletSound;
     public float bulletsDelay;
-    public float timerBullets;
 
     public override void Awake() {
         base.Awake();
@@ -25,7 +24,7 @@ public class Slime : Enemy {
         base.Update();
         if ( Vision() < visionRange ) {
 
-            if ( timerBullets > bulletsDelay ) {
+            if ( timer > bulletsDelay ) {
                 Shooting();
             }
         }
@@ -33,7 +32,7 @@ public class Slime : Enemy {
     public void Shooting() {
         sBullet.discharger = this.gameObject;       //Dice que el discharger es el slime :3
         sBullet.DispenseBullets();
-        timerBullets = 0;
+        ResetTime();
     }
 
     public override void SetEasy() {

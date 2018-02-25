@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
 public class slimeScript : Mob {
+<<<<<<< HEAD
     //BALAS 
     //bullets es un diccionario en donde se guardan todos los tipos de balas que hay
     //los GameObject con el sufijo pf son los prefabs de las balas y deben agregarse a este diccionario
@@ -26,20 +27,34 @@ public class slimeScript : Mob {
     public BULLETTYPES bulletName;
     GameObject tempBullet;
     public Bullets currentBulletScript;
+=======
+    public Dictionary<string,GameObject> bullets = new Dictionary<string,GameObject>();
+    public BULLETTYPES currentBulletName;
+    GameObject currentBulletObject;
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     public GameObject normalPf;
     public GameObject bigPf;
     public GameObject quickPf;
     public GameObject spinePf;
+<<<<<<< HEAD
     public int addedDmg, addedSpeed;
     public float restDelay;
     public float timerBullets;
     public float bulletsDelay;
 
+=======
+    Bullets currentbulletnormal;
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     //Vectores
     public int coins;
     public Vector3 currentDirection;
     public Vector3 forward;
     //Scripts
+
+    Normal nb;
+    Normal bb;
+    Normal qb;
+    Circle sp;
     public crystalScript crystal;
     public catScript cat;
     public finishCrystal finish;
@@ -52,7 +67,11 @@ public class slimeScript : Mob {
     public GameObject door;
 
     void Awake() {
+        currentbulletnormal = normalPf.GetComponent<Normal>(); ;
+        print(currentbulletnormal);
+        print(currentBulletObject);
         currentScene = SceneManager.GetActiveScene();
+<<<<<<< HEAD
         bullets.Add(BULLETTYPES.normal, normalPf);
         bullets [ BULLETTYPES.normal ].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.big, bigPf);
@@ -61,11 +80,14 @@ public class slimeScript : Mob {
         bullets [ BULLETTYPES.quick ].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.spine, spinePf);
         bullets [ BULLETTYPES.spine ].GetComponent<Circle>().Initialize();
+=======
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     }
     void Start() {
         StartLife(100);
         currentDirection = Vector3.zero;
-        ChangeBullet(bulletName);
+    //    currentBulletName = "normal";
+        currentbulletnormal.discharger = this.gameObject;
 
     }
 
@@ -113,11 +135,37 @@ public class slimeScript : Mob {
     }
 
     public void Shoot() {
-        if (bulletsDelay < timerBullets ) {
-        currentBulletScript.DispenseBullets();
-            timerBullets = 0;
-        }
+     /*   switch ( currentBulletName ) {
+            case "normal":
+            if ( timerBullets > nb.delay ) {
+                nb.DispenseBullets();
+                timerBullets = 0;
             }
+            break;
+            case "big":
+            if ( timerBullets > bb.delay ) {
+                bb.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+            case "quick":
+            if ( timerBullets > qb.delay ) {
+                qb.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+            case "triple":
+            //tb.DispenseBullets();
+            break;
+            case "circle":
+            if ( timerBullets > sp.delay ) {
+                sp.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+        }
+    */
+    }
 
     public override void OnCollisionEnter( Collision c ) {
         base.OnCollisionEnter(c);
@@ -159,6 +207,7 @@ public class slimeScript : Mob {
         }
     }
     public void ChangeBullet(BULLETTYPES bulletName) {
+<<<<<<< HEAD
         tempBullet = bullets [ bulletName ];
         switch ( bulletName ) {
             case BULLETTYPES.normal:
@@ -182,6 +231,9 @@ public class slimeScript : Mob {
         currentBulletScript.dmg += addedDmg;
         currentBulletScript.speed += addedSpeed;
         bulletsDelay = currentBulletScript.delay;
+=======
+        
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     }
 }
 

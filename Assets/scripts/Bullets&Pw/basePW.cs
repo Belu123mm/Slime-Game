@@ -17,8 +17,13 @@ public class basePW : MonoBehaviour {
     public virtual void OnTriggerEnter( Collider c ) {
 
         if ( c.gameObject.tag == "Slime" ) {
+            print("HEY");
             PwBehaviour();
+<<<<<<< HEAD
             Destroy(this.gameObject);
+=======
+            Destroy(this);
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
         }
     }
     public virtual void PwBehaviour() {

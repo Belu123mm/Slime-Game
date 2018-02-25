@@ -1,8 +1,12 @@
 sceneSetups:
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/scenes/Cinematica.unity
 =======
 - path: Assets/scenes/Level2.unity
 >>>>>>> parent of 1396b92... Revert "limpio"
+=======
+- path: Assets/scenes/Level1.unity
+>>>>>>> parent of d24c0b8... Revert "Ya no se que hacer."
   isLoaded: 1
   isActive: 1

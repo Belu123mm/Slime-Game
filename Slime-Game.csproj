@@ -166,13 +166,16 @@
     <Compile Include="Assets\scripts\GameEngine\MoveCamera.cs" />
     <Compile Include="Assets\scripts\GameEngine\PlayerBrain.cs" />
     <Compile Include="Assets\scripts\GameEngine\Stadistics.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\scripts\Shop\ShopController.cs" />
+=======
+    <Compile Include="Assets\scripts\GameEngine\achievements.cs" />
+>>>>>>> parent of d24c0b8... Revert "Ya no se que hacer."
     <Compile Include="Assets\scripts\Slimes\catScript.cs" />
     <Compile Include="Assets\scripts\Slimes\crystalScript.cs" />
     <Compile Include="Assets\scripts\Slimes\finishCrystal.cs" />
     <Compile Include="Assets\scripts\Slimes\slimeScript.cs" />
     <Compile Include="Assets\scripts\UI\Buttons.cs" />
-    <Compile Include="Assets\scripts\cofreScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />

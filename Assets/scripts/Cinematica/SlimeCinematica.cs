@@ -47,7 +47,6 @@ public class SlimeCinematica : MonoBehaviour
         {
             speed = 0;
             scream = true;
-            move = false;
         }
     }
 }

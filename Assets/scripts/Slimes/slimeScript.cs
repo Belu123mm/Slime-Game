@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.Analytics;
 public class slimeScript : Mob {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     //BALAS 
     //bullets es un diccionario en donde se guardan todos los tipos de balas que hay
     //los GameObject con el sufijo pf son los prefabs de las balas y deben agregarse a este diccionario
@@ -32,10 +34,23 @@ public class slimeScript : Mob {
     public BULLETTYPES currentBulletName;
     GameObject currentBulletObject;
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
+    public Dictionary<BULLETTYPES,GameObject> bullets = new Dictionary<BULLETTYPES,GameObject>();
+    public BULLETTYPES bulletName;
+    GameObject tempBullet;
+    Bullets currentBulletScript;
+>>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
+=======
+    public Dictionary<string,GameObject> bullets = new Dictionary<string,GameObject>();
+    public BULLETTYPES currentBulletName;
+    GameObject currentBulletObject;
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     public GameObject normalPf;
     public GameObject bigPf;
     public GameObject quickPf;
     public GameObject spinePf;
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
     public int addedDmg, addedSpeed;
     public float restDelay;
@@ -45,8 +60,12 @@ public class slimeScript : Mob {
 =======
     Bullets currentbulletnormal;
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
+>>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
+=======
+    Bullets currentbulletnormal;
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     //Vectores
-    public int coins;
     public Vector3 currentDirection;
     public Vector3 forward;
     //Scripts
@@ -59,8 +78,11 @@ public class slimeScript : Mob {
     public catScript cat;
     public finishCrystal finish;
     //Bullets
+    public float timerBullets;
+    public float bulletsDelay;
     //Coin
     public Text Textcoin;
+    public static int coins;
 
     public Scene currentScene;
 
@@ -72,14 +94,17 @@ public class slimeScript : Mob {
         print(currentBulletObject);
         currentScene = SceneManager.GetActiveScene();
 <<<<<<< HEAD
+<<<<<<< HEAD
         bullets.Add(BULLETTYPES.normal, normalPf);
-        bullets [ BULLETTYPES.normal ].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.big, bigPf);
-        bullets [ BULLETTYPES.big ].GetComponent<Normal>().Initialize();    
         bullets.Add(BULLETTYPES.quick, quickPf);
-        bullets [ BULLETTYPES.quick ].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.spine, spinePf);
+<<<<<<< HEAD
         bullets [ BULLETTYPES.spine ].GetComponent<Circle>().Initialize();
+=======
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
+>>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
 =======
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     }
@@ -125,9 +150,6 @@ public class slimeScript : Mob {
       //  Stadistics.lastPw = currentBulletName;
         Stadistics.finalLife = hp;
     }
-    public void OnApplicationQuit() {
-        currentBulletScript.ResetBulets();
-    }
 
     public void Move( Vector3 direction ) {
         currentDirection += direction;
@@ -146,6 +168,7 @@ public class slimeScript : Mob {
             if ( timerBullets > bb.delay ) {
                 bb.DispenseBullets();
                 timerBullets = 0;
+<<<<<<< HEAD
             }
             break;
             case "quick":
@@ -163,6 +186,25 @@ public class slimeScript : Mob {
                 timerBullets = 0;
             }
             break;
+=======
+            }
+            break;
+            case "quick":
+            if ( timerBullets > qb.delay ) {
+                qb.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+            case "triple":
+            //tb.DispenseBullets();
+            break;
+            case "circle":
+            if ( timerBullets > sp.delay ) {
+                sp.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
         }
     */
     }
@@ -179,7 +221,9 @@ public class slimeScript : Mob {
             go.transform.position = new Vector3(270, 2.28f, -338);
         }
         if ( c.gameObject.tag == "Finish" )
-            SceneManager.LoadScene("GameOver");        
+            SceneManager.LoadScene("GameOver");
+
+
     }
 
     public override void OnTriggerEnter( Collider c ) {
@@ -208,7 +252,9 @@ public class slimeScript : Mob {
     }
     public void ChangeBullet(BULLETTYPES bulletName) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         tempBullet = bullets [ bulletName ];
+
         switch ( bulletName ) {
             case BULLETTYPES.normal:
             currentBulletScript = tempBullet.GetComponent<Normal>();
@@ -224,17 +270,20 @@ public class slimeScript : Mob {
             break;
         }
         currentBulletScript.discharger = this.gameObject;
-        RefreshBullet();
-    }
-    public void RefreshBullet() {
-        currentBulletScript.delay -= restDelay;
-        currentBulletScript.dmg += addedDmg;
-        currentBulletScript.speed += addedSpeed;
         bulletsDelay = currentBulletScript.delay;
+<<<<<<< HEAD
+=======
+        
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
+        print(tempBullet);
+>>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
 =======
         
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     }
+
+
 }
 
 public enum BULLETTYPES {

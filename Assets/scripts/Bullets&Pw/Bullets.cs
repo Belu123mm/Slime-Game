@@ -9,14 +9,9 @@ public class Bullets : MonoBehaviour {
     //La funcion Impact destruye el objeto y reproduce el sonido de disparo.
     //Tiene que haber SI O SI UN ROGIDBODY
     //El discharger es quien dispara
-    //Initialize es una funcion para cargar los valores default de la bala y poder reiniciarla luego
-    //resetbullet es para reiniciar la bala con esos valores default
     public int speed,
+               delay,
                dmg;
-    public float delay;
-    private int baseSpeed,
-        baseDmg;
-    private float baseDelay;
     public float distance;
     public GameObject discharger;
     public Vector3 direction;
@@ -32,19 +27,6 @@ public class Bullets : MonoBehaviour {
         if ( c.gameObject.layer == LayerMask.NameToLayer("Level") ) {
             Impact();
         }
-    }
-    public void Initialize() {
-        baseSpeed = speed;
-        baseDelay = delay;
-        baseDmg = dmg;
-        print(speed);
-        print(delay);
-        print(dmg);
-    }
-    public void ResetBulets() {
-        speed = baseSpeed;
-        delay = baseDelay;
-        dmg = baseDmg;
     }
 
 }

@@ -8,11 +8,10 @@ public class Mob : MonoBehaviour {
     //Tiene las funciones de colision entre melees y balas. 
     //Estas funciones se colocan SOLO en la victima, como por ejemplo en el slimeHero o el enemigo
     //El tiempo se debe reiniciar cada vez que hay daño. 
-    [HideInInspector]
-    public int hp;
-    public int dmg,
-               speed;
-    private int timeToHurt;
+    public int hp,
+               dmg,
+               speed,
+               timeToHurt;
     public float timer;
     public AudioClip hurtSound,
                      idleSound;
@@ -50,8 +49,5 @@ public class Mob : MonoBehaviour {
     }
     public void StartLife( int qt) {
         hp = qt;
-    }
-    public void Healing(int qt ) {
-        hp -= qt;
     }
 }

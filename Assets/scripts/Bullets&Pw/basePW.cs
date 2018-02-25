@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class basePW : MonoBehaviour {
-    //Base de todos los power ups
-    //ESta definido el slimehero y el sonido para pickearlo
-    //tambien que al pickearlo se borre
-    //PWBehaviour es el comportamiento del powerup, aqui se declara lo que hace
     public AudioClip pickSound;
     public slimeScript slimeHero;
 
@@ -20,7 +16,15 @@ public class basePW : MonoBehaviour {
             print("HEY");
             PwBehaviour();
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
             Destroy(this.gameObject);
+=======
+            Destroy(this);
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
+          //  Destroy(this.gameObject);
+>>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
 =======
             Destroy(this);
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""

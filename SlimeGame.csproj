@@ -83,7 +83,11 @@
     <Compile Include="Assets\scripts\Bullets&amp;Pw\Circle.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\Normal.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\basePW.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\scripts\Bullets&amp;Pw\statsPw.cs" />
+=======
+    <Compile Include="Assets\scripts\Destroy.cs" />
+>>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
     <Compile Include="Assets\scripts\Enemies\Bat.cs" />
     <Compile Include="Assets\scripts\Enemies\BossScript.cs" />
     <Compile Include="Assets\scripts\Enemies\DinamitEnemy.cs" />

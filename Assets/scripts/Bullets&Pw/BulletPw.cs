@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class BulletPw : basePW {
-    //Aqui se llama a la funcion changebullet para cambiar la bala que tiene 
-    //Segun el enum de NewBullet
     public BULLETTYPES newBullet;
     public override void PwBehaviour() {
-        slimeHero.currentBulletScript.ResetBulets();
         slimeHero.ChangeBullet(newBullet);
         base.PwBehaviour();
     }
 =======
+=======
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 public class BulletPw : MonoBehaviour {
 
 	// Use this for initialization
@@ -24,5 +24,8 @@ public class BulletPw : MonoBehaviour {
 	void Update () {
 		
 	}
+<<<<<<< HEAD
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 }

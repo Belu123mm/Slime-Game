@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
 public class slimeScript : Mob {
+    
     public Dictionary<string,GameObject> bullets = new Dictionary<string,GameObject>();
     public BULLETTYPES currentBulletName;
     GameObject currentBulletObject;
@@ -165,8 +166,6 @@ public class slimeScript : Mob {
     public void ChangeBullet(BULLETTYPES bulletName) {
         
     }
-
-
 }
 
 public enum BULLETTYPES {

@@ -17,7 +17,6 @@ public class cofreScript : MonoBehaviour
     public GameObject gAdios;
     public GameObject gSi;
     public GameObject gNo;
-    public slimeScript slimeHero;
 
 	// Use this for initialization
 	void Start ()
@@ -28,12 +27,10 @@ public class cofreScript : MonoBehaviour
         interaction = true;
         rendMerch = _merch.GetComponent<Renderer>();
         rendMerch.enabled = false;
-        slimeHero = FindObjectOfType<slimeScript>();
-
-    }
-
-    // Update is called once per frame
-    void Update ()
+	}
+	
+	// Update is called once per frame
+	void Update ()
     {
         if (isOpen)
         {
@@ -47,14 +44,14 @@ public class cofreScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Y) && !si)
             {
-                if (slimeHero.coins >= 3)
+                if (slimeScript.coins >= 3)
                 {
                     interaction = false;
                     si = true;
                     rendMerch.enabled = false;
                     gSi = Instantiate(_moldeSi);
                 }
-                else if (slimeHero.coins <= 3)
+                else if (slimeScript.coins <= 3)
                 {
                     interaction = false;
                     no = true;

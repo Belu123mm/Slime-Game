@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pausePanel;
 
+    public static bool Pause = false;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.P)) {

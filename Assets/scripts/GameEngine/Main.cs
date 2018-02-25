@@ -12,13 +12,14 @@ public class Main : MonoBehaviour
 
 
     // Use this for initialization
-    void Start()
+    void Start ()
     {
-        AudioMananger.instance.PlayAmbient(ambientSound);
-    }
+     //   AudioMananger.instance.PlayAmbient(ambientSound);
 
-    // Update is called once per frame
-    public void Update()
+	}
+	
+	// Update is called once per frame
+	public void Update ()
     {
         if (IntensityImage != null)
         {

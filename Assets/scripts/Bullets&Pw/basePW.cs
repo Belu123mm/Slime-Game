@@ -13,9 +13,8 @@ public class basePW : MonoBehaviour {
     public virtual void OnTriggerEnter( Collider c ) {
 
         if ( c.gameObject.tag == "Slime" ) {
-            print("HEY");
             PwBehaviour();
-            Destroy(this);
+          //  Destroy(this.gameObject);
         }
     }
     public virtual void PwBehaviour() {

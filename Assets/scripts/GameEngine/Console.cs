@@ -82,26 +82,26 @@ public class Console : MonoBehaviour {
         WriteInConsole("Life set to over 9000");
     }
     public void normalShoot() {
-        FindObjectOfType<slimeScript>().currentBulletName = BULLETTYPES.normal;
+        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.normal;
         WriteInConsole("bullet set to normal");
     }
     public void bigShoot() {
-        FindObjectOfType<slimeScript>().currentBulletName = BULLETTYPES.big;
+        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.big;
         WriteInConsole("bullet set to big");
 
     }
     public void quickShoot() {
-        FindObjectOfType<slimeScript>().currentBulletName = BULLETTYPES.quick;
+        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.quick;
         WriteInConsole("bullet set to quick");
 
     }
     public void tripleShoot() {
-        FindObjectOfType<slimeScript>().currentBulletName = BULLETTYPES.normal;
+        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.normal;
         WriteInConsole("bullet set to triple");
 
     }
     public void circleShoot() {
-        FindObjectOfType<slimeScript>().currentBulletName = BULLETTYPES.spine;
+        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.spine;
         WriteInConsole("bullet set to circle");
 
     }

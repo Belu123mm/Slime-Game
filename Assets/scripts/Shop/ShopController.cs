@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
-
     public Text nameText;
     public Text descriptionText;
     public Text price;
     public Text ammountText;
-    public string name;
+  //  public string name;
     public string description;
     public int cost;
     public GameObject shopPanel;
@@ -44,12 +43,12 @@ public class ShopController : MonoBehaviour
     }
     public void OnClick()
     {
-        if (slimeScript.coins >= cost)
+      /*  if (slimeScript.coins >= cost)
         {
             slimeScript.coins -= cost;
             print("yay, es tuyo");
             shopPanel.SetActive(false);
         }
-        else noMoney.SetActive(true);
+        else noMoney.SetActive(true);*/
     }
 }

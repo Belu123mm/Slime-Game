@@ -42,9 +42,9 @@ public class Bullets : MonoBehaviour {
         baseSpeed = speed;
         baseDelay = delay;
         baseDmg = dmg;
-        print(speed);
-        print(delay);
-        print(dmg);
+    //    print(speed);
+    //    print(delay);
+      //  print(dmg);
     }
     public void ResetBulets()
     {

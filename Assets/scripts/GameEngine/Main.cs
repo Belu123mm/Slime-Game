@@ -8,7 +8,7 @@ public class Main : MonoBehaviour
     public AudioClip ambientSound;
 
     public float Intensity_Debug;
-    public Image IntensityImage;
+     public Image IntensityImage;
 
     void Start()
     {

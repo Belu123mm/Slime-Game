@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Advertisements;
+//using UnityEngine.Advertisements;
 
 public class Adv : MonoBehaviour {
-
+/*
     public static GameObject skipMesssage;
     public static GameObject finishMessage;
     public static bool isReady;
@@ -30,6 +30,6 @@ public class Adv : MonoBehaviour {
             skipMesssage.SetActive(true);
         if (result == ShowResult.Finished)
             finishMessage.SetActive(false);
-    }
+    }*/
 }
 

@@ -16,9 +16,7 @@ public class slimeScript : Mob {
     //Y se actualiza la bala con refrestBullet, tomando los valores agregados al prefab de la bala
     //Los valores addeddmg, addedspeed y restdelay son valores para argegar daño, velocidad y restar delay a la bala
     //Al quitar la aplicacion o cambiar de escena se resetea la bala de nuevo
-    //SHoot lo que hace es que si el delay de las balas es menor que el timer, y se llama a esta funcion, dispare. 
-
-
+    //SHoot lo que hace es que si el delay de las balas es menor que el timer, y se llama a esta funcion, dispare.
 
     // En start se inicia la vida desde startlife con mob
 
@@ -74,7 +72,7 @@ public class slimeScript : Mob {
         //Timer bullets
         timerBullets += 1 * Time.deltaTime;
 
-        if ( Textcoin != null )
+       if ( Textcoin != null )
             Textcoin.text = "Coins: " + coins;
 
         string sceneName = currentScene.name;

@@ -12,20 +12,12 @@ public class BossScript : MonoBehaviour
     public float minSpeed;
     public float normalSpeed;
 
-
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
 	
-	// Update is called once per frame
 	void Update ()
     {
         speed = normalSpeed;
-       // timer += 1 * Time.deltaTime;
+        // timer += 1 * Time.deltaTime;
         this.transform.position += Vector3.right * Time.deltaTime * speed;
-
     }
 
     private void OnTriggerEnter(Collider c) {
@@ -35,8 +27,5 @@ public class BossScript : MonoBehaviour
         }
         if (c.gameObject.tag == "Slime")
             SceneManager.LoadScene("GameOver");
-
-    }
-  
-    
+    }    
 }

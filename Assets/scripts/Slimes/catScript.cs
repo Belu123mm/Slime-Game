@@ -17,12 +17,10 @@ public class catScript : MonoBehaviour {
     public Animator cat;
 
     public AudioClip meow;
-	// Use this for initialization
 	void Start () {
         cat = GetComponent<Animator>();
     }
 	
-	// Update is called once per frame
 	void Update () {
         if (catchSlime) {
             c = this.GetComponent<Collider>();
@@ -31,7 +29,6 @@ public class catScript : MonoBehaviour {
             variable = Mathf.Lerp(distanceForMinSpeed, distanceForMaxSpeed, distance - distanceForMinSpeed);
             distance = Vector3.Distance(this.transform.position, pinkSlime.transform.position);
             dir = pinkSlime.transform.position - this.transform.position;
-            //print(variable);
 
             this.transform.forward = dir;
             this.transform.position += this.transform.forward * speed * Time.deltaTime;
@@ -49,12 +46,9 @@ public class catScript : MonoBehaviour {
             cat.SetBool("catch", false);
             c.isTrigger = false;
         }
-
-
     }
     void OnCollisionEnter(Collision c)
     {
-        //print("check");
         if (c.gameObject.tag == "Slime")
         {
             AudioMananger.instance.PlayCrystalSlime(meow);

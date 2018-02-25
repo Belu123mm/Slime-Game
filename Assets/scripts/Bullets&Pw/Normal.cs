@@ -14,17 +14,16 @@ public class Normal : Bullets {
 
     public void Update() {
         this.transform.position += this.transform.forward * Time.deltaTime * speed;
-
     }
+
     public override void DispenseBullets() {
         base.DispenseBullets();
         mouseRay = GetRay();
         Vector3 dir = new Vector3(mouseRay.x, discharger.transform.position.y, mouseRay.z) - discharger.transform.position;
         this.transform.forward = dir;
         this.transform.position = discharger.transform.position;
-        GameObject normalBullet = Instantiate(this.gameObject); // BAM
+        Instantiate(this.gameObject); // BAM
         Stadistics.totalBullets++;
-
         //Debug
         Debug.DrawRay(discharger.transform.position, dir, Color.white, 10, false);//BLANCO
 

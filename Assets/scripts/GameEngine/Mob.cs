@@ -8,46 +8,60 @@ public class Mob : MonoBehaviour {
     //Tiene las funciones de colision entre melees y balas. 
     //Estas funciones se colocan SOLO en la victima, como por ejemplo en el slimeHero o el enemigo
     //El tiempo se debe reiniciar cada vez que hay daño. 
-    public int hp,
-               dmg,
-               speed,
-               timeToHurt;
+    [HideInInspector]
+    public int hp;
+    public int dmg,
+               speed;
+    private int timeToHurt;
     public float timer;
     public AudioClip hurtSound,
                      idleSound;
     Mob mInstance;
     Bullets bInstance;
 
-    public virtual void Update() {
+    public virtual void Update()
+    {
         timer += 1 * Time.deltaTime;
     }
-    public virtual void OnCollisionEnter( Collision c ) {
-        if ( c.gameObject.layer == LayerMask.NameToLayer("Mob") && timer > timeToHurt ) {
+    public virtual void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.layer == LayerMask.NameToLayer("Mob") && timer > timeToHurt)
+        {
             mInstance = c.gameObject.GetComponent<Mob>();
             MeleeDamage(mInstance, this);
         }
     }
-    public virtual void OnTriggerEnter(Collider c ) { 
+    public virtual void OnTriggerEnter(Collider c)
+    {
 
-        if ( c.gameObject.layer == LayerMask.NameToLayer("Bullets") ) {
+        if (c.gameObject.layer == LayerMask.NameToLayer("Bullets"))
+        {
             bInstance = c.gameObject.GetComponent<Bullets>();
             RangeDamage(bInstance, this);
         }
     }
-    public void MeleeDamage(Mob atac, Mob vict ) {
+    public void MeleeDamage(Mob atac, Mob vict)
+    {
         int newDmg = atac.dmg;
         vict.hp -= newDmg;
         ResetTime();
     }
-    public void RangeDamage(Bullets atac, Mob vict ) {
+    public void RangeDamage(Bullets atac, Mob vict)
+    {
         int newDmg = atac.dmg;
         vict.hp -= newDmg;
         ResetTime();
     }
-    public void ResetTime() {
+    public void ResetTime()
+    {
         timer = 0;
     }
-    public void StartLife( int qt) {
+    public void StartLife(int qt)
+    {
         hp = qt;
+    }
+    public void Healing(int qt)
+    {
+        hp -= qt;
     }
 }

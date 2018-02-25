@@ -21,28 +21,10 @@ public class AudioMananger : MonoBehaviour
     public AudioMixerGroup crystalSlime;
     public AudioMixerGroup ambient;
 
-
-    
-
     private void Awake()
     {
         instance = this;
     }
-
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void PlaySteps(AudioClip clip)
     {
         GameObject go = new GameObject("AudioSource");

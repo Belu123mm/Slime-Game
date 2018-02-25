@@ -7,14 +7,7 @@ public class SpineTraps : MonoBehaviour
     public float timeToUp;
     public float timeToDown;
     public bool isUp;
-	// Use this for initialization
-	void Start ()
-    {
-	}
-		
-
 	
-	// Update is called once per frame
 	void Update ()
     {
         timeToUp += 1 * Time.deltaTime;

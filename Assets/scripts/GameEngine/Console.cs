@@ -22,9 +22,6 @@ public class Console : MonoBehaviour {
     public KeyCode keyForOpenCloseConsole;
 
     public GameObject consoleContent;
-
-
-
     void Start() {
 
         functionPrototype = Start;

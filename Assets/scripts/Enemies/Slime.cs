@@ -11,6 +11,7 @@ public class Slime : Enemy {
     public Circle sBullet;
     public AudioClip bulletSound;
     public float bulletsDelay;
+    public float timerBullets;
 
     public override void Awake() {
         base.Awake();

@@ -4,6 +4,7 @@ using UnityEngine;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class BulletPw : basePW {
     public BULLETTYPES newBullet;
     public override void PwBehaviour() {
@@ -11,6 +12,8 @@ public class BulletPw : basePW {
         base.PwBehaviour();
     }
 =======
+=======
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 =======
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 public class BulletPw : MonoBehaviour {
@@ -25,6 +28,9 @@ public class BulletPw : MonoBehaviour {
 		
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 =======
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""

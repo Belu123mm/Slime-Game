@@ -18,6 +18,7 @@ public class basePW : MonoBehaviour {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             Destroy(this.gameObject);
 =======
             Destroy(this);
@@ -25,6 +26,9 @@ public class basePW : MonoBehaviour {
 =======
           //  Destroy(this.gameObject);
 >>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
+=======
+            Destroy(this);
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 =======
             Destroy(this);
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""

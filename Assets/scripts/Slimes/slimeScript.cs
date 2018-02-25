@@ -8,6 +8,7 @@ public class slimeScript : Mob {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     //BALAS 
     //bullets es un diccionario en donde se guardan todos los tipos de balas que hay
     //los GameObject con el sufijo pf son los prefabs de las balas y deben agregarse a este diccionario
@@ -45,10 +46,16 @@ public class slimeScript : Mob {
     public BULLETTYPES currentBulletName;
     GameObject currentBulletObject;
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
+    public Dictionary<string,GameObject> bullets = new Dictionary<string,GameObject>();
+    public BULLETTYPES currentBulletName;
+    GameObject currentBulletObject;
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     public GameObject normalPf;
     public GameObject bigPf;
     public GameObject quickPf;
     public GameObject spinePf;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -62,6 +69,9 @@ public class slimeScript : Mob {
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 =======
 >>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
+=======
+    Bullets currentbulletnormal;
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 =======
     Bullets currentbulletnormal;
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
@@ -95,6 +105,7 @@ public class slimeScript : Mob {
         currentScene = SceneManager.GetActiveScene();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         bullets.Add(BULLETTYPES.normal, normalPf);
         bullets.Add(BULLETTYPES.big, bigPf);
         bullets.Add(BULLETTYPES.quick, quickPf);
@@ -105,6 +116,8 @@ public class slimeScript : Mob {
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 =======
 >>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
+=======
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 =======
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
     }
@@ -162,6 +175,7 @@ public class slimeScript : Mob {
             if ( timerBullets > nb.delay ) {
                 nb.DispenseBullets();
                 timerBullets = 0;
+<<<<<<< HEAD
             }
             break;
             case "big":
@@ -187,6 +201,31 @@ public class slimeScript : Mob {
             }
             break;
 =======
+            }
+            break;
+            case "quick":
+            if ( timerBullets > qb.delay ) {
+                qb.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+            case "triple":
+            //tb.DispenseBullets();
+            break;
+            case "circle":
+            if ( timerBullets > sp.delay ) {
+                sp.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
+=======
+            }
+            break;
+            case "big":
+            if ( timerBullets > bb.delay ) {
+                bb.DispenseBullets();
+                timerBullets = 0;
             }
             break;
             case "quick":
@@ -253,6 +292,7 @@ public class slimeScript : Mob {
     public void ChangeBullet(BULLETTYPES bulletName) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         tempBullet = bullets [ bulletName ];
 
         switch ( bulletName ) {
@@ -278,6 +318,9 @@ public class slimeScript : Mob {
 =======
         print(tempBullet);
 >>>>>>> parent of 1891342... Revert "Revert "Ps listo los powerups y comentado los scripts""
+=======
+        
+>>>>>>> parent of 22971b0... Revert "Revert "PW BALA""
 =======
         
 >>>>>>> parent of 22971b0... Revert "Revert "PW BALA""

@@ -12,7 +12,7 @@ public class Mob : MonoBehaviour {
     public float hp;
     public int dmg,
                speed;
-    private int timeToHurt;
+    private int timeToHurt = 1;
     public float timer;
     public AudioClip hurtSound,
                      idleSound;

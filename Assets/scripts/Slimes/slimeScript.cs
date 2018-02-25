@@ -5,15 +5,38 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
 public class slimeScript : Mob {
+    //BALAS 
+    //bullets es un diccionario en donde se guardan todos los tipos de balas que hay
+    //los GameObject con el sufijo pf son los prefabs de las balas y deben agregarse a este diccionario
+    //Bulletname es de donde se selecciona la bala inicial
+    //temp bullet es una bala temporal para de esa sacar el componente bullet y trabajar desde el mismo
+    //Cuadno inicia la escena en Awake se agregan todos los tipos de balas al diccionario y se inicializan.
+    //Al iniciar se cambia la bala con changebullet. ESta funcion esta hecha para cambiar la bala tomando el valor introducido
+    //Y buscando en el diccionario una key con ese valor, se busca el componente de temp, se setea el discharguer 
+    //Y se actualiza la bala con refrestBullet, tomando los valores agregados al prefab de la bala
+    //Los valores addeddmg, addedspeed y restdelay son valores para argegar daño, velocidad y restar delay a la bala
+    //Al quitar la aplicacion o cambiar de escena se resetea la bala de nuevo
+    //SHoot lo que hace es que si el delay de las balas es menor que el timer, y se llama a esta funcion, dispare. 
+
+
+
+    // En start se inicia la vida desde startlife con mob
+
     public Dictionary<BULLETTYPES,GameObject> bullets = new Dictionary<BULLETTYPES,GameObject>();
     public BULLETTYPES bulletName;
     GameObject tempBullet;
-    Bullets currentBulletScript;
+    public Bullets currentBulletScript;
     public GameObject normalPf;
     public GameObject bigPf;
     public GameObject quickPf;
     public GameObject spinePf;
+    public int addedDmg, addedSpeed;
+    public float restDelay;
+    public float timerBullets;
+    public float bulletsDelay;
+
     //Vectores
+    public int coins;
     public Vector3 currentDirection;
     public Vector3 forward;
     //Scripts
@@ -21,11 +44,8 @@ public class slimeScript : Mob {
     public catScript cat;
     public finishCrystal finish;
     //Bullets
-    public float timerBullets;
-    public float bulletsDelay;
     //Coin
     public Text Textcoin;
-    public static int coins;
 
     public Scene currentScene;
 
@@ -34,9 +54,13 @@ public class slimeScript : Mob {
     void Awake() {
         currentScene = SceneManager.GetActiveScene();
         bullets.Add(BULLETTYPES.normal, normalPf);
+        bullets [ BULLETTYPES.normal ].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.big, bigPf);
+        bullets [ BULLETTYPES.big ].GetComponent<Normal>().Initialize();    
         bullets.Add(BULLETTYPES.quick, quickPf);
+        bullets [ BULLETTYPES.quick ].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.spine, spinePf);
+        bullets [ BULLETTYPES.spine ].GetComponent<Circle>().Initialize();
     }
     void Start() {
         StartLife(100);
@@ -79,6 +103,9 @@ public class slimeScript : Mob {
       //  Stadistics.lastPw = currentBulletName;
         Stadistics.finalLife = hp;
     }
+    public void OnApplicationQuit() {
+        currentBulletScript.ResetBulets();
+    }
 
     public void Move( Vector3 direction ) {
         currentDirection += direction;
@@ -104,9 +131,7 @@ public class slimeScript : Mob {
             go.transform.position = new Vector3(270, 2.28f, -338);
         }
         if ( c.gameObject.tag == "Finish" )
-            SceneManager.LoadScene("GameOver");
-
-
+            SceneManager.LoadScene("GameOver");        
     }
 
     public override void OnTriggerEnter( Collider c ) {
@@ -135,7 +160,6 @@ public class slimeScript : Mob {
     }
     public void ChangeBullet(BULLETTYPES bulletName) {
         tempBullet = bullets [ bulletName ];
-
         switch ( bulletName ) {
             case BULLETTYPES.normal:
             currentBulletScript = tempBullet.GetComponent<Normal>();
@@ -151,11 +175,14 @@ public class slimeScript : Mob {
             break;
         }
         currentBulletScript.discharger = this.gameObject;
-        bulletsDelay = currentBulletScript.delay;
-        print(tempBullet);
+        RefreshBullet();
     }
-
-
+    public void RefreshBullet() {
+        currentBulletScript.delay -= restDelay;
+        currentBulletScript.dmg += addedDmg;
+        currentBulletScript.speed += addedSpeed;
+        bulletsDelay = currentBulletScript.delay;
+    }
 }
 
 public enum BULLETTYPES {

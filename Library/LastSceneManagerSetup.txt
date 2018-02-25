@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/scenes/Cinematica.unity
+=======
+- path: Assets/scenes/Level2.unity
+>>>>>>> parent of 1396b92... Revert "limpio"
   isLoaded: 1
   isActive: 1

@@ -70,6 +70,9 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -128,7 +131,6 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
-    <Compile Include="Assets\Shop\ShopController.cs" />
     <Compile Include="Assets\TEST\Shop.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\BulletPw.cs" />
     <Compile Include="Assets\scripts\Bullets&amp;Pw\Bullets.cs" />
@@ -164,6 +166,7 @@
     <Compile Include="Assets\scripts\GameEngine\MoveCamera.cs" />
     <Compile Include="Assets\scripts\GameEngine\PlayerBrain.cs" />
     <Compile Include="Assets\scripts\GameEngine\Stadistics.cs" />
+    <Compile Include="Assets\scripts\Shop\ShopController.cs" />
     <Compile Include="Assets\scripts\Slimes\catScript.cs" />
     <Compile Include="Assets\scripts\Slimes\crystalScript.cs" />
     <Compile Include="Assets\scripts\Slimes\finishCrystal.cs" />
@@ -172,9 +175,6 @@
     <Compile Include="Assets\scripts\cofreScript.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Art\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
-    <None Include="Assets\Art\Day-Night Skyboxes\readme.txt" />
-    <None Include="Assets\Art\PinwheelFantasyEffectFreePack1\README 1.txt" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />

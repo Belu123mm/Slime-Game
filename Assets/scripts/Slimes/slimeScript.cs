@@ -44,6 +44,10 @@ public class slimeScript : Mob {
     //Bullets
     //Coin
     public Text Textcoin;
+    //Vida 
+    public int intLife;
+    public Text lifeText;
+    public static float vidaStatic;
 
     public Scene currentScene;
 
@@ -59,18 +63,23 @@ public class slimeScript : Mob {
         bullets.Add(BULLETTYPES.quick, quickPf);
         bullets[BULLETTYPES.quick].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.spine, spinePf);
-        bullets[BULLETTYPES.spine].GetComponent<Circle>().Initialize();
+       // bullets[BULLETTYPES.spine].GetComponent<Circle>().Initialize();
     }
     void Start()
     {
-        StartLife(100);
+        StartLife(1);
+        intLife = 100;
         currentDirection = Vector3.zero;
         ChangeBullet(bulletName);
     }
 
     public override void Update() {
+        vidaStatic = hp;
+        if (lifeText != null)
+            lifeText.text = "" + intLife + "/100";
+
         //Timer bullets
-        timerBullets += 1 * Time.deltaTime;
+        timerBullets += Time.deltaTime;
 
        if ( Textcoin != null )
             Textcoin.text = "Coins: " + coins;
@@ -138,6 +147,12 @@ public class slimeScript : Mob {
         }
         if (c.gameObject.tag == "Finish")
             SceneManager.LoadScene("GameOver");
+
+        if(c.gameObject.tag == "Enemigo")
+        {
+            hp -= 0.10f;
+            intLife -= 10;
+        }
     }
 
     public override void OnTriggerEnter(Collider c)
@@ -168,6 +183,12 @@ public class slimeScript : Mob {
         {
             coins++;
             Textcoin.text = "Coins: " + coins;
+        }
+
+        if (c.gameObject.tag == "Enemigo")
+        {
+            hp -= 0.10f;
+            intLife -= 10;
         }
     }
     public void ChangeBullet(BULLETTYPES bulletName)

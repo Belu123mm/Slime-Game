@@ -10,16 +10,12 @@ public class GasTrap : MonoBehaviour
     public ParticleSystem ps;
     public GameObject cube;
     public GameObject go;
-
-    // Use this for initialization
     void Start ()
     {
         ps = GetComponent<ParticleSystem>();
         ps.Stop();
 	}
-	
-	// Update is called once per frame
-	void Update ()
+		void Update ()
     {
         timeToEnable += 1 * Time.deltaTime;
 
@@ -33,7 +29,6 @@ public class GasTrap : MonoBehaviour
             go.transform.position = new Vector3(ps.transform.position.x, ps.transform.position.y, ps.transform.position.z + 5);
                       
         }
-
         if (enable)
         {
             timeToDesable += 1 * Time.deltaTime;
@@ -47,6 +42,5 @@ public class GasTrap : MonoBehaviour
                 Destroy(go.gameObject);
             }
         }
-
     }
 }

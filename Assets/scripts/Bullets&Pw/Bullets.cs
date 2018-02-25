@@ -28,7 +28,7 @@ public class Bullets : MonoBehaviour {
     }
     public void Impact()
     {
-        Destroy(this.gameObject, 0.3f);
+        Destroy(this.gameObject, 0.1f);
     }
     void OnTriggerEnter(Collider c)
     {
@@ -42,9 +42,6 @@ public class Bullets : MonoBehaviour {
         baseSpeed = speed;
         baseDelay = delay;
         baseDmg = dmg;
-    //    print(speed);
-    //    print(delay);
-      //  print(dmg);
     }
     public void ResetBulets()
     {

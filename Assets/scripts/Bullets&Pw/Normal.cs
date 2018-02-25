@@ -8,10 +8,6 @@ public class Normal : Bullets {
     public Vector3 mouseRay;
     Camera cam;
 
-    public void Start() {
-
-    }
-
     public void Update() {
         this.transform.position += this.transform.forward * Time.deltaTime * speed;
     }
@@ -35,7 +31,7 @@ public class Normal : Bullets {
         RaycastHit hit;
         if ( Physics.Raycast(ray, out hit) ) {
 
-        print(hit.point );
+      //  print(hit.point );
             return hit.point;
         }
         else

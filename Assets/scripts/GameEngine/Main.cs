@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     public AudioClip ambientSound;
-
     public float Intensity_Debug;
      public Image IntensityImage;
 
@@ -19,7 +18,7 @@ public class Main : MonoBehaviour
     {
         if (IntensityImage != null)
         {
-            //Intensity_Debug = slimeScript.vida;
+            Intensity_Debug = slimeScript.vidaStatic;
             IntensityImage.fillAmount = Intensity_Debug;
         }
     }

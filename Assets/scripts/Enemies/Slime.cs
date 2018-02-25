@@ -12,7 +12,8 @@ public class Slime : Enemy {
     public AudioClip bulletSound;
     public float bulletsDelay;
     public float timerBullets;
-
+    public float bulletDistance;
+   // public float rotationSpeed;
     public override void Awake() {
         base.Awake();
         sBullet = bulletPf.GetComponent<Circle>();
@@ -20,11 +21,16 @@ public class Slime : Enemy {
     public override void Start() {
         base.Start();
         bulletsDelay = sBullet.delay;
+        bulletDistance = sBullet.distance;
     }
     public override void Update() {
+    //    transform.Rotate(Vector3.up * Time.deltaTime * rotationSpeed);
+
+        bulletDistance = Vector3.Distance(bulletPf.transform.position, transform.position);
+       /* if (bulletDistance > 20)
+            Destroy(bulletPf.gameObject);*/
         base.Update();
         if ( Vision() < visionRange ) {
-
             if ( timer > bulletsDelay ) {
                 Shooting();
             }

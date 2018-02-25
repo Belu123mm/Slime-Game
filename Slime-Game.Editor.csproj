@@ -162,9 +162,6 @@
     <Compile Include="Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Art\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
-    <None Include="Assets\Art\Day-Night Skyboxes\readme.txt" />
-    <None Include="Assets\Art\PinwheelFantasyEffectFreePack1\README 1.txt" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />

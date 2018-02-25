@@ -18,6 +18,7 @@ public class slimeScript : Mob {
     public Vector3 currentDirection;
     public Vector3 forward;
     //Scripts
+
     Normal nb;
     Normal bb;
     Normal qb;
@@ -31,8 +32,6 @@ public class slimeScript : Mob {
     //Coin
     public Text Textcoin;
     public static int coins;
-    //Vida
-    public Text textVida;
 
     public Scene currentScene;
 
@@ -138,8 +137,6 @@ public class slimeScript : Mob {
         }
         if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
-        if (c.gameObject.tag == "Enemigo")
-            hp -= 10;
     }
 
     public override void OnTriggerEnter( Collider c ) {

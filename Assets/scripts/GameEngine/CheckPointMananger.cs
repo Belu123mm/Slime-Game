@@ -17,14 +17,15 @@ public class CheckPointMananger : MonoBehaviour
         checkPoints = GameObject.FindGameObjectsWithTag("checkpoint");
         slimeHero = FindObjectOfType<slimeScript>();
 	}
-/*	
- 	void Update ()
+	
+/*
+ *	void Update ()
     {
         //Si la vida del slime es menor o igual a 0 y no colisiono con el checkpoint va a la escena de GO.
-        if (slimeHero.hp <= 0 && !CheckpointScript.check)
+        if (slimeHero.slimeLife <= 0 && !CheckpointScript.check)
             SceneManager.LoadScene("GameOver");
         //Pero si colisiono con el CP revive 
-        else if (slimeHero.hp <= 0 && count < 3 && CheckpointScript.check)
+        else if (slimeHero.slimeLife <= 0 && count < 3 && CheckpointScript.check)
         {
             count++;
             slimeScript.vida = 1;
@@ -39,8 +40,8 @@ public class CheckPointMananger : MonoBehaviour
 
         if (slimeScript.vida <= 0 && count > 3)
             SceneManager.LoadScene("GameOver");
-	}*/
-    
+	}
+    */
     public void Check(GameObject currentCp)
     {
         foreach (GameObject cp in checkPoints)

@@ -5,18 +5,23 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
 public class slimeScript : Mob {
-    public Dictionary<BULLETTYPES,GameObject> bullets = new Dictionary<BULLETTYPES,GameObject>();
-    public BULLETTYPES bulletName;
-    GameObject tempBullet;
-    Bullets currentBulletScript;
+    public Dictionary<string,GameObject> bullets = new Dictionary<string,GameObject>();
+    public BULLETTYPES currentBulletName;
+    GameObject currentBulletObject;
     public GameObject normalPf;
     public GameObject bigPf;
     public GameObject quickPf;
     public GameObject spinePf;
+    Bullets currentbulletnormal;
     //Vectores
     public Vector3 currentDirection;
     public Vector3 forward;
     //Scripts
+
+    Normal nb;
+    Normal bb;
+    Normal qb;
+    Circle sp;
     public crystalScript crystal;
     public catScript cat;
     public finishCrystal finish;
@@ -32,16 +37,16 @@ public class slimeScript : Mob {
     public GameObject door;
 
     void Awake() {
+        currentbulletnormal = normalPf.GetComponent<Normal>(); ;
+        print(currentbulletnormal);
+        print(currentBulletObject);
         currentScene = SceneManager.GetActiveScene();
-        bullets.Add(BULLETTYPES.normal, normalPf);
-        bullets.Add(BULLETTYPES.big, bigPf);
-        bullets.Add(BULLETTYPES.quick, quickPf);
-        bullets.Add(BULLETTYPES.spine, spinePf);
     }
     void Start() {
         StartLife(100);
         currentDirection = Vector3.zero;
-        ChangeBullet(bulletName);
+    //    currentBulletName = "normal";
+        currentbulletnormal.discharger = this.gameObject;
 
     }
 
@@ -86,11 +91,37 @@ public class slimeScript : Mob {
     }
 
     public void Shoot() {
-        if (bulletsDelay < timerBullets ) {
-        currentBulletScript.DispenseBullets();
-            timerBullets = 0;
-        }
+     /*   switch ( currentBulletName ) {
+            case "normal":
+            if ( timerBullets > nb.delay ) {
+                nb.DispenseBullets();
+                timerBullets = 0;
             }
+            break;
+            case "big":
+            if ( timerBullets > bb.delay ) {
+                bb.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+            case "quick":
+            if ( timerBullets > qb.delay ) {
+                qb.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+            case "triple":
+            //tb.DispenseBullets();
+            break;
+            case "circle":
+            if ( timerBullets > sp.delay ) {
+                sp.DispenseBullets();
+                timerBullets = 0;
+            }
+            break;
+        }
+    */
+    }
 
     public override void OnCollisionEnter( Collision c ) {
         base.OnCollisionEnter(c);
@@ -134,25 +165,7 @@ public class slimeScript : Mob {
         }
     }
     public void ChangeBullet(BULLETTYPES bulletName) {
-        tempBullet = bullets [ bulletName ];
-
-        switch ( bulletName ) {
-            case BULLETTYPES.normal:
-            currentBulletScript = tempBullet.GetComponent<Normal>();
-            break;
-            case BULLETTYPES.quick:
-            currentBulletScript = tempBullet.GetComponent<Normal>();
-            break;
-            case BULLETTYPES.big:
-            currentBulletScript = tempBullet.GetComponent<Normal>();
-            break;
-            case BULLETTYPES.spine:
-            currentBulletScript = tempBullet.GetComponent<Circle>();
-            break;
-        }
-        currentBulletScript.discharger = this.gameObject;
-        bulletsDelay = currentBulletScript.delay;
-        print(tempBullet);
+        
     }
 
 

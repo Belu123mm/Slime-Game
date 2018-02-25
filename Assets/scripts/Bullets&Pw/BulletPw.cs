@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPw : basePW {
-    public BULLETTYPES newBullet;
-    public override void PwBehaviour() {
-        slimeHero.ChangeBullet(newBullet);
-        base.PwBehaviour();
-    }
+public class BulletPw : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }

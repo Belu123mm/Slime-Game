@@ -10,9 +10,9 @@ public class Circle : Bullets {
     public float degrees;
     public int bulletsCount;
 
-
     void Update() {
         this.transform.position += this.transform.forward * Time.deltaTime * speed;
+
         distance = Vector3.Distance(discharger.transform.position, this.transform.position);
 
     }

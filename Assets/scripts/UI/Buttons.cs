@@ -20,6 +20,13 @@ public class Buttons : MonoBehaviour {
     {
         SceneManager.LoadScene("Level1");
     } 
+
+    public void Exit() {
+        print("QUIT!");
+        Application.Quit();
+    }
+
+    //Borrar esto luegoh
     public void QuePaso()
     {
         SceneManager.LoadScene("QuePaso");

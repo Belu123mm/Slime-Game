@@ -8,20 +8,26 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pausePanel;
 
-    public static bool Pause = false;
+    public static bool pause = false;
 
     void Update()
     {
         if (Input.GetKey(KeyCode.P)) {
-            OpenPause();
+            if ( pause  ) {
+                Resume();
+            } else {
+                Paused();
+            }
         }
     }
-    void OpenPause() {
+    void Paused() {
         pausePanel.SetActive(true);
         Time.timeScale = 0;
+        pause = true;
     }
-    public void closePause() {
+    public void Resume() {
         pausePanel.SetActive(false);
         Time.timeScale = 0;
+        pause = false;
     }
 }

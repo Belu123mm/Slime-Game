@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightController : MonoBehaviour {
     public float timer ;
-    public float inten = 1;
+    public float inten;
     public Light lt;   
 
     void Start () {
@@ -14,7 +14,7 @@ public class LightController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
-        if(timer >= 10)
+        if(timer >= 9)
         {
             inten -= Time.deltaTime;
             lt.intensity = inten;

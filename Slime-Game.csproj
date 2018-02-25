@@ -164,12 +164,12 @@
     <Compile Include="Assets\scripts\GameEngine\MoveCamera.cs" />
     <Compile Include="Assets\scripts\GameEngine\PlayerBrain.cs" />
     <Compile Include="Assets\scripts\GameEngine\Stadistics.cs" />
+    <Compile Include="Assets\scripts\GameEngine\achievements.cs" />
     <Compile Include="Assets\scripts\Slimes\catScript.cs" />
     <Compile Include="Assets\scripts\Slimes\crystalScript.cs" />
     <Compile Include="Assets\scripts\Slimes\finishCrystal.cs" />
     <Compile Include="Assets\scripts\Slimes\slimeScript.cs" />
     <Compile Include="Assets\scripts\UI\Buttons.cs" />
-    <Compile Include="Assets\scripts\cofreScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Art\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />

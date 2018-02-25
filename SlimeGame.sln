@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimeGame", "SlimeGame.csproj", "{FEE86C2D-06B5-01C8-62E8-2586FF86269B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimeGame.Editor", "SlimeGame.Editor.csproj", "{3CE0D3E8-E301-D1F9-850C-978F88594500}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{FEE86C2D-06B5-01C8-62E8-2586FF86269B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEE86C2D-06B5-01C8-62E8-2586FF86269B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEE86C2D-06B5-01C8-62E8-2586FF86269B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE0D3E8-E301-D1F9-850C-978F88594500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE0D3E8-E301-D1F9-850C-978F88594500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE0D3E8-E301-D1F9-850C-978F88594500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE0D3E8-E301-D1F9-850C-978F88594500}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
-    public GameObject pausePanel;
 
     public static bool pause = false;
+    public GameObject pausePanel;
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.P)) {
             if ( pause  ) {
                 Resume();
             } else {
@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour {
     }
     public void Resume() {
         pausePanel.SetActive(false);
-        Time.timeScale = 0;
+        Time.timeScale = 1;
         pause = false;
     }
 }

@@ -9,8 +9,7 @@ public class statsPw : basePW {
     public int powerUpValue;
 
     public void Awake() {
-        slimeHero = FindObjectOfType<slimeScript>();
-        
+        slimeHero = FindObjectOfType<slimeScript>();        
     }
 
     public void Start() {
@@ -20,8 +19,7 @@ public class statsPw : basePW {
         SetPowerUp [ PWTYPE.damangeBuff ] = DmgBuff;
         SetPowerUp [ PWTYPE.delayBuff ] = DelayBuff;
         SetPowerUp [ PWTYPE.bulletsVelocityBuff ] = BulletsVelocityBuff;
-
-
+        SetPowerUp [PWTYPE.poison] = PoisonDebuff;
     }
     public override void PwBehaviour() {
         SetPowerUp [ selectPowerUp ].Invoke();
@@ -36,6 +34,7 @@ public class statsPw : basePW {
     }
     public void Velocity() {
         slimeHero.speed += powerUpValue;
+        slimeHero.pwActive = true;
     }
     public void DmgBuff() {
         slimeHero.addedDmg += powerUpValue;
@@ -49,11 +48,15 @@ public class statsPw : basePW {
         slimeHero.addedSpeed += powerUpValue;
         slimeHero.RefreshBullet();
     }
+    public void PoisonDebuff()
+    {
+        slimeHero.hp -= powerUpValue;
+    }
 }
 
 public enum PWTYPE {
     // bombs,
-    // poison,
+    poison,
     healing,
     coins,
     // slowEnemies,

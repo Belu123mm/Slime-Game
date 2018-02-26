@@ -7,6 +7,7 @@ public class SpineTraps : MonoBehaviour
     public float timeToUp;
     public float timeToDown;
     public bool isUp;
+    public AudioClip metalSound;
 	
 	void Update ()
     {
@@ -16,6 +17,7 @@ public class SpineTraps : MonoBehaviour
         {
             transform.position = new Vector3(this.transform.position.x, .7f, this.transform.position.z);
             timeToUp = 0;
+            AudioMananger.instance.PlayEnemy(metalSound);
             isUp = true;    
         }
 

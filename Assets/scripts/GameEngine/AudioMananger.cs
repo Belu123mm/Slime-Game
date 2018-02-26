@@ -12,10 +12,6 @@ public class AudioMananger : MonoBehaviour
     public AudioMixerGroup walk;
     public AudioMixerGroup hurt;
     public AudioMixerGroup pw;
-    public AudioMixerGroup normalBullet;
-    public AudioMixerGroup bigBullet;
-    public AudioMixerGroup circleBullet;
-    public AudioMixerGroup quickBullet;
     public AudioMixerGroup enemy;
     public AudioMixerGroup enemyHurt;
     public AudioMixerGroup crystalSlime;
@@ -35,7 +31,6 @@ public class AudioMananger : MonoBehaviour
         source.clip = clip;
         source.Play();
     }
-
     public void PlayHurt(AudioClip clip)
     {
         GameObject go = new GameObject("AudioSource");
@@ -52,16 +47,6 @@ public class AudioMananger : MonoBehaviour
         go.transform.parent = transform;
         AudioSource source = go.AddComponent<AudioSource>();
         source.outputAudioMixerGroup = pw;
-        source.loop = false;
-        source.clip = clip;
-        source.Play();
-    }
-    public void PlayNormalBullet(AudioClip clip)
-    {
-        GameObject go = new GameObject("AudioSource");
-        go.transform.parent = transform;
-        AudioSource source = go.AddComponent<AudioSource>();
-        source.outputAudioMixerGroup = normalBullet;
         source.loop = false;
         source.clip = clip;
         source.Play();
@@ -103,36 +88,6 @@ public class AudioMananger : MonoBehaviour
         AudioSource source = go.AddComponent<AudioSource>();
         source.outputAudioMixerGroup = ambient;
         source.loop = true;
-        source.clip = clip;
-        source.Play();
-    }
-    public void PlayBigBullet(AudioClip clip)
-    {
-        GameObject go = new GameObject("AudioSource");
-        go.transform.parent = transform;
-        AudioSource source = go.AddComponent<AudioSource>();
-        source.outputAudioMixerGroup = bigBullet;
-        source.loop = false;
-        source.clip = clip;
-        source.Play();
-    }
-    public void PlayCircleBullet(AudioClip clip)
-    {
-        GameObject go = new GameObject("AudioSource");
-        go.transform.parent = transform;
-        AudioSource source = go.AddComponent<AudioSource>();
-        source.outputAudioMixerGroup = circleBullet;
-        source.loop = false;
-        source.clip = clip;
-        source.Play();
-    }
-    public void PlayQuickBullet(AudioClip clip)
-    {
-        GameObject go = new GameObject("AudioSource");
-        go.transform.parent = transform;
-        AudioSource source = go.AddComponent<AudioSource>();
-        source.outputAudioMixerGroup = quickBullet;
-        source.loop = false;
         source.clip = clip;
         source.Play();
     }

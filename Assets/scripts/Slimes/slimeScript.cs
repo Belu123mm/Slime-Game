@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
-public class slimeScript : Mob {
+public class slimeScript : Mob
+{
     //BALAS 
     //bullets es un diccionario en donde se guardan todos los tipos de balas que hay
     //los GameObject con el sufijo pf son los prefabs de las balas y deben agregarse a este diccionario
@@ -53,6 +54,10 @@ public class slimeScript : Mob {
 
     public GameObject door;
 
+    //Pw 
+    public bool pwActive;
+    public float timerPw;
+
     void Awake()
     {
         currentScene = SceneManager.GetActiveScene();
@@ -63,17 +68,20 @@ public class slimeScript : Mob {
         bullets.Add(BULLETTYPES.quick, quickPf);
         bullets[BULLETTYPES.quick].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.spine, spinePf);
-       // bullets[BULLETTYPES.spine].GetComponent<Circle>().Initialize();
+        //bullets[BULLETTYPES.spine].GetComponent<Circle>().Initialize();
+
     }
+
     void Start()
     {
-        StartLife(1);
+        StartLife(100);
         intLife = 100;
         currentDirection = Vector3.zero;
         ChangeBullet(bulletName);
     }
 
-    public override void Update() {
+    public override void Update()
+    {
         vidaStatic = hp;
         if (lifeText != null)
             lifeText.text = "" + intLife + "/100";
@@ -81,35 +89,45 @@ public class slimeScript : Mob {
         //Timer bullets
         timerBullets += Time.deltaTime;
 
-       if ( Textcoin != null )
+        if (Textcoin != null)
             Textcoin.text = "Coins: " + coins;
 
         string sceneName = currentScene.name;
 
-        if ( hp <= 0 ) {
+        if (hp <= 0)
+        {
             Stadistics.result = "Game Over";
-            if ( sceneName == "1rstLevel" )//Analytics
+            if (sceneName == "1rstLevel")//Analytics
                 Stadistics.Level1();
-            else if ( sceneName == "Lvl2" )
+            else if (sceneName == "Lvl2")
                 Stadistics.Level2();
-            else if ( sceneName == "Challange" )
+            else if (sceneName == "Challange")
                 Stadistics.Challange();
         }
 
         //Camara en distintas escenas
-        if ( sceneName == "1rstLevel" || sceneName == "Lvl2" )
+        if (sceneName == "1rstLevel" || sceneName == "Lvl2")
             Camera.main.transform.position = this.transform.position + new Vector3(0, 25, 0);
-        else if ( sceneName == "Challange" )
+        else if (sceneName == "Challange")
             Camera.main.transform.position = new Vector3(this.transform.position.x, 100, -77.25f);
 
-
         //Movimiento
-        if ( currentDirection != Vector3.zero )
+        if (currentDirection != Vector3.zero)
             this.transform.forward = currentDirection;
         currentDirection = Vector3.zero;
 
-      //  Stadistics.lastPw = currentBulletName;
+        //  Stadistics.lastPw = currentBulletName;
         Stadistics.finalLife = hp;
+
+        if (pwActive)
+        {
+            timerPw += Time.deltaTime;
+            if (timerPw >5)
+            {
+                pwActive = false;
+                timerPw = 0;
+            }
+        }
     }
 
     public void OnApplicationQuit()
@@ -148,7 +166,7 @@ public class slimeScript : Mob {
         if (c.gameObject.tag == "Finish")
             SceneManager.LoadScene("GameOver");
 
-        if(c.gameObject.tag == "Enemigo")
+        if (c.gameObject.tag == "Enemigo")
         {
             hp -= 0.10f;
             intLife -= 10;
@@ -187,10 +205,11 @@ public class slimeScript : Mob {
 
         if (c.gameObject.tag == "Enemigo")
         {
-            hp -= 0.10f;
+            hp -= 10f;
             intLife -= 10;
         }
     }
+
     public void ChangeBullet(BULLETTYPES bulletName)
     {
         tempBullet = bullets[bulletName];
@@ -212,6 +231,7 @@ public class slimeScript : Mob {
         currentBulletScript.discharger = this.gameObject;
         RefreshBullet();
     }
+
     public void RefreshBullet()
     {
         currentBulletScript.delay -= restDelay;

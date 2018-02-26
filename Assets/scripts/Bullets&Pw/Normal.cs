@@ -22,7 +22,6 @@ public class Normal : Bullets {
         Stadistics.totalBullets++;
         //Debug
         Debug.DrawRay(discharger.transform.position, dir, Color.white, 10, false);//BLANCO
-
     }
 
     public Vector3 GetRay() {
@@ -30,12 +29,9 @@ public class Normal : Bullets {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if ( Physics.Raycast(ray, out hit) ) {
-
-      //  print(hit.point );
             return hit.point;
         }
         else
             return Vector3.zero;
     }
-
 }

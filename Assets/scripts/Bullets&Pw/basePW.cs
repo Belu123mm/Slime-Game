@@ -9,6 +9,7 @@ public class basePW : MonoBehaviour {
     //PWBehaviour es el comportamiento del powerup, aqui se declara lo que hace
     public AudioClip pickSound;
     public slimeScript slimeHero;
+    public float timePw;
 
     private void Start() {
         slimeHero = FindObjectOfType<slimeScript>();
@@ -18,7 +19,7 @@ public class basePW : MonoBehaviour {
 
         if ( c.gameObject.tag == "Slime" ) {
             PwBehaviour();
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
     public virtual void PwBehaviour() {

@@ -17,7 +17,11 @@ public class Enemy : Mob {
     public Material currMaterial;
     public int visionRange;
     public slimeScript slimeHero;
-
+    //Coins 
+    public GameObject coin;
+    public float probabilty;
+    //Pw
+  //  public GameObject pw;
 
     public delegate void Dificulty();
     public Dictionary<ENEMYTYPE, Dificulty> SetDificulty = new Dictionary<ENEMYTYPE, Dificulty>();
@@ -51,19 +55,41 @@ public class Enemy : Mob {
     }
     public override void Update() {
         base.Update();
+        if(hp <= 0)
+        {
+            if(probabilty > 65)
+            {
+                GameObject go = Instantiate(coin);
+                go.transform.position = transform.position;
+            }
+          /*  if(probabilty > 85)
+            {
+                GameObject go = Instantiate(pw);
+                go.transform.position = transform.position;
+            }*/
+            Destroy(gameObject);
+            Stadistics.enemiesKilled++;
+        }
     }
     //Velocidad, puntos, vida
     public virtual void SetEasy() {
         currMaterial = enemyMaterial [ 0 ];
         visionRange = 7;
+        probabilty = Random.Range(0, 100);
     }
     public virtual void SetMedium() {
         currMaterial = enemyMaterial [ 1 ];
         visionRange = 10;
+        probabilty = Random.Range(30, 100);
     }
     public virtual void SetHard() {
         currMaterial = enemyMaterial [ 2 ];
         visionRange = 15;
+        probabilty = Random.Range(50, 100);
     }
-    
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bullets"))
+            hp -= 10;
+    }
 }

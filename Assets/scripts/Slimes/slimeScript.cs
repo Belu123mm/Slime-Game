@@ -46,9 +46,6 @@ public class slimeScript : Mob
     //Coin
     public Text Textcoin;
     //Vida 
-    public int intLife;
-    public Text lifeText;
-    public static float vidaStatic;
 
     public Scene currentScene;
 
@@ -75,17 +72,12 @@ public class slimeScript : Mob
     void Start()
     {
         StartLife(100);
-        intLife = 100;
         currentDirection = Vector3.zero;
         ChangeBullet(bulletName);
     }
 
     public override void Update()
     {
-        vidaStatic = hp;
-        if (lifeText != null)
-            lifeText.text = "" + intLife + "/100";
-
         //Timer bullets
         timerBullets += Time.deltaTime;
 
@@ -168,8 +160,7 @@ public class slimeScript : Mob
 
         if (c.gameObject.tag == "Enemigo")
         {
-            hp -= 0.10f;
-            intLife -= 10;
+            hp -= 10;
         }
     }
 
@@ -206,7 +197,6 @@ public class slimeScript : Mob
         if (c.gameObject.tag == "Enemigo")
         {
             hp -= 10f;
-            intLife -= 10;
         }
     }
 

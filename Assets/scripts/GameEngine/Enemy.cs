@@ -21,7 +21,7 @@ public class Enemy : Mob {
     public GameObject coin;
     public float probabilty;
     //Pw
-  //  public GameObject pw;
+    public GameObject pw;
 
     public delegate void Dificulty();
     public Dictionary<ENEMYTYPE, Dificulty> SetDificulty = new Dictionary<ENEMYTYPE, Dificulty>();
@@ -62,11 +62,11 @@ public class Enemy : Mob {
                 GameObject go = Instantiate(coin);
                 go.transform.position = transform.position;
             }
-          /*  if(probabilty > 85)
+            if(probabilty > 85)
             {
                 GameObject go = Instantiate(pw);
                 go.transform.position = transform.position;
-            }*/
+            }
             Destroy(gameObject);
             Stadistics.enemiesKilled++;
         }
@@ -90,6 +90,10 @@ public class Enemy : Mob {
     public override void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullets"))
+        {
             hp -= 10;
+            AudioMananger.instance.PlayEnemyHurt(hurtSound);
+
+        }
     }
 }

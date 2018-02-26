@@ -37,16 +37,19 @@ public class Rabbit : Enemy {
     }
     public override void SetEasy() {
         base.SetEasy();
+        StartLife(30);
         timeToJump = 5;
         speed = 2;
     }
     public override void SetMedium() {
         base.SetMedium();
+        hp = 40;
         timeToJump = 4;
         speed = 3;
     }
     public override void SetHard() {
         base.SetHard();
+        hp = 55;
         timeToJump = 3;
         speed = 4;
     }

@@ -27,16 +27,19 @@ public class Ghost : Enemy {
     public override void SetEasy()
     {
         base.SetEasy();
+        hp = 30;
         speed = 1;
     }
     public override void SetMedium()
     {
         base.SetMedium();
+        hp = 40;
         speed = 2;
     }
     public override void SetHard()
     {
         base.SetHard();
+        hp = 55;
         speed = 3;
     }
 

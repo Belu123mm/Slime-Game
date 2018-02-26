@@ -18,7 +18,7 @@ public class Main : MonoBehaviour
     {
         if (IntensityImage != null)
         {
-            Intensity_Debug = slimeScript.vidaStatic;
+        //    Intensity_Debug = slimeScript.vidaStatic;
             IntensityImage.fillAmount = Intensity_Debug;
         }
     }

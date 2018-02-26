@@ -17,7 +17,7 @@ public class CheckPointMananger : MonoBehaviour
         checkPoints = GameObject.FindGameObjectsWithTag("checkpoint");
         slimeHero = FindObjectOfType<slimeScript>();
 	}
-/*	
+	
  	void Update ()
     {
         //Si la vida del slime es menor o igual a 0 y no colisiono con el checkpoint va a la escena de GO.
@@ -27,19 +27,19 @@ public class CheckPointMananger : MonoBehaviour
         else if (slimeHero.hp <= 0 && count < 3 && CheckpointScript.check)
         {
             count++;
-            slimeScript.vida = 1;
-            slimeScript.textVida = 100;
+            slimeHero.hp = 1;
+            //slimeScript.textVida = 100;
 
             foreach (GameObject cp in checkPoints)
             {
                 if (cp.GetComponent<CheckpointScript>().status == CheckpointScript.state.Active)
-                    slime.transform.position = cp.transform.position;
+                    slimeHero.transform.position = cp.transform.position;
             }
         }
 
-        if (slimeScript.vida <= 0 && count > 3)
+        if (slimeHero.hp <= 0 && count > 3)
             SceneManager.LoadScene("GameOver");
-	}*/
+	}
     
     public void Check(GameObject currentCp)
     {

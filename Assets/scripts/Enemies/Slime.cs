@@ -44,6 +44,7 @@ public class Slime : Enemy {
 
     public override void SetEasy() {
         base.SetEasy();
+        hp = 30;
         sBullet.bulletsCount = 4;
         sBullet.speed = 2;
         sBullet.dmg = 10;
@@ -51,6 +52,7 @@ public class Slime : Enemy {
     }
     public override void SetMedium() {
         base.SetMedium();
+        hp = 40;
         sBullet.bulletsCount = 5;
         sBullet.speed = 3;
         sBullet.dmg = 12;
@@ -58,6 +60,7 @@ public class Slime : Enemy {
     }
     public override void SetHard() {
         base.SetHard();
+        hp = 55 ;
         sBullet.bulletsCount = 6;
         sBullet.speed = 4;
         sBullet.dmg = 15;

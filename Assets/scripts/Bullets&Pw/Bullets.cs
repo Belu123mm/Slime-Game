@@ -32,11 +32,15 @@ public class Bullets : MonoBehaviour {
         {
             Impact();
         }
-        /*if (c.gameObject.layer == LayerMask.NameToLayer("Bat") || c.gameObject.layer == LayerMask.NameToLayer("Ghost") ||
-            c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") || c.gameObject.layer == LayerMask.NameToLayer("Rabbit"))
+        if (c.gameObject.layer == LayerMask.NameToLayer("Bat") || c.gameObject.layer == LayerMask.NameToLayer("Ghost") ||
+             c.gameObject.layer == LayerMask.NameToLayer("Rabbit"))
         {
             Impact();
-        }*/ //Ver esto, porque tambien lo usa el slimeEvil y destruye sus propias balas
+        }
+        if(c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") && discharger.layer != LayerMask.NameToLayer("SlimeEvil") ) {
+            Impact();
+        }
+        
     }
     public void Initialize()
     {

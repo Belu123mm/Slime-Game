@@ -39,6 +39,7 @@ public class Mob : MonoBehaviour {
     }
     public virtual void MeleeDamage(Mob atac, Mob vict)
     {
+        print(atac);
         int newDmg = atac.dmg;
         vict.hp -= newDmg;
         ResetTime();

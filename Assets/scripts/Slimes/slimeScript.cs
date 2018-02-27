@@ -72,8 +72,10 @@ public class slimeScript : Mob
     void Start()
     {
         StartLife(100);
+        if ( hpBar ) {
         ReziseHpBar(100);
         RefreshHpBar();
+        }
         currentDirection = Vector3.zero;
         ChangeBullet(bulletName);
     }
@@ -170,6 +172,8 @@ public class slimeScript : Mob
         }
         if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
+
+        //Verifiqued
         if ( timer > timeToHurt ) {
             if ( c.gameObject.layer == LayerMask.NameToLayer("Bat") ) {
                 {
@@ -195,6 +199,10 @@ public class slimeScript : Mob
                 }
             }
         }
+        if ( c.gameObject.layer == LayerMask.NameToLayer("Winning") ) {
+            SceneManager.LoadScene("Victory");
+        }
+        
     }
     public override void OnTriggerEnter( Collider c ) {
         base.OnTriggerEnter(c);
@@ -213,11 +221,8 @@ public class slimeScript : Mob
                 SceneManager.LoadScene("Final");
             }
         }
-        if ( c.gameObject.tag == "Win" ) {
-            Stadistics.result = "Win";
-            Stadistics.Challange(); ;
-            SceneManager.LoadScene("victoria");
-        }
+
+        //Verifiqued
         if ( c.gameObject.tag == "Coin" ) {
             coins++;
             Textcoin.text = "Coins: " + coins;
@@ -233,6 +238,7 @@ public class slimeScript : Mob
 public void ChangeBullet(BULLETTYPES bulletName)
     {
         tempBullet = bullets[bulletName];
+        print(tempBullet);
         switch (bulletName)
         {
             case BULLETTYPES.normal:

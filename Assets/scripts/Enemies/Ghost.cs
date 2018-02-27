@@ -9,7 +9,6 @@ public class Ghost : Enemy {
     {
         base.Awake();
         rb = this.GetComponent<Rigidbody>();
-        print(Vision());
     }
     public override void Update()
     {
@@ -21,8 +20,8 @@ public class Ghost : Enemy {
     }
     public void Follow()
     {
-        this.transform.forward = -(transform.position + slimeHero.transform.position).normalized;
-        this.transform.position += this.transform.forward * speed / 100;
+        transform.forward = -(transform.position + slimeHero.transform.position).normalized;
+        transform.position += this.transform.forward * speed / 100;
     }
     public override void SetEasy()
     {

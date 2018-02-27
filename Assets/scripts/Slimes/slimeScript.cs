@@ -66,7 +66,6 @@ public class slimeScript : Mob
         bullets[BULLETTYPES.quick].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.spine, spinePf);
         bullets[BULLETTYPES.spine].GetComponent<Circle>().Initialize();
-
     }
 
     void Start()
@@ -91,6 +90,7 @@ public class slimeScript : Mob
 
         if (hp <= 0)
         {
+            print("Che moriste");
             Stadistics.result = "Game Over";
             if (sceneName == "1rstLevel")//Analytics
                 Stadistics.Level1();
@@ -161,28 +161,23 @@ public class slimeScript : Mob
         if ( timer > timeToHurt ) {
             if ( c.gameObject.layer == LayerMask.NameToLayer("Bat") ) {
                 {
-                    print(timer);
                     Bat temp = c.gameObject.GetComponent<Bat>();
                     MeleeDamage(temp, this);
                 }
             }
             if ( c.gameObject.layer == LayerMask.NameToLayer("Ghost") ) {
-                {
-                    print(timer);
-                    Ghost temp = c.gameObject.GetComponent<Ghost>();
+                {                    Ghost temp = c.gameObject.GetComponent<Ghost>();
                     MeleeDamage(temp, this);
                 }
             }
             if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") ) {
                 {
-                    print(timer);
                     Slime temp = c.gameObject.GetComponent<Slime>();
                     MeleeDamage(temp, this);
                 }
             }
             if ( c.gameObject.layer == LayerMask.NameToLayer("Rabbit") ) {
                 {
-                    print(timer);
                     Rabbit temp = c.gameObject.GetComponent<Rabbit>();
                     MeleeDamage(temp, this);
                 }
@@ -213,6 +208,13 @@ public class slimeScript : Mob
         if ( c.gameObject.tag == "Coin" ) {
             coins++;
             Textcoin.text = "Coins: " + coins;
+        }
+        if (c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil"))
+        {
+            {
+                Slime temp = c.gameObject.GetComponent<Slime>();
+                MeleeDamage(temp, this);
+            }
         }
     }
 public void ChangeBullet(BULLETTYPES bulletName)

@@ -11,10 +11,9 @@ public class Circle : Bullets {
     public int bulletsCount;
 
     void Update() {
-        this.transform.position += this.transform.forward * Time.deltaTime * speed;
+        transform.position += transform.forward * Time.deltaTime * speed;
 
         distance = Vector3.Distance(discharger.transform.position, this.transform.position);
-
     }
     public override void DispenseBullets() {
         for ( int i = 0; i < 360; i += 360 / bulletsCount ) {
@@ -24,7 +23,7 @@ public class Circle : Bullets {
             direction.z = Mathf.Sin((i + degrees) * Mathf.Deg2Rad);
 
             this.transform.position = discharger.transform.position + new Vector3(0, 0.5f, 0);
-            GameObject bullets = Instantiate(this.gameObject);
+            GameObject bullets = Instantiate(gameObject);
             bullets.transform.forward = direction;
             Stadistics.totalBullets += bulletsCount;
             //Debug

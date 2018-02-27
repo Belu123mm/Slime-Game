@@ -20,14 +20,10 @@ public class Bullets : MonoBehaviour {
     public float distance;
     public GameObject discharger;
     public Vector3 direction;
-    public AudioClip impactSound, shootSound;
-
-    public virtual void DispenseBullets()
-    {
+    public virtual void DispenseBullets() {
 
     }
-    public void Impact()
-    {
+    public void Impact() {
         Destroy(this.gameObject, 0.1f);
     }
     void OnTriggerEnter(Collider c)
@@ -36,10 +32,11 @@ public class Bullets : MonoBehaviour {
         {
             Impact();
         }
-        if ( c.gameObject.layer == LayerMask.NameToLayer("Enemies") ) {
+        /*if (c.gameObject.layer == LayerMask.NameToLayer("Bat") || c.gameObject.layer == LayerMask.NameToLayer("Ghost") ||
+            c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") || c.gameObject.layer == LayerMask.NameToLayer("Rabbit"))
+        {
             Impact();
-        }
-
+        }*/ //Ver esto, porque tambien lo usa el slimeEvil y destruye sus propias balas
     }
     public void Initialize()
     {

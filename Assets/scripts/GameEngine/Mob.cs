@@ -31,7 +31,6 @@ public class Mob : MonoBehaviour {
     }
     public virtual void OnTriggerEnter(Collider c)
     {
-
         if (c.gameObject.layer == LayerMask.NameToLayer("Bullets"))
         {
             bInstance = c.gameObject.GetComponent<Bullets>();

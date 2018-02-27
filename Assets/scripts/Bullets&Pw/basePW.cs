@@ -13,7 +13,6 @@ public class basePW : MonoBehaviour {
 
     private void Start() {
         slimeHero = FindObjectOfType<slimeScript>();
-        print(slimeHero);
     }
     public virtual void OnTriggerEnter( Collider c ) {
 

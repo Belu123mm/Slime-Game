@@ -15,7 +15,6 @@ public class AudioMananger : MonoBehaviour
     public AudioMixerGroup enemy;
     public AudioMixerGroup enemyHurt;
     public AudioMixerGroup crystalSlime;
-    public AudioMixerGroup ambient;
 
     private void Awake()
     {
@@ -78,16 +77,6 @@ public class AudioMananger : MonoBehaviour
         AudioSource source = go.AddComponent<AudioSource>();
         source.outputAudioMixerGroup = crystalSlime;
         source.loop = false;
-        source.clip = clip;
-        source.Play();
-    }
-    public void PlayAmbient(AudioClip clip)
-    {
-        GameObject go = new GameObject("AudioSource");
-        go.transform.parent = transform;
-        AudioSource source = go.AddComponent<AudioSource>();
-        source.outputAudioMixerGroup = ambient;
-        source.loop = true;
         source.clip = clip;
         source.Play();
     }

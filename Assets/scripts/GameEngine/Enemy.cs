@@ -47,7 +47,6 @@ public class Enemy : Mob {
         SetDificulty [ ENEMYTYPE.Hard ] = SetHard;
 
         slimeHero = FindObjectOfType<slimeScript>();
-
     }
     public virtual void Start() {
         SetDificulty [ eType ].Invoke();
@@ -65,6 +64,8 @@ public class Enemy : Mob {
         }
         Destroy(gameObject);
         Stadistics.enemiesKilled++;
+        Bat.cMurio = true;
+        Ghost2.cMurio = true;
 
     }
     //Velocidad, puntos, vida

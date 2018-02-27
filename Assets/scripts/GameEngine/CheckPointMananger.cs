@@ -9,7 +9,7 @@ public class CheckPointMananger : MonoBehaviour
 
     public GameObject[] checkPoints;
 
-    public int count;
+    public int count ;
 
 	void Start ()
     {
@@ -28,12 +28,10 @@ public class CheckPointMananger : MonoBehaviour
         {
             count++;
             slimeHero.hp = 1;
-            //slimeScript.textVida = 100;
-
             foreach (GameObject cp in checkPoints)
             {
                 if (cp.GetComponent<CheckpointScript>().status == CheckpointScript.state.Active)
-                    slimeHero.transform.position = cp.transform.position;
+                    slimeHero.transform.position = cp.transform.position;                    
             }
         }
 

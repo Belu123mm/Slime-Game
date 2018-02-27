@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4194060095798682}
   - component: {fileID: 95815912614712134}
   - component: {fileID: 65950277523385686}
-  - component: {fileID: 114342451279003126}
+  - component: {fileID: 114463320623671590}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -130,7 +130,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114342451279003126
+--- !u!114 &114463320623671590
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,9 +138,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1591440030665140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce8b2c4490cd16429cfb551db74eef4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cb7f3e8c199400428195710678e6452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickSound: {fileID: 0}
+  slimeHero: {fileID: 0}
+  timePw: 0
+  selectPowerUp: 3
+  powerUpValue: 1
 --- !u!137 &137262540085422730
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

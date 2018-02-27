@@ -1021,7 +1021,7 @@ MonoBehaviour:
   pickSound: {fileID: 8300000, guid: 04c09266831bab24db1e1ac37135da4a, type: 3}
   slimeHero: {fileID: 0}
   timePw: 0
-  selectPowerUp: 2
+  selectPowerUp: 3
   powerUpValue: 10
 --- !u!137 &137065324506068250
 SkinnedMeshRenderer:

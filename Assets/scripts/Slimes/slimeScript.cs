@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
+using TMPro;
 public class slimeScript : Mob
 {
     //BALAS 
@@ -44,8 +45,7 @@ public class slimeScript : Mob
     public finishCrystal finish;
     //Bullets
     //Coin
-    public Text Textcoin;
-
+    public TextMeshProUGUI Textcoin;
     public Scene currentScene;
 
     public GameObject door;
@@ -85,7 +85,7 @@ public class slimeScript : Mob
         timerBullets += Time.deltaTime;
 
         if (Textcoin != null)
-            Textcoin.text = "Coins: " + coins;
+            Textcoin.text =  coins + "";
 
         string sceneName = currentScene.name;
 

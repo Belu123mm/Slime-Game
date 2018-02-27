@@ -16,7 +16,8 @@ public class basePW : MonoBehaviour {
     }
     public virtual void OnTriggerEnter( Collider c ) {
 
-        if ( c.gameObject.tag == "Slime" ) {
+        if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeHero" ) ){
+            print("collider");
             AudioMananger.instance.PlayPw(pickSound);
             PwBehaviour();
             Destroy(gameObject);

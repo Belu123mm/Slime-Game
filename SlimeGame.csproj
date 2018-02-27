@@ -86,6 +86,8 @@
     <Compile Include="Assets\Art\ProtoPack\Scripts\PlayerJumpTest.cs" />
     <Compile Include="Assets\Art\ProtoPack\Scripts\RotateScript.cs" />
     <Compile Include="Assets\Art\ProtoPack\Scripts\SlimeMoveTest.cs" />
+    <Compile Include="Assets\Bomb.cs" />
+    <Compile Include="Assets\Ghost2.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />

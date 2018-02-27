@@ -12,7 +12,7 @@ public class catScript : MonoBehaviour {
     public float speed;
     public float maxSpeed;
     public Collider c;
-    public GameObject pinkSlime;
+    public slimeScript pinkSlime;
     public Vector3 dir;
     public Animator cat;
 
@@ -53,6 +53,7 @@ public class catScript : MonoBehaviour {
         {
             AudioMananger.instance.PlayCrystalSlime(meow);
             catchSlime = true;
+            pinkSlime.cat = true;
         }
     }
 }

@@ -40,12 +40,11 @@ public class slimeScript : Mob
     public Vector3 forward;
     //Scripts
     public crystalScript crystal;
-    public catScript cat;
+    public bool cat;
     public finishCrystal finish;
     //Bullets
     //Coin
     public Text Textcoin;
-    //Vida 
 
     public Scene currentScene;
 
@@ -54,6 +53,8 @@ public class slimeScript : Mob
     //Pw 
     public bool pwActive;
     public float timerPw;
+    public bool bomb;
+    public GameObject bombPF;
 
     void Awake()
     {
@@ -121,6 +122,8 @@ public class slimeScript : Mob
             {
                 pwActive = false;
                 timerPw = 0;
+                speed -= addedSpeed;
+                dmg -= addedDmg;
             }
         }
     }
@@ -142,6 +145,15 @@ public class slimeScript : Mob
         {
             currentBulletScript.DispenseBullets();
             timerBullets = 0;
+        }
+    }
+    public void Bomb()
+    {
+        if (bomb) {
+            if (bulletsDelay < timerBullets) {
+                GameObject go = Instantiate(bombPF);
+                go.transform.position = transform.position;
+            }
         }
     }
 
@@ -187,17 +199,18 @@ public class slimeScript : Mob
     public override void OnTriggerEnter( Collider c ) {
         base.OnTriggerEnter(c);
 
-        if ( c.gameObject.tag == "Lvl2" ) {
+        if ( c.gameObject.tag == "Lvl2" && cat) {
             string sceneName = currentScene.name;
-            if ( sceneName == "1rstLevel" ) {
-                Stadistics.result = "Continue";
-                Stadistics.Level1();
-                SceneManager.LoadScene("Lvl2");
+            if ( sceneName == "Level1") {
+                print("Change scene");
+              //  Stadistics.result = "Continue";
+               // Stadistics.Level1();
+                SceneManager.LoadScene("Level2");
             }
             if ( sceneName == "Lvl2" ) {
                 Stadistics.result = "Continue";
                 Stadistics.Level1();
-                SceneManager.LoadScene("Challange");
+                SceneManager.LoadScene("Final");
             }
         }
         if ( c.gameObject.tag == "Win" ) {

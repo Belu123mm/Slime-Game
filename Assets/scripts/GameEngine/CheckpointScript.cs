@@ -10,6 +10,7 @@ public class CheckpointScript : MonoBehaviour
 
     public CheckPointMananger cp;
     public static bool check;
+    public bool aa;
     public AudioClip cpSound;
 
     public float degreesPerSecond = 15;
@@ -27,8 +28,9 @@ public class CheckpointScript : MonoBehaviour
     {
         if (c.gameObject.tag == "Slime")
         {
-            if(!check)
+            if(!aa)
                 AudioMananger.instance.PlayPw(cpSound);
+            aa = true;
             check = true;
             cp.Check(this.gameObject);
             ChangeColor();

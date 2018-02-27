@@ -20,6 +20,8 @@ public class statsPw : basePW {
         SetPowerUp [ PWTYPE.delayBuff ] = DelayBuff;
         SetPowerUp [ PWTYPE.bulletsVelocityBuff ] = BulletsVelocityBuff;
         SetPowerUp [PWTYPE.poison] = PoisonDebuff;
+        SetPowerUp[PWTYPE.bomb] = Bomb;
+
     }
     public override void PwBehaviour() {
         SetPowerUp [ selectPowerUp ].Invoke();
@@ -35,11 +37,14 @@ public class statsPw : basePW {
     }
     public void Velocity() {
         slimeHero.speed += powerUpValue;
+        slimeHero.addedSpeed += powerUpValue;
         slimeHero.pwActive = true;
     }
     public void DmgBuff() {
-        slimeHero.addedDmg += powerUpValue;
+        slimeHero.dmg += powerUpValue;
         slimeHero.RefreshBullet();
+        slimeHero.addedDmg += powerUpValue;
+        slimeHero.pwActive = true;
     }
     public void DelayBuff() {
         slimeHero.restDelay += (powerUpValue / 10);
@@ -53,10 +58,14 @@ public class statsPw : basePW {
     {
         slimeHero.hp -= powerUpValue;
     }
+    public void Bomb()
+    {
+        slimeHero.bomb = true;
+    }
 }
 
 public enum PWTYPE {
-    // bombs,
+    bomb,
     poison,
     healing,
     coins,

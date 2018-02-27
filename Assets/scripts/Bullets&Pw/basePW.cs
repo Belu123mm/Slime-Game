@@ -17,8 +17,9 @@ public class basePW : MonoBehaviour {
     public virtual void OnTriggerEnter( Collider c ) {
 
         if ( c.gameObject.tag == "Slime" ) {
+            AudioMananger.instance.PlayPw(pickSound);
             PwBehaviour();
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
     public virtual void PwBehaviour() {

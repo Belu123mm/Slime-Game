@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; //Acordate de esto
+using TMPro;
 
 public class Console : MonoBehaviour
 {
@@ -16,9 +17,9 @@ public class Console : MonoBehaviour
     public FunctionPrototype functionPrototype;
     public Dictionary<string, FunctionPrototype> allCommands = new Dictionary<string, FunctionPrototype>();
 
-       public Text backgroundText;
-       public InputField inputText;
-       public Scrollbar scrollball;
+    public TextMeshProUGUI backgroundText;
+    public TMP_InputField inputText;
+    public Scrollbar scrollball;
 
     public KeyCode keyForOpenCloseConsole;
 
@@ -27,7 +28,7 @@ public class Console : MonoBehaviour
     {
 
         functionPrototype = Start;
-        consoleContent = this.transform.FindChild("content").gameObject;
+        consoleContent = this.transform.FindChild("Panel").gameObject;
 
         //Registro de comandos
         RegisterCommand("test with return", testConsoleWithReturn);
@@ -54,6 +55,7 @@ public class Console : MonoBehaviour
                 allCommands[inputText.text].Invoke();
             else
                 WriteInConsole("This command doesn't exist");
+            ClearInputField();
         }
     }
 
@@ -62,7 +64,10 @@ public class Console : MonoBehaviour
     {
         allCommands[name] = command;
     }
-
+    //Clear console
+    public void ClearInputField() {
+        inputText.text = "";
+    }
     //Devolucion
     public void WriteInConsole(string txt)
     {
@@ -112,7 +117,6 @@ public class Console : MonoBehaviour
     {
         FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.spine;
         WriteInConsole("bullet set to circle");
-
     }
 
 }

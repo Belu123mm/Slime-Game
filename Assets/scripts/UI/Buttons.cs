@@ -10,31 +10,32 @@ public class Buttons : MonoBehaviour {
     public TMP_Dropdown resolutionDropdown;
     void Start()
     {
+        if ( resolutionDropdown ) {
+            resolutionDropdown.ClearOptions();
+            resolutions = Screen.resolutions;
 
-        resolutionDropdown.ClearOptions();
-        resolutions = Screen.resolutions;
+            List<string> options = new List<string>();
 
-        List<string> options = new List<string>();
+            int currentResolutionIndex = 0;
 
-        int currentResolutionIndex = 0;
+            for ( int i = 0; i < resolutions.Length; i++ ) {
 
-        for ( int i = 0; i < resolutions.Length; i++ ) {
+                string option = resolutions [ i ].width + "x" + resolutions [ i ].height;
 
-            string option = resolutions [ i ].width + "x" + resolutions [ i ].height;
+                if ( !options.Contains(option) ) {
+                    options.Add(option);
 
-            if ( !options.Contains(option) ) {
-            options.Add(option);                  
+                }
 
+                if ( resolutions [ i ].width == Screen.currentResolution.width && resolutions [ i ].height == Screen.currentResolution.height ) {
+                    currentResolutionIndex = i;
+                }
             }
 
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions [ i ].height == Screen.currentResolution.height ) {
-                currentResolutionIndex = i;
-            } 
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.value = currentResolutionIndex;
+            resolutionDropdown.RefreshShownValue();
         }
-
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
     } 
 
     public void Menu()

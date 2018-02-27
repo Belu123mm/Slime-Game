@@ -33,7 +33,7 @@ public class slimeScript : Mob
     public float restDelay;
     public float timerBullets;
     public float bulletsDelay;
-
+    public Slider hpBar;
     //Vectores
     public int coins;
     public Vector3 currentDirection;
@@ -65,19 +65,22 @@ public class slimeScript : Mob
         bullets.Add(BULLETTYPES.quick, quickPf);
         bullets[BULLETTYPES.quick].GetComponent<Normal>().Initialize();
         bullets.Add(BULLETTYPES.spine, spinePf);
-        //bullets[BULLETTYPES.spine].GetComponent<Circle>().Initialize();
+        bullets[BULLETTYPES.spine].GetComponent<Circle>().Initialize();
 
     }
 
     void Start()
     {
         StartLife(100);
+        ReziseHpBar(100);
+        RefreshHpBar();
         currentDirection = Vector3.zero;
         ChangeBullet(bulletName);
     }
 
     public override void Update()
     {
+        base.Update();
         //Timer bullets
         timerBullets += Time.deltaTime;
 
@@ -142,65 +145,77 @@ public class slimeScript : Mob
         }
     }
 
-    public override void OnCollisionEnter(Collision c)
-    {
+    public override void OnCollisionEnter( Collision c ) {
         base.OnCollisionEnter(c);
-        if (c.gameObject.tag == "Cat")//Chequea esto
+        if ( c.gameObject.tag == "Cat" )//Chequea esto
         {
             GameObject go = Instantiate(door);
             go.transform.position = new Vector3(135, 2.28f, 62);
         }
-        if (c.gameObject.tag == "Crystal")
-        {
+        if ( c.gameObject.tag == "Crystal" ) {
             GameObject go = Instantiate(door);
             go.transform.position = new Vector3(270, 2.28f, -338);
         }
-        if (c.gameObject.tag == "Finish")
+        if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
-
-        if (c.gameObject.tag == "Enemigo")
-        {
-            hp -= 10;
+        if ( timer > timeToHurt ) {
+            if ( c.gameObject.layer == LayerMask.NameToLayer("Bat") ) {
+                {
+                    print(timer);
+                    Bat temp = c.gameObject.GetComponent<Bat>();
+                    MeleeDamage(temp, this);
+                }
+            }
+            if ( c.gameObject.layer == LayerMask.NameToLayer("Ghost") ) {
+                {
+                    print(timer);
+                    Ghost temp = c.gameObject.GetComponent<Ghost>();
+                    MeleeDamage(temp, this);
+                }
+            }
+            if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") ) {
+                {
+                    print(timer);
+                    Slime temp = c.gameObject.GetComponent<Slime>();
+                    MeleeDamage(temp, this);
+                }
+            }
+            if ( c.gameObject.layer == LayerMask.NameToLayer("Rabbit") ) {
+                {
+                    print(timer);
+                    Rabbit temp = c.gameObject.GetComponent<Rabbit>();
+                    MeleeDamage(temp, this);
+                }
+            }
         }
     }
+    public override void OnTriggerEnter( Collider c ) {
+        base.OnTriggerEnter(c);
 
-    public override void OnTriggerEnter(Collider c)
-    {
-        if (c.gameObject.tag == "Lvl2")
-        {
+        if ( c.gameObject.tag == "Lvl2" ) {
             string sceneName = currentScene.name;
-            if (sceneName == "1rstLevel")
-            {
+            if ( sceneName == "1rstLevel" ) {
                 Stadistics.result = "Continue";
                 Stadistics.Level1();
                 SceneManager.LoadScene("Lvl2");
             }
-            if (sceneName == "Lvl2")
-            {
+            if ( sceneName == "Lvl2" ) {
                 Stadistics.result = "Continue";
                 Stadistics.Level1();
                 SceneManager.LoadScene("Challange");
             }
         }
-        if (c.gameObject.tag == "Win")
-        {
+        if ( c.gameObject.tag == "Win" ) {
             Stadistics.result = "Win";
             Stadistics.Challange(); ;
             SceneManager.LoadScene("victoria");
         }
-        if (c.gameObject.tag == "Coin")
-        {
+        if ( c.gameObject.tag == "Coin" ) {
             coins++;
             Textcoin.text = "Coins: " + coins;
         }
-
-        if (c.gameObject.tag == "Enemigo")
-        {
-            hp -= 10f;
-        }
     }
-
-    public void ChangeBullet(BULLETTYPES bulletName)
+public void ChangeBullet(BULLETTYPES bulletName)
     {
         tempBullet = bullets[bulletName];
         switch (bulletName)
@@ -228,6 +243,24 @@ public class slimeScript : Mob
         currentBulletScript.dmg += addedDmg;
         currentBulletScript.speed += addedSpeed;
         bulletsDelay = currentBulletScript.delay;
+    }
+    public override void Death() {
+        base.Death();
+        //Cambio de escena
+    }
+    public override void MeleeDamage( Mob atac, Mob vict ) {
+        base.MeleeDamage(atac, vict);
+        RefreshHpBar();
+    }
+    public override void RangeDamage( Bullets atac, Mob vict ) {
+        base.RangeDamage(atac, vict);
+        RefreshHpBar();
+    }
+    public void RefreshHpBar() {
+        hpBar.value = hp;
+    }
+    public void ReziseHpBar(int value) {
+        hpBar.maxValue = value;
     }
 }
 

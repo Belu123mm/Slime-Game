@@ -8,11 +8,11 @@ public class Mob : MonoBehaviour {
     //Tiene las funciones de colision entre melees y balas. 
     //Estas funciones se colocan SOLO en la victima, como por ejemplo en el slimeHero o el enemigo
     //El tiempo se debe reiniciar cada vez que hay daño. 
- //   [HideInInspector]
+    //   [HideInInspector]
     public float hp;
     public int dmg,
                speed;
-    private int timeToHurt = 1;
+    public int timeToHurt;
     public float timer;
     public AudioClip hurtSound,
                      idleSound;
@@ -21,15 +21,13 @@ public class Mob : MonoBehaviour {
 
     public virtual void Update()
     {
+        timeToHurt = 2;
         timer += 1 * Time.deltaTime;
-    }
-    public virtual void OnCollisionEnter(Collision c)
-    {
-        if (c.gameObject.layer == LayerMask.NameToLayer("Mob") && timer > timeToHurt)
-        {
-            mInstance = c.gameObject.GetComponent<Mob>();
-            MeleeDamage(mInstance, this);
+        if (hp <= 0 ) {
+            Death();
         }
+    }
+    public virtual void OnCollisionEnter( Collision c ) {
     }
     public virtual void OnTriggerEnter(Collider c)
     {
@@ -40,17 +38,16 @@ public class Mob : MonoBehaviour {
             RangeDamage(bInstance, this);
         }
     }
-    public void MeleeDamage(Mob atac, Mob vict)
+    public virtual void MeleeDamage(Mob atac, Mob vict)
     {
         int newDmg = atac.dmg;
         vict.hp -= newDmg;
         ResetTime();
     }
-    public void RangeDamage(Bullets atac, Mob vict)
+    public virtual void RangeDamage(Bullets atac, Mob vict)
     {
         int newDmg = atac.dmg;
         vict.hp -= newDmg;
-        ResetTime();
     }
     public void ResetTime()
     {
@@ -62,6 +59,9 @@ public class Mob : MonoBehaviour {
     }
     public void Healing(int qt)
     {
-        hp -= qt;
+        hp += qt;
+    }
+    public virtual void Death() {
+
     }
 }

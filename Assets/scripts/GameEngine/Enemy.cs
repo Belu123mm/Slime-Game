@@ -53,23 +53,19 @@ public class Enemy : Mob {
         SetDificulty [ eType ].Invoke();
         model.GetComponent<Renderer>().material = currMaterial;//En start esto no anda :V es raro, check it
     }
-    public override void Update() {
-        base.Update();
-        if(hp <= 0)
-        {
-            if(probabilty > 65)
-            {
-                GameObject go = Instantiate(coin);
-                go.transform.position = transform.position;
-            }
-            if(probabilty > 85)
-            {
-                GameObject go = Instantiate(pw);
-                go.transform.position = transform.position;
-            }
-            Destroy(gameObject);
-            Stadistics.enemiesKilled++;
+    public override void Death() {
+        base.Death();
+        if ( probabilty > 65 ) {
+            GameObject go = Instantiate(coin);
+            go.transform.position = transform.position;
         }
+        if ( probabilty > 85 ) {
+            GameObject go = Instantiate(pw);
+            go.transform.position = transform.position;
+        }
+        Destroy(gameObject);
+        Stadistics.enemiesKilled++;
+
     }
     //Velocidad, puntos, vida
     public virtual void SetEasy() {
@@ -86,14 +82,5 @@ public class Enemy : Mob {
         currMaterial = enemyMaterial [ 2 ];
         visionRange = 15;
         probabilty = Random.Range(50, 100);
-    }
-    public override void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Bullets"))
-        {
-            hp -= 10;
-            AudioMananger.instance.PlayEnemyHurt(hurtSound);
-
-        }
     }
 }

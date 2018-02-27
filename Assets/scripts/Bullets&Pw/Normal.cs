@@ -25,7 +25,7 @@ public class Normal : Bullets {
     }
 
     public Vector3 GetRay() {
-        cam = FindObjectOfType<Main>().GetComponent<Camera>();
+        cam = FindObjectOfType<CreditosScript>().GetComponent<Camera>();
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if ( Physics.Raycast(ray, out hit) ) {

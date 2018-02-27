@@ -36,6 +36,10 @@ public class Bullets : MonoBehaviour {
         {
             Impact();
         }
+        if ( c.gameObject.layer == LayerMask.NameToLayer("Enemies") ) {
+            Impact();
+        }
+
     }
     public void Initialize()
     {

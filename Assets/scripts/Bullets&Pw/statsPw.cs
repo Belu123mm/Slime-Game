@@ -28,6 +28,7 @@ public class statsPw : basePW {
 
     public void Healing() {
         slimeHero.Healing(powerUpValue);
+        slimeHero.RefreshHpBar();
     }
     public void Coins() {
         slimeHero.coins += powerUpValue;

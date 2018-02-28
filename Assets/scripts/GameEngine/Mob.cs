@@ -29,18 +29,22 @@ public class Mob : MonoBehaviour {
     }
     public virtual void OnCollisionEnter( Collision c ) {
     }
-    public virtual void OnTriggerEnter(Collider c)
-    {
-        if (c.gameObject.layer == LayerMask.NameToLayer("Bullets"))
-        {
-            bInstance = c.gameObject.GetComponent<Bullets>();
-            RangeDamage(bInstance, this);
+    public virtual void OnTriggerEnter( Collider c ) {
+        if ( c.gameObject.layer == LayerMask.NameToLayer("Bullets") ) {
+            if ( this.gameObject.layer != LayerMask.NameToLayer("SlimeEvil") ) {
+                bInstance = c.gameObject.GetComponent<Bullets>();
+                RangeDamage(bInstance, this);
+            } else if (c.gameObject.GetComponent<Bullets>().discharger.layer == LayerMask.NameToLayer("SlimeHero") ) {
+                bInstance = c.gameObject.GetComponent<Bullets>();
+                RangeDamage(bInstance, this);
+            }
         }
     }
+    
     public virtual void MeleeDamage(Mob atac, Mob vict)
     {
-        print(atac);
         int newDmg = atac.dmg;
+        print(atac.dmg);
         vict.hp -= newDmg;
         ResetTime();
     }

@@ -40,7 +40,11 @@ public class Bullets : MonoBehaviour {
         if(c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") && discharger.layer != LayerMask.NameToLayer("SlimeEvil") ) {
             Impact();
         }
-        
+        if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeHero") && discharger.layer != LayerMask.NameToLayer("SlimeHero") ) {
+            Impact();
+        }
+
+
     }
     public void Initialize()
     {

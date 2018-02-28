@@ -12,8 +12,11 @@ public class Circle : Bullets {
 
     void Update() {
         transform.position += transform.forward * Time.deltaTime * speed;
-
+        if ( discharger ) {
         distance = Vector3.Distance(discharger.transform.position, this.transform.position);
+        }else {
+            Destroy(this.gameObject);
+        }
     }
     public override void DispenseBullets() {
         for ( int i = 0; i < 360; i += 360 / bulletsCount ) {

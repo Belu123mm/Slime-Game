@@ -27,6 +27,7 @@ public class Rabbit : Enemy {
         }
     }
     public void Jump() {
+        this.transform.forward = SetDirection();
         rb.AddForce((SetDirection() + this.transform.up)* speed, ForceMode.Impulse);
         ResetTime();
     }

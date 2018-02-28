@@ -182,7 +182,7 @@ public class slimeScript : Mob
                 }
             }
             if ( c.gameObject.layer == LayerMask.NameToLayer("Ghost") ) {
-                {                    Ghost temp = c.gameObject.GetComponent<Ghost>();
+                    Ghost temp = c.gameObject.GetComponent<Ghost>();
                     MeleeDamage(temp, this);
                 }
             }
@@ -198,7 +198,7 @@ public class slimeScript : Mob
                     MeleeDamage(temp, this);
                 }
             }
-        }
+        
         if ( c.gameObject.layer == LayerMask.NameToLayer("Winning") ) {
             SceneManager.LoadScene("Victory");
         }
@@ -234,8 +234,14 @@ public class slimeScript : Mob
                 MeleeDamage(temp, this);
             }
         }
+        if ( c.gameObject.layer == LayerMask.NameToLayer("EvilBullets") ) {
+            print("bulleted");
+            var bInstance = c.gameObject.GetComponent<Bullets>();
+            RangeDamage(bInstance, this);
+        }
+
     }
-public void ChangeBullet(BULLETTYPES bulletName)
+    public void ChangeBullet(BULLETTYPES bulletName)
     {
         tempBullet = bullets[bulletName];
         print(tempBullet);

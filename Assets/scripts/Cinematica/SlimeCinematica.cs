@@ -8,6 +8,7 @@ public class SlimeCinematica : MonoBehaviour
     public float timer;
     public float otherTimer;
     public static bool scream;
+    public static bool yay;
     public bool move;
     public Vector3 dir;
     public GameObject target;
@@ -40,6 +41,18 @@ public class SlimeCinematica : MonoBehaviour
                 }
             }
         }
+
+        if (yay)
+        {
+            timer += Time.deltaTime;
+
+            if (timer > 0.5f)
+            {
+                timer = -15;
+                AudioMananger.instance.PlayCrystalSlime(cristal);
+                AudioMananger.instance.PlayHurt(cat);
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -47,6 +60,11 @@ public class SlimeCinematica : MonoBehaviour
         {
             speed = 0;
             scream = true;
+        }
+        if (other.gameObject.tag == "Yay")
+        {
+            speed = 0;
+            yay = true;
         }
     }
 }

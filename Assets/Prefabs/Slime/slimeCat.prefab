@@ -193,6 +193,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4530979382903712}
   - component: {fileID: 95670197650054890}
+  - component: {fileID: 136396491945671640}
+  - component: {fileID: 114134094909254262}
   m_Layer: 0
   m_Name: slimeCat
   m_TagString: Untagged
@@ -580,8 +582,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486627317612102}
-  m_LocalRotation: {x: -0, y: 0.38742864, z: -0, w: 0.92189974}
-  m_LocalPosition: {x: -13.58, y: 5.08, z: -58.34}
+  m_LocalRotation: {x: -0, y: 0.38742858, z: -0, w: 0.9218998}
+  m_LocalPosition: {x: 176.8, y: -0.0000004172325, z: -50.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4430042675886080}
@@ -1027,3 +1029,39 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114134094909254262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486627317612102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543b299b2612a9c42be8c27d2660e0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catchSlime: 0
+  distanceForMinSpeed: 3
+  distanceForMaxSpeed: 6
+  distance: 0
+  variable: 0
+  speed: 0
+  maxSpeed: 20
+  c: {fileID: 136396491945671640}
+  pinkSlime: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  cat: {fileID: 0}
+  meow: {fileID: 8300000, guid: da5ed7e377586944f9982d45e1bfb3c2, type: 3}
+--- !u!136 &136396491945671640
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486627317612102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7312108
+  m_Height: 1.8304046
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.53, z: 0}

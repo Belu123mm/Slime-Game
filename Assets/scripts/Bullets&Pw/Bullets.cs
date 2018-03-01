@@ -44,6 +44,13 @@ public class Bullets : MonoBehaviour {
             Impact();
         }
     }
+    private void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.layer == LayerMask.NameToLayer("Level"))
+        {
+            Impact();
+        }
+    }
     public void Initialize()
     {
         baseSpeed = speed;

@@ -38,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1988598041613288}
-  m_LocalRotation: {x: 0, y: 0.72932774, z: 0, w: 0.6841645}
-  m_LocalPosition: {x: -9.34, y: 1.0601864, z: -0.7}
+  m_LocalRotation: {x: 0, y: 0.8426781, z: 0, w: 0.5384177}
+  m_LocalPosition: {x: 218.83916, y: 0.59160614, z: -142.09091}
   m_LocalScale: {x: 0.4911191, y: 0.49111906, z: 0.49111906}
   m_Children: []
   m_Father: {fileID: 0}
@@ -195,7 +195,7 @@ MonoBehaviour:
   distance: 0
   discharger: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
-  mouseRay: {x: 7.827301, y: -0.000022888184, z: -1.7981644}
+  mouseRay: {x: 233.0429, y: -0.46860313, z: -148.66841}
 --- !u!135 &135389252209673178
 SphereCollider:
   m_ObjectHideFlags: 1

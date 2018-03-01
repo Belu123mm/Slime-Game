@@ -142,7 +142,6 @@ GameObject:
   - component: {fileID: 4578864217598112}
   - component: {fileID: 95274670949115642}
   - component: {fileID: 65729650740780836}
-  - component: {fileID: 114086704679541500}
   - component: {fileID: 114293863530444600}
   - component: {fileID: 195186036817134098}
   m_Layer: 15
@@ -313,8 +312,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1841990519762652}
-  m_LocalRotation: {x: -0, y: -0.13052595, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 189.49, y: -11.848423, z: -31.12}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 59.411736, y: -1.3318357, z: -21.589293}
   m_LocalScale: {x: 78.4372, y: 91.9112, z: 91.9112}
   m_Children:
   - {fileID: 4287938241290672}
@@ -393,37 +392,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114086704679541500
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1841990519762652}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a9159a398ce4d459bf8316209405e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  dmg: 5
-  speed: 0
-  timeToHurt: 0
-  timer: 0
-  hurtSound: {fileID: 8300000, guid: fb390ab81f50adb40a55d95b72153a0b, type: 3}
-  idleSound: {fileID: 8300000, guid: 851e19b6f12a351468ff4babdb0db37f, type: 3}
-  model: {fileID: 1223484909038606}
-  eType: 1
-  enemyMaterial:
-  - {fileID: 2100000, guid: 8ca6e05dbd837934f99670a720b9f274, type: 2}
-  - {fileID: 2100000, guid: f536530fca80ebc44a81197475546608, type: 2}
-  - {fileID: 2100000, guid: a8e9bbd57f4c67d4eb2b6847a9c5c669, type: 2}
-  currMaterial: {fileID: 0}
-  visionRange: 0
-  slimeHero: {fileID: 0}
-  coin: {fileID: 1962402235409564, guid: 8c6f1c370a9fc2a4b92e55d802dfd704, type: 2}
-  probabilty: 0
-  pw: {fileID: 1320377744744512, guid: 68d46a09ccfa338429e8b79861508073, type: 2}
-  rb: {fileID: 0}
 --- !u!114 &114293863530444600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -456,6 +424,7 @@ MonoBehaviour:
   pw: {fileID: 1856223184979412, guid: ff1bec9c530100841bca708b55635db3, type: 2}
   pointsGroup: {fileID: 0}
   point: []
+  attack: 0
   distance: 0
 --- !u!137 &137064496022677988
 SkinnedMeshRenderer:

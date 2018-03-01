@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 54953709748317670}
   - component: {fileID: 108287566891032052}
   - component: {fileID: 114762958105104036}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: circleBulletPU
-  m_TagString: BulletCircular
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4281733608068464}
   - component: {fileID: 33250777847658982}
   - component: {fileID: 23544255769183926}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Pyramid001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

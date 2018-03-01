@@ -11,7 +11,7 @@ public class Stadistics : MonoBehaviour {
     }
     public static void Level1() {
         aim = totalImpacts / totalBullets;
-        Analytics.CustomEvent("Level 1", new Dictionary<string,object>{
+        Analytics.CustomEvent("Level1", new Dictionary<string,object>{
             { "Total Bullets", totalBullets},
             { "Total Impacts", totalImpacts},
             { "AIM", aim},
@@ -24,7 +24,7 @@ public class Stadistics : MonoBehaviour {
     }
     public static void Level2() {
         aim = totalImpacts / totalBullets;
-        Analytics.CustomEvent("Level 2", new Dictionary<string, object>{
+        Analytics.CustomEvent("Level2", new Dictionary<string, object>{
             { "Total Bullets", totalBullets},
             { "Total Impacts", totalImpacts},
             { "AIM", aim},
@@ -37,7 +37,7 @@ public class Stadistics : MonoBehaviour {
     }
     public static void Challange() {
         aim = totalImpacts / totalBullets;
-        Analytics.CustomEvent("Level 2", new Dictionary<string, object>{
+        Analytics.CustomEvent("Level2", new Dictionary<string, object>{
             { "Total Bullets", totalBullets},
             { "Total Impacts", totalImpacts},
             { "AIM", aim},

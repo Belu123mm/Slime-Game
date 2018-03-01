@@ -372,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306121290949854}
   m_LocalRotation: {x: -0, y: -0.97704214, z: -0, w: -0.21304636}
-  m_LocalPosition: {x: 166.90024, y: -11.848423, z: -12.692545}
+  m_LocalPosition: {x: 54.46558, y: -1.3318357, z: -50.483383}
   m_LocalScale: {x: 61.822704, y: 61.822582, z: 61.822636}
   m_Children:
   - {fileID: 4754712900852608}
@@ -521,7 +521,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65025383173083756
 BoxCollider:
@@ -581,7 +581,7 @@ MonoBehaviour:
   slimeHero: {fileID: 0}
   coin: {fileID: 1962402235409564, guid: 8c6f1c370a9fc2a4b92e55d802dfd704, type: 2}
   probabilty: 0
-  pw: {fileID: 1587633324463718, guid: 893263d9d11387d4286f5eb0e5212002, type: 2}
+  pw: {fileID: 1039602272412896, guid: 828deca720b870d459552b1278416f0b, type: 2}
   bulletPf: {fileID: 1862374018746014, guid: ca1556008acff074aa9b3b81f8e44019, type: 2}
   sBullet: {fileID: 0}
   bulletSound: {fileID: 0}

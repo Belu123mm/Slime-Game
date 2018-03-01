@@ -31,7 +31,7 @@ public class SpineTraps : MonoBehaviour
 
          if (timeToDown > 2)
             {
-                transform.position = new Vector3(this.transform.position.x, -.8f, this.transform.position.z);
+                transform.position = new Vector3(this.transform.position.x, -1, this.transform.position.z);
                 timeToDown = 0;
                 timeToUp = 0;
                 isUp = false;

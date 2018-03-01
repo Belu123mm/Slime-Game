@@ -137,4 +137,4 @@ MonoBehaviour:
   slimeHero: {fileID: 0}
   timePw: 10
   selectPowerUp: 4
-  powerUpValue: 10
+  powerUpValue: 5

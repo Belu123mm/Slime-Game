@@ -53,10 +53,10 @@ public class slimeScript : Mob
     //Pw 
     public bool pwActive;
     public float timerPw;
-    public GameObject bombPF;
     public bool bomb;
     public int cant = 3;
     public float timerBomb;
+    public GameObject bombPF;
 
     void Awake()
     {
@@ -96,7 +96,6 @@ public class slimeScript : Mob
 
         if (hp <= 0)
         {
-            print("Che moriste");
             Stadistics.result = "Game Over";
             if (sceneName == "1rstLevel")//Analytics
                 Stadistics.Level1();
@@ -109,8 +108,8 @@ public class slimeScript : Mob
         //Camara en distintas escenas
         if (sceneName == "1rstLevel" || sceneName == "Lvl2")
             Camera.main.transform.position = this.transform.position + new Vector3(0, 25, 0);
-        else if (sceneName == "Challange")
-            Camera.main.transform.position = new Vector3(this.transform.position.x, 100, -77.25f);
+        else if (sceneName == "Final")
+            Camera.main.transform.position = new Vector3(this.transform.position.x, 36.6f, -143.5f);
 
         //Movimiento
         if (currentDirection != Vector3.zero)
@@ -194,7 +193,7 @@ public class slimeScript : Mob
                 }
             }
             if ( c.gameObject.layer == LayerMask.NameToLayer("Ghost") ) {
-                    Ghost temp = c.gameObject.GetComponent<Ghost>();
+                    Ghost2 temp = c.gameObject.GetComponent<Ghost2>();
                     MeleeDamage(temp, this);
                 }
             }
@@ -223,12 +222,11 @@ public class slimeScript : Mob
         if ( c.gameObject.tag == "Lvl2" && cat) {
             string sceneName = currentScene.name;
             if ( sceneName == "Level1") {
-                print("Change scene");
                 Stadistics.result = "Continue";
                 Stadistics.Level1();
                 SceneManager.LoadScene("Level2");
             }
-            if ( sceneName == "Lvl2" ) {
+            if ( sceneName == "Level2" ) {
                 Stadistics.result = "Continue";
                 Stadistics.Level1();
                 SceneManager.LoadScene("Final");

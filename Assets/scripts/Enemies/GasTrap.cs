@@ -9,24 +9,23 @@ public class GasTrap : MonoBehaviour
     public bool enable;
     public ParticleSystem ps;
     public GameObject cube;
-    public GameObject go;
-    void Start ()
+    public bool challenge;
+    void Start()
     {
         ps = GetComponent<ParticleSystem>();
         ps.Stop();
-	}
-		void Update ()
+
+    }
+    void Update()
     {
         timeToEnable += 1 * Time.deltaTime;
 
         if (timeToEnable >= 5 && !enable)
         {
-            ps.Play();            
+            ps.Play();
             timeToEnable = 0;
             enable = true;
-            go = Instantiate(cube);       
-            go.transform.position = new Vector3(ps.transform.position.x, ps.transform.position.y, ps.transform.position.z + 5);
-                      
+            cube.SetActive(true);
         }
         if (enable)
         {
@@ -38,7 +37,7 @@ public class GasTrap : MonoBehaviour
                 timeToDesable = 0;
                 timeToEnable = 0;
                 enable = false;
-                Destroy(go.gameObject);
+                cube.SetActive(false);
             }
         }
     }

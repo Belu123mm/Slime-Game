@@ -24,6 +24,7 @@ TagManager:
   - Yay
   - Spine
   - Bomb
+  - Lvl3
   layers:
   - Default
   - TransparentFX

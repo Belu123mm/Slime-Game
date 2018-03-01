@@ -7,11 +7,9 @@ public class Bomb : MonoBehaviour {
     public float radius;
     public float upForce;
     public float timer;
-    public Rigidbody r;
 
 	// Use this for initialization
 	void Start () {
-        r = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +24,7 @@ public class Bomb : MonoBehaviour {
         Vector3 explosion = transform.position;
         Collider[] c = Physics.OverlapSphere(explosion, radius);
         foreach (var hit in c) {
-         //   hit.tag = "Bomb"; aca es el problema 
+         //   hit.tag = "Bomb";// aca es el problema 
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if(rb != null)
                 rb.AddExplosionForce(power, explosion, radius, upForce, ForceMode.Impulse);

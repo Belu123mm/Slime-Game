@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb7f3e8c199400428195710678e6452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickSound: {fileID: 0}
+  pickSound: {fileID: 8300000, guid: ce022889d650d0648a749f503d37b417, type: 3}
   slimeHero: {fileID: 0}
   timePw: 0
   selectPowerUp: 3

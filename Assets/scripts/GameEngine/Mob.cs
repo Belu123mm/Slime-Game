@@ -14,8 +14,8 @@ public class Mob : MonoBehaviour {
                speed;
     public int timeToHurt;
     public float timer;
-    public AudioClip hurtSound,
-                     idleSound;
+    public AudioClip hurtSound;
+                        
     Mob mInstance;
     Bullets bInstance;
 
@@ -33,12 +33,13 @@ public class Mob : MonoBehaviour {
             if (this.gameObject.layer != LayerMask.NameToLayer("SlimeHero"))
             {
                 hp -= 15;
-                print("aaa");
+                AudioMananger.instance.PlayHurt(hurtSound);
             }
         }
     }
     public virtual void OnTriggerEnter( Collider c ) {
         if ( c.gameObject.layer == LayerMask.NameToLayer("Bullets") ) {
+            AudioMananger.instance.PlayHurt(hurtSound);
             if ( this.gameObject.layer != LayerMask.NameToLayer("SlimeEvil") ) {
                 bInstance = c.gameObject.GetComponent<Bullets>();
                 RangeDamage(bInstance, this);
@@ -53,11 +54,13 @@ public class Mob : MonoBehaviour {
     {
         int newDmg = atac.dmg;
         ResetTime();
+        AudioMananger.instance.PlayHurt(hurtSound);
     }
     public virtual void RangeDamage(Bullets atac, Mob vict)
     {
         int newDmg = atac.dmg;
         vict.hp -= newDmg;
+        AudioMananger.instance.PlayHurt(hurtSound);
     }
     public void ResetTime()
     {

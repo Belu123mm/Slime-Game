@@ -179,6 +179,7 @@ public class slimeScript : Mob
         if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
         if (c.gameObject.tag == "Spine") {
+            AudioMananger.instance.PlayHurt(hurtSound);
             hp -= 10;
             RefreshHpBar();
         }
@@ -195,19 +196,18 @@ public class slimeScript : Mob
             if ( c.gameObject.layer == LayerMask.NameToLayer("Ghost") ) {
                     Ghost2 temp = c.gameObject.GetComponent<Ghost2>();
                     MeleeDamage(temp, this);
-                }
             }
+        }
             if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") ) {
                 {
                     Slime temp = c.gameObject.GetComponent<Slime>();
                     MeleeDamage(temp, this);
-                }
             }
+        }
             if ( c.gameObject.layer == LayerMask.NameToLayer("Rabbit") ) {
                 {
                     Rabbit temp = c.gameObject.GetComponent<Rabbit>();
-                    MeleeDamage(temp, this);
-                }
+                    MeleeDamage(temp, this);            }
         }
         
         if ( c.gameObject.layer == LayerMask.NameToLayer("Winning") ) {
@@ -251,6 +251,7 @@ public class slimeScript : Mob
         }
         if( c.gameObject.tag == "GasTrap") {
             hp -= 10;
+            AudioMananger.instance.PlayHurt(hurtSound);
             RefreshHpBar();
         }
 

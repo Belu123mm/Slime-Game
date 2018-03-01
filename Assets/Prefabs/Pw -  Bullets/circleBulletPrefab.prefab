@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 54771842105526144}
   - component: {fileID: 114811579873674068}
   - component: {fileID: 82535353536783424}
-  - component: {fileID: 114522395216744098}
   m_Layer: 10
   m_Name: circleBulletPrefab
   m_TagString: BulletCircular
@@ -68,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955884592358768}
   m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 45.33059, y: 1.5477823, z: -8.723369}
+  m_LocalPosition: {x: -3.7, y: 1.5602094, z: 3.4}
   m_LocalScale: {x: 0.017397631, y: 0.01739763, z: 0.01739763}
   m_Children:
   - {fileID: 4171758235876676}
@@ -208,7 +207,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114522395216744098
+--- !u!114 &114811579873674068
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -219,33 +218,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cd08fa435d2704ca7ba150f1583a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 10
   dmg: 0
   delay: 1
-  distance: 0
-  discharger: {fileID: 1009786383357550, guid: 28baa6c0f86352542b35a2fba9545b3e, type: 2}
-  direction: {x: 0, y: 0, z: 0}
-  degrees: 0
-  bulletsCount: 0
---- !u!114 &114811579873674068
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955884592358768}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cd08fa435d2704ca7ba150f1583a90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  dmg: 0
-  delay: 0
   distance: 0
   discharger: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   degrees: 2
-  bulletsCount: 3
+  bulletsCount: 5
 --- !u!136 &136377966285623324
 CapsuleCollider:
   m_ObjectHideFlags: 1

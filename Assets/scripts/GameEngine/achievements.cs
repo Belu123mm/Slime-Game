@@ -5,48 +5,33 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class achievements : MonoBehaviour
-{
-    public bool enemiesKilled;
-    public bool balas;
-    public bool panelActive;
-    public GameObject currentAchievementPanel;
+{   //Agregar paneles y bools aqui
     public GameObject bulletsPanel;
+    public bool balas;
     public GameObject enemiesPanel;
-    public float timer;
+    public bool enemiesKilled;
+
+    public static achievements instance;
     
+    public void Awake() {
+        if ( !instance ) {
+            instance = this;
+        } else {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Update()
     {
         if (Stadistics.totalBullets >= 3 && !balas)
-        {            
-            currentAchievementPanel = bulletsPanel;
-            timer += Time.deltaTime;
-            EnablePanel();
-            if (timer >= 3)
-            {
-                balas = true;
-                DisablePanel();
-            }
-        }
-        if (Stadistics.enemiesKilled >= 1 && !enemiesKilled && !panelActive)
         {
-            timer += Time.deltaTime;
-            currentAchievementPanel = enemiesPanel;
-            EnablePanel();
-            if (timer >= 3)
-            {
-                enemiesKilled = true;
-                DisablePanel();
-            }
+            bulletsPanel.SetActive(true);
+        }
+        if (Stadistics.enemiesKilled >= 1 && !enemiesKilled )
+        {
+            enemiesPanel.SetActive(true);
         }
     }
 
-    void EnablePanel()
-    {
-        currentAchievementPanel.SetActive(true);
-    } 
-     void DisablePanel()
-    {        
-        currentAchievementPanel.SetActive(false);
-        timer = 0;
-    }    
 }

@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955884592358768}
   m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.7, y: 1.5602094, z: 3.4}
+  m_LocalPosition: {x: 30.96069, y: 1.5602093, z: -18.180285}
   m_LocalScale: {x: 0.017397631, y: 0.01739763, z: 0.01739763}
   m_Children:
   - {fileID: 4171758235876676}
@@ -219,13 +219,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  dmg: 0
+  dmg: 10
   delay: 1
   distance: 0
   discharger: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   degrees: 2
-  bulletsCount: 5
+  bulletsCount: 10
 --- !u!136 &136377966285623324
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -233,7 +233,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955884592358768}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 3.84
   m_Height: 30.17

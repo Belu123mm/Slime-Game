@@ -9,7 +9,6 @@ public class Ghost2 : Enemy {
     public List<Transform> point;
     NavMeshAgent navEnemy;
     int pointI;
-    public static bool cMurio;
     public float attack;
     public float distance;
 
@@ -33,7 +32,7 @@ public class Ghost2 : Enemy {
     public override void Update()
     {
         base.Update();
-        if (this.gameObject != null && !cMurio)
+        if (this.gameObject != null && !dead)
         {
             if (Vision() < visionRange)
             {

@@ -35,6 +35,7 @@ public class Bullets : MonoBehaviour {
         if (c.gameObject.layer == LayerMask.NameToLayer("Bat") || c.gameObject.layer == LayerMask.NameToLayer("Ghost") ||
              c.gameObject.layer == LayerMask.NameToLayer("Rabbit"))
         {
+            print("impakted");
             Impact();
         }
         if(c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") && discharger.layer != LayerMask.NameToLayer("SlimeEvil") ) {

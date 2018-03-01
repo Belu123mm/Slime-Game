@@ -14,7 +14,6 @@ public class Bat : Enemy
     public List<Transform> point;
     NavMeshAgent navEnemy;
     int poitI;
-    public static bool cMurio;
 
     public override void Awake()
     {
@@ -37,7 +36,7 @@ public class Bat : Enemy
     public override void Update()
     {
         base.Update();
-        if ( this.gameObject != null && !cMurio) {
+        if ( this.gameObject != null && !dead) {
             if ( Vision() < visionRange ) {
                 if ( point != null && point.Count > 1 ) {         //Chequeo de puntos
                     if ( navEnemy.remainingDistance < .5f ) {

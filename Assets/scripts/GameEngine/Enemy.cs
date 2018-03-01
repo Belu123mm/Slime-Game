@@ -21,6 +21,7 @@ public class Enemy : Mob {
     public float probabilty;
     //Pw
     public GameObject pw;
+    public bool dead;
 
     public delegate void Dificulty();
     public Dictionary<ENEMYTYPE, Dificulty> SetDificulty = new Dictionary<ENEMYTYPE, Dificulty>();
@@ -63,9 +64,7 @@ public class Enemy : Mob {
         }
         Destroy(gameObject);
         Stadistics.enemiesKilled++;
-        Bat.cMurio = true;
-        Ghost2.cMurio = true;
-
+        dead = true;
     }
     //Velocidad, puntos, vida
     public virtual void SetEasy() {

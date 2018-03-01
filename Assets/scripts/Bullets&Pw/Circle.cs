@@ -11,17 +11,15 @@ public class Circle : Bullets {
     public int bulletsCount;
 
     void Update() {
-        print(speed);
+
         transform.position += transform.forward * Time.deltaTime * speed;
         if ( discharger ) {
         distance = Vector3.Distance(discharger.transform.position, this.transform.position);
         }else {
-            print("destroyed");
             Destroy(this.gameObject);
         }
     }
     public override void DispenseBullets() {
-        print("yaz");
         for ( int i = 0; i < 360; i += 360 / bulletsCount ) {
             Vector3 direction;
             direction.x = Mathf.Cos((i + degrees) * Mathf.Deg2Rad);

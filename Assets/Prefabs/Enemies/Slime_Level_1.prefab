@@ -533,7 +533,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.0159551, z: 0.02}
+  m_Size: {x: 0.02, y: 0.2, z: 0.02}
   m_Center: {x: 0.00000013117425, y: 0.007022432, z: 0.00000028648498}
 --- !u!95 &95426932274370348
 Animator:
@@ -569,7 +569,6 @@ MonoBehaviour:
   timeToHurt: 0
   timer: 0
   hurtSound: {fileID: 8300000, guid: fb390ab81f50adb40a55d95b72153a0b, type: 3}
-  idleSound: {fileID: 8300000, guid: 851e19b6f12a351468ff4babdb0db37f, type: 3}
   model: {fileID: 1368925814031696}
   eType: 2
   enemyMaterial:
@@ -582,6 +581,7 @@ MonoBehaviour:
   coin: {fileID: 1962402235409564, guid: 8c6f1c370a9fc2a4b92e55d802dfd704, type: 2}
   probabilty: 0
   pw: {fileID: 1039602272412896, guid: 828deca720b870d459552b1278416f0b, type: 2}
+  dead: 0
   bulletPf: {fileID: 1862374018746014, guid: ca1556008acff074aa9b3b81f8e44019, type: 2}
   sBullet: {fileID: 0}
   bulletSound: {fileID: 0}

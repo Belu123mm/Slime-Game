@@ -24,9 +24,7 @@ public class Console : MonoBehaviour
     public KeyCode keyForOpenCloseConsole;
 
     public GameObject consoleContent;
-    void Start()
-    {
-
+    void Start() {
         functionPrototype = Start;
         consoleContent = this.transform.FindChild("Panel").gameObject;
 

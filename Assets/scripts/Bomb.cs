@@ -18,9 +18,7 @@ public class Bomb : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
         if (timer > 3)
-        {
             detonate();
-        }
     }
 
    public void detonate()
@@ -28,10 +26,10 @@ public class Bomb : MonoBehaviour {
         Vector3 explosion = transform.position;
         Collider[] c = Physics.OverlapSphere(explosion, radius);
         foreach (var hit in c) {
+         //   hit.tag = "Bomb"; aca es el problema 
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if(rb != null)
-            rb.AddExplosionForce(power, explosion, radius, upForce, ForceMode.Impulse);
-
+                rb.AddExplosionForce(power, explosion, radius, upForce, ForceMode.Impulse);
             Destroy(gameObject);
         }
     }

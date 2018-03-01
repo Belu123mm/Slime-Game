@@ -10,7 +10,6 @@ public class Enemy : Mob {
     // Awake --------> Carga de datos
     // SetDificulty -> Carga los datos de dificultad
     // Start --------> Inicia los enemigos con la dificultad cargada
-
     public GameObject model;
     public ENEMYTYPE eType;
     public Material [] enemyMaterial;
@@ -71,17 +70,17 @@ public class Enemy : Mob {
     //Velocidad, puntos, vida
     public virtual void SetEasy() {
         currMaterial = enemyMaterial [ 0 ];
-        visionRange = 7;
+        visionRange = 12;
         probabilty = Random.Range(0, 100);
     }
     public virtual void SetMedium() {
         currMaterial = enemyMaterial [ 1 ];
-        visionRange = 10;
+        visionRange = 14;
         probabilty = Random.Range(30, 100);
     }
     public virtual void SetHard() {
         currMaterial = enemyMaterial [ 2 ];
-        visionRange = 15;
+        visionRange = 16;
         probabilty = Random.Range(50, 100);
     }
 }

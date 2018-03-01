@@ -2,52 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointScript : MonoBehaviour
-{
+public class CheckpointScript : MonoBehaviour {
+
     public enum state {Inactive, Active, Used};
 
     public state status;
 
     public CheckPointMananger cp;
-    public static bool check;
-    public bool aa;
     public AudioClip cpSound;
-
+    public bool active;
+    public static bool check;
     public float degreesPerSecond = 15;
-    void Start ()
-    {
+    public ParticleSystem ps;
+
+    void Start () {
         check = false;
+        ps = GetComponent<ParticleSystem>();
+        ps.Stop();
     }
-    void Update ()
-    {
+    void Update () {
         transform.Rotate(new Vector3(0, Time.deltaTime * degreesPerSecond, 0), Space.World);
-        ChangeColor();
     }
 
-    public void OnTriggerEnter(Collider c)
-    {
+    public void OnTriggerEnter(Collider c) {
         if (c.gameObject.tag == "Slime")
         {
-            if(!aa)
+            if(!active)
                 AudioMananger.instance.PlayPw(cpSound);
-            aa = true;
+            active = true;
             check = true;
             cp.Check(this.gameObject);
-            ChangeColor();
+            ps.Play();
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
-    void ChangeColor()
-    {
-        /* if (status == state.Inactive)
-            gameObject.GetComponent<Renderer>().material.color = Color.white;
-        else if (status == state.Active)
-            gameObject.GetComponent<Renderer>().material.color = Color.green;
-        else if (status == state.Used)
-            gameObject.GetComponent<Renderer>().material.color = Color.grey;*/
-    }   
 }

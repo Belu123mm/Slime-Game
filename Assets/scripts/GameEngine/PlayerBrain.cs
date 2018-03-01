@@ -17,9 +17,7 @@ public class PlayerBrain : MonoBehaviour {
         else if ( Input.GetAxis("Vertical") < 0 )
             this.GetComponent<slimeScript>().Move(Vector3.back * -Input.GetAxis("Vertical"));
         else if (Input.GetKey(KeyCode.B))
-        {
             GetComponent<slimeScript>().Bomb();
-        }
 
         if ( Input.GetKey(KeyCode.Mouse0) ) {
             this.GetComponent<slimeScript>().Shoot();

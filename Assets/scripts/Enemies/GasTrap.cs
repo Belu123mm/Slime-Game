@@ -21,8 +21,7 @@ public class GasTrap : MonoBehaviour
 
         if (timeToEnable >= 5 && !enable)
         {
-            ps.Play();
-            
+            ps.Play();            
             timeToEnable = 0;
             enable = true;
             go = Instantiate(cube);       

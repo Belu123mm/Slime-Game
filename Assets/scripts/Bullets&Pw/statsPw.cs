@@ -21,7 +21,6 @@ public class statsPw : basePW {
         SetPowerUp [ PWTYPE.bulletsVelocityBuff ] = BulletsVelocityBuff;
         SetPowerUp [PWTYPE.poison] = PoisonDebuff;
         SetPowerUp[PWTYPE.bomb] = Bomb;
-
     }
     public override void PwBehaviour() {
         SetPowerUp [ selectPowerUp ].Invoke();

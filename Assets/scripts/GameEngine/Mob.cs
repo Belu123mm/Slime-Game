@@ -28,6 +28,14 @@ public class Mob : MonoBehaviour {
         }
     }
     public virtual void OnCollisionEnter( Collision c ) {
+        if (c.gameObject.tag == "Bomb")
+        {
+            if (this.gameObject.layer != LayerMask.NameToLayer("SlimeHero"))
+            {
+                hp -= 15;
+                print("aaa");
+            }
+        }
     }
     public virtual void OnTriggerEnter( Collider c ) {
         if ( c.gameObject.layer == LayerMask.NameToLayer("Bullets") ) {
@@ -44,8 +52,6 @@ public class Mob : MonoBehaviour {
     public virtual void MeleeDamage(Mob atac, Mob vict)
     {
         int newDmg = atac.dmg;
-        print(atac.dmg);
-        vict.hp -= newDmg;
         ResetTime();
     }
     public virtual void RangeDamage(Bullets atac, Mob vict)

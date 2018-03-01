@@ -262,8 +262,8 @@ GameObject:
   - component: {fileID: 4777930908442758}
   - component: {fileID: 95758710804161068}
   - component: {fileID: 54317109570877298}
-  - component: {fileID: 64844855229831990}
   - component: {fileID: 114090512445575170}
+  - component: {fileID: 136582456023497864}
   m_Layer: 16
   m_Name: Rabbit_Level_1
   m_TagString: Untagged
@@ -606,7 +606,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592634172591268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 183.12927, y: -11.938419, z: -25.206745}
+  m_LocalPosition: {x: 7.7231426, y: -11.938419, z: 43.00882}
   m_LocalScale: {x: 85.47175, y: 85.4718, z: 85.4718}
   m_Children:
   - {fileID: 4941917339609082}
@@ -726,20 +726,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &64844855229831990
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1592634172591268}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 05b0336cad2ece64b99ce054ed619f4c, type: 3}
 --- !u!95 &95758710804161068
 Animator:
   serializedVersion: 3
@@ -776,7 +762,7 @@ MonoBehaviour:
   hurtSound: {fileID: 8300000, guid: fb390ab81f50adb40a55d95b72153a0b, type: 3}
   idleSound: {fileID: 8300000, guid: 851e19b6f12a351468ff4babdb0db37f, type: 3}
   model: {fileID: 1094565665401494}
-  eType: 2
+  eType: 1
   enemyMaterial:
   - {fileID: 2100000, guid: 4c562b8b576b2d54fb9be6dc8947ffd9, type: 2}
   - {fileID: 2100000, guid: 8dc92f90f4e35ef4b85294ca4367811f, type: 2}
@@ -789,6 +775,19 @@ MonoBehaviour:
   pw: {fileID: 1507072099482622, guid: f7e30adecfc09ca4cbe7ad6b6a1223e7, type: 2}
   timeToJump: 0
   rb: {fileID: 0}
+--- !u!136 &136582456023497864
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592634172591268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.008306894
+  m_Height: 0.00001
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.008, z: 0}
 --- !u!137 &137986878813064884
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

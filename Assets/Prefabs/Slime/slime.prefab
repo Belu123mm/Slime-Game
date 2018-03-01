@@ -211,7 +211,7 @@ MonoBehaviour:
   timer: 0
   hurtSound: {fileID: 8300000, guid: 4caaf503ded071d46be28887c066e831, type: 3}
   idleSound: {fileID: 8300000, guid: 73dcbf3b211c23b4aa2af3978e18815b, type: 3}
-  bulletName: 3
+  bulletName: 0
   currentBulletScript: {fileID: 0}
   normalPf: {fileID: 1988598041613288, guid: e06d03ce61550cb41ac7d4f7ad355879, type: 2}
   bigPf: {fileID: 1456167102217384, guid: d72ebbec94bf13a4e97ee7f21a7d92b8, type: 2}
@@ -234,7 +234,8 @@ MonoBehaviour:
   pwActive: 0
   timerPw: 0
   bomb: 0
-  bombPF: {fileID: 0}
+  bombPF: {fileID: 1336221124662334, guid: 06d2af2f7886af540a21b1ebdbd503bf, type: 2}
+  cant: 3
 --- !u!135 &135969373697332964
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -9,7 +9,6 @@ public class SpineTraps : MonoBehaviour
     public bool isUp;
     public AudioClip metalSound;
     public AudioSource metal;
-    //public audioc
     private void Start()
     {
         metal = GetComponent<AudioSource>();
@@ -22,7 +21,6 @@ public class SpineTraps : MonoBehaviour
         {
             transform.position = new Vector3(this.transform.position.x, .7f, this.transform.position.z);
             timeToUp = 0;
-          //  AudioMananger.instance.PlayEnemy(metalSound);
             metal.PlayOneShot(metalSound, 0.7f);
             isUp = true;    
         }
@@ -33,8 +31,7 @@ public class SpineTraps : MonoBehaviour
 
          if (timeToDown > 2)
             {
-                this.transform.position = new Vector3(this.transform.position.x, -.8f, this.transform.position.z);
-
+                transform.position = new Vector3(this.transform.position.x, -.8f, this.transform.position.z);
                 timeToDown = 0;
                 timeToUp = 0;
                 isUp = false;

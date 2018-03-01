@@ -20,9 +20,10 @@ TagManager:
   - Stop
   - target
   - Change
-  - a
   - Lvl2
   - Yay
+  - Spine
+  - Bomb
   layers:
   - Default
   - TransparentFX

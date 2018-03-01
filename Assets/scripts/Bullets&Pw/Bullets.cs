@@ -43,8 +43,6 @@ public class Bullets : MonoBehaviour {
         if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeHero") && discharger.layer != LayerMask.NameToLayer("SlimeHero") ) {
             Impact();
         }
-
-
     }
     public void Initialize()
     {
@@ -58,5 +56,4 @@ public class Bullets : MonoBehaviour {
         delay = baseDelay;
         dmg = baseDmg;
     }
-
 }

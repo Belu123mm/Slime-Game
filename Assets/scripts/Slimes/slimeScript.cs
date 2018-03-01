@@ -53,8 +53,10 @@ public class slimeScript : Mob
     //Pw 
     public bool pwActive;
     public float timerPw;
-    public bool bomb;
     public GameObject bombPF;
+    public bool bomb;
+    public int cant = 3;
+    public float timerBomb;
 
     void Awake()
     {
@@ -85,6 +87,7 @@ public class slimeScript : Mob
         base.Update();
         //Timer bullets
         timerBullets += Time.deltaTime;
+        timerBomb += Time.deltaTime;
 
         if (Textcoin != null)
             Textcoin.text =  coins + "";
@@ -149,10 +152,14 @@ public class slimeScript : Mob
             timerBullets = 0;
         }
     }
+
     public void Bomb()
     {
-        if (bomb) {
-            if (bulletsDelay < timerBullets) {
+        if (bomb && cant > 0) {
+            if (timerBomb >= 3)
+            {                
+                timerBomb = 0;
+                cant--;
                 GameObject go = Instantiate(bombPF);
                 go.transform.position = transform.position;
             }
@@ -172,6 +179,11 @@ public class slimeScript : Mob
         }
         if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
+        if (c.gameObject.tag == "Spine") {
+            hp -= 10;
+            RefreshHpBar();
+        }
+        
 
         //Verifiqued
         if ( timer > timeToHurt ) {
@@ -197,13 +209,14 @@ public class slimeScript : Mob
                     Rabbit temp = c.gameObject.GetComponent<Rabbit>();
                     MeleeDamage(temp, this);
                 }
-            }
+        }
         
         if ( c.gameObject.layer == LayerMask.NameToLayer("Winning") ) {
             SceneManager.LoadScene("Victory");
         }
         
     }
+
     public override void OnTriggerEnter( Collider c ) {
         base.OnTriggerEnter(c);
 
@@ -211,8 +224,8 @@ public class slimeScript : Mob
             string sceneName = currentScene.name;
             if ( sceneName == "Level1") {
                 print("Change scene");
-              //  Stadistics.result = "Continue";
-               // Stadistics.Level1();
+                Stadistics.result = "Continue";
+                Stadistics.Level1();
                 SceneManager.LoadScene("Level2");
             }
             if ( sceneName == "Lvl2" ) {
@@ -235,16 +248,18 @@ public class slimeScript : Mob
             }
         }
         if ( c.gameObject.layer == LayerMask.NameToLayer("EvilBullets") ) {
-            print("bulleted");
             var bInstance = c.gameObject.GetComponent<Bullets>();
             RangeDamage(bInstance, this);
+        }
+        if( c.gameObject.tag == "GasTrap") {
+            hp -= 10;
+            RefreshHpBar();
         }
 
     }
     public void ChangeBullet(BULLETTYPES bulletName)
     {
         tempBullet = bullets[bulletName];
-        print(tempBullet);
         switch (bulletName)
         {
             case BULLETTYPES.normal:
@@ -271,21 +286,26 @@ public class slimeScript : Mob
         currentBulletScript.speed += addedSpeed;
         bulletsDelay = currentBulletScript.delay;
     }
+
     public override void Death() {
         base.Death();
         //Cambio de escena
     }
+
     public override void MeleeDamage( Mob atac, Mob vict ) {
         base.MeleeDamage(atac, vict);
         RefreshHpBar();
     }
+
     public override void RangeDamage( Bullets atac, Mob vict ) {
         base.RangeDamage(atac, vict);
         RefreshHpBar();
     }
+
     public void RefreshHpBar() {
         hpBar.value = hp;
     }
+
     public void ReziseHpBar(int value) {
         hpBar.maxValue = value;
     }

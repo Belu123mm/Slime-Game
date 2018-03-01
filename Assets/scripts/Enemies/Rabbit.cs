@@ -7,7 +7,7 @@ public class Rabbit : Enemy {
     //Time to jump: es el tiempo que tarda el saltar
     //Speed: Es la fuerza del salto
     //Jump es la funcion que genera el salto
-    public int timeToJump;
+    public float timeToJump;
     public Rigidbody rb;
 
     public override void Awake() {
@@ -39,19 +39,19 @@ public class Rabbit : Enemy {
     public override void SetEasy() {
         base.SetEasy();
         StartLife(30);
-        timeToJump = 5;
+        timeToJump = 1.5f;
         speed = 2;
     }
     public override void SetMedium() {
         base.SetMedium();
         hp = 40;
-        timeToJump = 4;
+        timeToJump = 1.3f;
         speed = 3;
     }
     public override void SetHard() {
         base.SetHard();
         hp = 55;
-        timeToJump = 3;
+        timeToJump = 1;
         speed = 4;
     }
 

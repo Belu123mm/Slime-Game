@@ -10,7 +10,7 @@ public class Ghost2 : Enemy {
     NavMeshAgent navEnemy;
     int pointI;
     public static bool cMurio;
-
+    public float attack;
     public float distance;
 
     public override void Awake()
@@ -48,7 +48,7 @@ public class Ghost2 : Enemy {
                     navEnemy.SetDestination(point[pointI].position);
                 }
                 distance = Vector3.Distance(slimeHero.transform.position, this.transform.position);//Distancia       
-                if (distance < 5)//Check Distance
+                if (distance < attack)//Check Distance
                     navEnemy.destination = slimeHero.transform.position;
                 else
                     navEnemy.SetDestination(point[pointI].position);
@@ -60,17 +60,20 @@ public class Ghost2 : Enemy {
         base.SetEasy();
         hp = 30;
         speed = 5;
+        attack = 8;
     }
     public override void SetMedium()
     {
         base.SetMedium();
         hp = 40;
         speed = 3;
+        attack = 10;
     }
     public override void SetHard()
     {
         base.SetHard();
         hp = 55;
         speed = 4;
+        attack = 1;
     }
 }

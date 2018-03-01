@@ -193,6 +193,8 @@ MonoBehaviour:
   upForce: 0
   timer: 0
   r: {fileID: 54349007259280744}
+  radiusCollider: {fileID: 1621611548404700, guid: 922dda89028d0e4469167b175dfa3632,
+    type: 2}
 --- !u!135 &135977845798119636
 SphereCollider:
   m_ObjectHideFlags: 1

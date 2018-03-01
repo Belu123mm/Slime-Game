@@ -742,9 +742,10 @@ GameObject:
   - component: {fileID: 4023844855012724}
   - component: {fileID: 114667398610412378}
   - component: {fileID: 82633530200513180}
+  - component: {fileID: 65514370875541582}
   m_Layer: 0
   m_Name: SpineTRap
-  m_TagString: Untagged
+  m_TagString: Spine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -799,7 +800,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940032195958292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.850616, y: 0.29803813, z: 33.03216}
+  m_LocalPosition: {x: -2.19, y: 0.33803815, z: 10.412161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4398399909465340}
@@ -2295,6 +2296,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015517350773956}
   m_Mesh: {fileID: 4300000, guid: 3a94ca0f02a36b547958d320b0242bb4, type: 3}
+--- !u!65 &65514370875541582
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1940032195958292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.62888396, y: 1.3721409, z: 19.007366}
+  m_Center: {x: 0.47503042, y: -0.037623465, z: -8.313974}
 --- !u!82 &82633530200513180
 AudioSource:
   m_ObjectHideFlags: 1

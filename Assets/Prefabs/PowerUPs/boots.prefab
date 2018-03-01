@@ -136,5 +136,5 @@ MonoBehaviour:
   pickSound: {fileID: 8300000, guid: 04c09266831bab24db1e1ac37135da4a, type: 3}
   slimeHero: {fileID: 0}
   timePw: 10
-  selectPowerUp: 3
+  selectPowerUp: 4
   powerUpValue: 10

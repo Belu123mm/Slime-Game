@@ -30,7 +30,7 @@ public class achievements : MonoBehaviour
     }
     void Update()
     {
-        if (Stadistics.totalBullets >= 2  && !balas)
+        if (Stadistics.totalBullets >= 100  && !balas)
         {
             timer += Time.deltaTime;
             bulletsPanel.SetActive(true);
@@ -43,19 +43,47 @@ public class achievements : MonoBehaviour
         }
         if (Stadistics.enemiesKilled >= 50 && !enemiesKilled )
         {
+            timer += Time.deltaTime;
             enemiesPanel.SetActive(true);
+            if(timer > 2)
+            {
+                enemiesKilled = true;
+                enemiesPanel.SetActive(false);
+                timer = 0;
+            }
         }
         if (Stadistics.totalImpacts >= 70 && !totalImpacts)
         {
+            timer += Time.deltaTime;
             totalImpactsPanel.SetActive(true);
+            if(timer > 2)
+            {
+                totalImpacts = true;
+                totalImpactsPanel.SetActive(false);
+                timer = 0;
+            }
         }
         if (Stadistics.totalDeath >= 15 && !totalDeath)
         {
+            timer += Time.deltaTime;
             coinsPanel.SetActive(true);
+            if(timer > 2)
+            {
+                totalDeath = true;
+                totalDeathPanel.SetActive(false);
+                timer = 0;
+            }
         }
         if (Stadistics.level1Timer >= 200 && !coins)
         {
-            totalDeathPanel.SetActive(true);
+            timer += Time.deltaTime;
+            coinsPanel.SetActive(true);
+            if(timer > 2)
+            {
+                coins = true;
+                coinsPanel.SetActive(false);
+                timer = 0;
+            }
         }
     }
 

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerBrain : MonoBehaviour {
     //Esta es una clase con la que se maneja el slimeHero
     //Usando las entradas de unity
+
     void Update() {
 
         if ( Input.GetAxis("Horizontal") > 0 )
@@ -21,6 +23,8 @@ public class PlayerBrain : MonoBehaviour {
 
         if ( Input.GetKey(KeyCode.Mouse0) ) {
             this.GetComponent<slimeScript>().Shoot();
+
+        
         }
     }
 }

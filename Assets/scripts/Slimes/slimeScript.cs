@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
 using TMPro;
+using UnityStandardAssets.CrossPlatformInput;
 public class slimeScript : Mob
 {
     //BALAS 

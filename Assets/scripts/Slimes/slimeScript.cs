@@ -189,12 +189,12 @@ public class slimeScript : Mob
         }
         if ( c.gameObject.tag == "Finish" )
             SceneManager.LoadScene("GameOver");
-        if (c.gameObject.tag == "Spine") {
+        if ( c.gameObject.tag == "Spine" ) {
             AudioMananger.instance.PlayHurt(hurtSound);
             hp -= 10;
             RefreshHpBar();
         }
-        
+
 
         //Verifiqued
         if ( timer > timeToHurt ) {
@@ -206,26 +206,26 @@ public class slimeScript : Mob
             }
             if ( c.gameObject.layer == LayerMask.NameToLayer("Ghost") ) {
                 Ghost2 temp = c.gameObject.GetComponent<Ghost2>();
-                MeleeDamage(temp, this);            }
+                MeleeDamage(temp, this);
+            }
         }
-            if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") ) {
-                {
+        if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") ) {
+            {
                 Slime temp = c.gameObject.GetComponent<Slime>();
                 MeleeDamage(temp, this);
             }
         }
-            if ( c.gameObject.layer == LayerMask.NameToLayer("Rabbit") ) {
-                {
+        if ( c.gameObject.layer == LayerMask.NameToLayer("Rabbit") ) {
+            {
                 Rabbit temp = c.gameObject.GetComponent<Rabbit>();
                 MeleeDamage(temp, this);
             }
         }
-        
+
         if ( c.gameObject.layer == LayerMask.NameToLayer("Winning") ) {
             SceneManager.LoadScene("Victory");
-        }        
+        }
     }
-
     public override void OnTriggerEnter( Collider c ) {
         base.OnTriggerEnter(c);
 

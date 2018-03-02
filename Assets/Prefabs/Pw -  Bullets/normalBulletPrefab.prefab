@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  dmg: 130
+  dmg: 10
   delay: 0.3
   distance: 0
   discharger: {fileID: 0}

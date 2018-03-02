@@ -32,7 +32,7 @@ public class Mob : MonoBehaviour {
         {
             if (this.gameObject.layer != LayerMask.NameToLayer("SlimeHero"))
             {
-                hp -= 15;
+                hp -= 15;                              
                 AudioMananger.instance.PlayHurt(hurtSound);
             }
         }
@@ -54,6 +54,7 @@ public class Mob : MonoBehaviour {
     {
         int newDmg = atac.dmg;
         ResetTime();
+        vict.hp -= newDmg;
         AudioMananger.instance.PlayHurt(hurtSound);
     }
     public virtual void RangeDamage(Bullets atac, Mob vict)

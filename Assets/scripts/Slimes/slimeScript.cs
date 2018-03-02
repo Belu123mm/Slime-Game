@@ -36,7 +36,7 @@ public class slimeScript : Mob
     public float bulletsDelay;
     public Slider hpBar;
     //Vectores
-    public int coins;
+    public static int coins;
     public Vector3 currentDirection;
     public Vector3 forward;
     //Scripts
@@ -51,7 +51,8 @@ public class slimeScript : Mob
     public GameObject door;
 
     //Pw 
-    public bool pwActive;
+    public bool dmgActive;
+    public bool velActive;
     public float timerPw;
     public bool bomb;
     public int cant = 3;
@@ -88,6 +89,8 @@ public class slimeScript : Mob
         //Timer bullets
         timerBullets += Time.deltaTime;
         timerBomb += Time.deltaTime;
+        RefreshHpBar();
+
 
         if (Textcoin != null)
             Textcoin.text =  coins + "";
@@ -119,15 +122,24 @@ public class slimeScript : Mob
         //  Stadistics.lastPw = currentBulletName;
         Stadistics.finalLife = hp;
 
-        if (pwActive)
+        if (velActive)
         {
             timerPw += Time.deltaTime;
-            if (timerPw >5)
+            if (timerPw > 5)
             {
-                pwActive = false;
+                velActive = false;
                 timerPw = 0;
-                speed -= addedSpeed;
-                dmg -= addedDmg;
+                speed = 10;
+            }
+        }
+        if (dmgActive)
+        {
+            timerPw += Time.deltaTime;
+            if (timerPw > 5)
+            {
+                dmgActive = false;
+                timerPw = 0;
+                dmg = 5;
             }
         }
     }
@@ -142,7 +154,6 @@ public class slimeScript : Mob
         currentDirection += direction;
         this.GetComponent<Rigidbody>().velocity = currentDirection * speed;
     }
-
     public void Shoot()
     {
         if (bulletsDelay < timerBullets)
@@ -151,7 +162,6 @@ public class slimeScript : Mob
             timerBullets = 0;
         }
     }
-
     public void Bomb()
     {
         if (bomb && cant > 0) {
@@ -194,26 +204,25 @@ public class slimeScript : Mob
                 }
             }
             if ( c.gameObject.layer == LayerMask.NameToLayer("Ghost") ) {
-                    Ghost2 temp = c.gameObject.GetComponent<Ghost2>();
-                    MeleeDamage(temp, this);
-            }
+                Ghost2 temp = c.gameObject.GetComponent<Ghost2>();
+                MeleeDamage(temp, this);            }
         }
             if ( c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") ) {
                 {
-                    Slime temp = c.gameObject.GetComponent<Slime>();
-                    MeleeDamage(temp, this);
+                Slime temp = c.gameObject.GetComponent<Slime>();
+                MeleeDamage(temp, this);
             }
         }
             if ( c.gameObject.layer == LayerMask.NameToLayer("Rabbit") ) {
                 {
-                    Rabbit temp = c.gameObject.GetComponent<Rabbit>();
-                    MeleeDamage(temp, this);            }
+                Rabbit temp = c.gameObject.GetComponent<Rabbit>();
+                MeleeDamage(temp, this);
+            }
         }
         
         if ( c.gameObject.layer == LayerMask.NameToLayer("Winning") ) {
             SceneManager.LoadScene("Victory");
-        }
-        
+        }        
     }
 
     public override void OnTriggerEnter( Collider c ) {
@@ -232,24 +241,22 @@ public class slimeScript : Mob
                 SceneManager.LoadScene("Final");
             }
         }
-
         //Verifiqued
         if ( c.gameObject.tag == "Coin" ) {
             coins++;
             Textcoin.text = "Coins: " + coins;
+            Stadistics.totalCoins++;
         }
         if (c.gameObject.layer == LayerMask.NameToLayer("SlimeEvil"))
-        {
-            {
+        {          
                 Slime temp = c.gameObject.GetComponent<Slime>();
-                MeleeDamage(temp, this);
-            }
+                MeleeDamage(temp, this);            
         }
         if ( c.gameObject.layer == LayerMask.NameToLayer("EvilBullets") ) {
             var bInstance = c.gameObject.GetComponent<Bullets>();
             RangeDamage(bInstance, this);
         }
-        if( c.gameObject.tag == "GasTrap") {
+        if ( c.gameObject.tag == "GasTrap") {
             hp -= 10;
             AudioMananger.instance.PlayHurt(hurtSound);
             RefreshHpBar();
@@ -288,7 +295,6 @@ public class slimeScript : Mob
 
     public override void Death() {
         base.Death();
-        //Cambio de escena
     }
 
     public override void MeleeDamage( Mob atac, Mob vict ) {

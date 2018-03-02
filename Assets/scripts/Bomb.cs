@@ -8,15 +8,13 @@ public class Bomb : Bullets {
     public float upForce;
     public float timer;
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Update () {
         timer += Time.deltaTime;
         if (timer > 3)
+        {
+            timer = 0;
             detonate();
+        }        
     }
 
    public void detonate()
@@ -27,20 +25,24 @@ public class Bomb : Bullets {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if(rb != null)
                 rb.AddExplosionForce(power, explosion, radius, upForce, ForceMode.Impulse);
-            if ( hit.gameObject.layer == LayerMask.NameToLayer("SlimeEvil") ) {
-                Slime obj = hit.GetComponent<Slime>();
-                obj.RangeDamage(this, obj);
-            } else if ( hit.gameObject.layer == LayerMask.NameToLayer("Ghost") ) {
-                Ghost2 obj = hit.GetComponent<Ghost2>();
-                obj.RangeDamage(this, obj);
-            } else if ( hit.gameObject.layer == LayerMask.NameToLayer("Rabbit") ) {
-                Rabbit obj = hit.GetComponent<Rabbit>();
-                obj.RangeDamage(this, obj);
-            } else if ( hit.gameObject.layer == LayerMask.NameToLayer("Bat") ) {
-                Bat obj = hit.GetComponent<Bat>();
-                obj.RangeDamage(this, obj);
-            }
-            Destroy(gameObject);
+
+                if (hit.gameObject.layer == LayerMask.NameToLayer("SlimeEvil")) {
+                    Slime obj = hit.GetComponent<Slime>();
+                    obj.RangeDamage(this, obj);
+                }
+                else if (hit.gameObject.layer == LayerMask.NameToLayer("Ghost")) {
+                    Ghost2 obj = hit.GetComponent<Ghost2>();
+                    obj.RangeDamage(this, obj);
+                }
+                else if (hit.gameObject.layer == LayerMask.NameToLayer("Rabbit")) {
+                    Rabbit obj = hit.GetComponent<Rabbit>();
+                    obj.RangeDamage(this, obj);
+                }
+                else if (hit.gameObject.layer == LayerMask.NameToLayer("Bat")) {
+                    Bat obj = hit.GetComponent<Bat>();
+                    obj.RangeDamage(this, obj);
+                }
+                Destroy(gameObject);
         }
     }
 }

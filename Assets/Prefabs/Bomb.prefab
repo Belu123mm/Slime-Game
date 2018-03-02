@@ -188,13 +188,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b090aa3421c951840836814a66e0b3a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  dmg: 0
+  delay: 0
+  distance: 0
+  discharger: {fileID: 1009786383357550, guid: 28baa6c0f86352542b35a2fba9545b3e, type: 2}
+  direction: {x: 0, y: 0, z: 0}
   power: 10
   radius: 5
   upForce: 0
   timer: 0
-  r: {fileID: 54349007259280744}
-  radiusCollider: {fileID: 1621611548404700, guid: 922dda89028d0e4469167b175dfa3632,
-    type: 2}
+  exploto: 0
+  slimeHero: {fileID: 0}
 --- !u!135 &135977845798119636
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -203,7 +208,7 @@ SphereCollider:
   m_GameObject: {fileID: 1336221124662334}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

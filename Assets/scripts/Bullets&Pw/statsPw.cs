@@ -32,18 +32,18 @@ public class statsPw : basePW {
         slimeHero.RefreshHpBar();
     }
     public void Coins() {
-        slimeHero.coins += powerUpValue;
+        slimeScript.coins += powerUpValue;
     }
     public void Velocity() {
         slimeHero.speed += powerUpValue;
         slimeHero.addedSpeed += powerUpValue;
-        slimeHero.pwActive = true;
+        slimeHero.velActive = true;
     }
     public void DmgBuff() {
         slimeHero.dmg += powerUpValue;
         slimeHero.RefreshBullet();
         slimeHero.addedDmg += powerUpValue;
-        slimeHero.pwActive = true;
+        slimeHero.dmgActive = true;
     }
     public void DelayBuff() {
         slimeHero.restDelay += (powerUpValue / 10);

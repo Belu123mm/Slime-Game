@@ -24,9 +24,13 @@ public class Console : MonoBehaviour
     public KeyCode keyForOpenCloseConsole;
 
     public GameObject consoleContent;
-    void Start() {
+
+    public slimeScript slimeHero;
+    void Start()
+    {
         functionPrototype = Start;
         consoleContent = this.transform.FindChild("Panel").gameObject;
+        slimeHero = FindObjectOfType<slimeScript>();
 
         //Registro de comandos
         RegisterCommand("test with return", testConsoleWithReturn);
@@ -34,7 +38,6 @@ public class Console : MonoBehaviour
         RegisterCommand("normal bullet", normalShoot);
         RegisterCommand("big bullet", bigShoot);
         RegisterCommand("quick bullet", quickShoot);
-        RegisterCommand("triple bullet", tripleShoot);
         RegisterCommand("Ultra life", ultraLife);
         RegisterCommand("circle bullet", circleShoot);
     }
@@ -44,7 +47,10 @@ public class Console : MonoBehaviour
         scrollball.value = 0;
 
         if (Input.GetKeyDown(keyForOpenCloseConsole))
+        {
             consoleContent.SetActive(!consoleContent.activeSelf);
+            Time.timeScale = 0;
+        }
         if (consoleContent.activeSelf && Input.GetKeyDown(KeyCode.Return))
         {
             string commandName = inputText.text;
@@ -55,6 +61,8 @@ public class Console : MonoBehaviour
                 WriteInConsole("This command doesn't exist");
             ClearInputField();
         }
+        if (!consoleContent.activeSelf)
+            Time.timeScale = 1;
     }
 
     //Registro
@@ -63,13 +71,14 @@ public class Console : MonoBehaviour
         allCommands[name] = command;
     }
     //Clear console
-    public void ClearInputField() {
+    public void ClearInputField()
+    {
         inputText.text = "";
     }
     //Devolucion
     public void WriteInConsole(string txt)
     {
-         backgroundText.text += txt + "\n";
+        backgroundText.text += txt + "\n";
     }
 
     //Funciones 
@@ -85,35 +94,37 @@ public class Console : MonoBehaviour
 
     public void ultraLife()
     {
-        //slimeScript.vida = 10000000000000000;
+        slimeHero.hp = 9000;
         WriteInConsole("Life set to over 9000");
     }
     public void normalShoot()
     {
-        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.normal;
+        slimeHero.bulletName = BULLETTYPES.normal;
+        slimeHero.currentBulletScript.ResetBulets();
+        slimeHero.ChangeBullet(slimeHero.bulletName = BULLETTYPES.normal);
         WriteInConsole("bullet set to normal");
     }
     public void bigShoot()
     {
-        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.big;
+        slimeHero.bulletName = BULLETTYPES.big;
+        slimeHero.currentBulletScript.ResetBulets();
+        slimeHero.ChangeBullet(slimeHero.bulletName = BULLETTYPES.big);
         WriteInConsole("bullet set to big");
 
     }
     public void quickShoot()
     {
-        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.quick;
+        slimeHero.bulletName = BULLETTYPES.quick;
+        slimeHero.currentBulletScript.ResetBulets();
+        slimeHero.ChangeBullet(slimeHero.bulletName = BULLETTYPES.quick);
         WriteInConsole("bullet set to quick");
-
-    }
-    public void tripleShoot()
-    {
-        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.normal;
-        WriteInConsole("bullet set to triple");
 
     }
     public void circleShoot()
     {
-        FindObjectOfType<slimeScript>().bulletName = BULLETTYPES.spine;
+        slimeHero.bulletName = BULLETTYPES.spine;
+        slimeHero.currentBulletScript.ResetBulets();
+        slimeHero.ChangeBullet(slimeHero.bulletName = BULLETTYPES.spine);
         WriteInConsole("bullet set to circle");
     }
 

@@ -27,16 +27,20 @@ public class CheckPointMananger : MonoBehaviour
         else if (slimeHero.hp <= 0 && count < 3 && CheckpointScript.check)
         {
             count++;
-            slimeHero.hp = 1;
+            Stadistics.totalDeath++;
+            slimeHero.hp = 100;
+            slimeHero.RefreshHpBar();
             foreach (GameObject cp in checkPoints)
             {
                 if (cp.GetComponent<CheckpointScript>().status == CheckpointScript.state.Active)
                     slimeHero.transform.position = cp.transform.position;                    
             }
         }
-
-        if (slimeHero.hp <= 0 && count > 3)
+        if (slimeHero.hp <= 0 && count >= 3)
+        {
+            Stadistics.totalDeath++;
             SceneManager.LoadScene("GameOver");
+        }
 	}
     
     public void Check(GameObject currentCp)
